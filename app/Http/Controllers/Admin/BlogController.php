@@ -38,7 +38,6 @@ class BlogController extends Controller
     public function create(Request $request)
     {
         $this->crud->create('App\Models\Blog',$request);
-
         return redirect()->route('admin.blog')->with('message','Blog has been created successfully.');
     }
 

@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Helpers\Crud;
 
 class AuthController extends Controller
 {
+    protected $crud;
+    public function __construct(Crud $crud)
+    {
+        $this->crud = $crud;
+    }
+
 
     public function admin_update(Request $request){
         $id = auth()->id();
@@ -96,5 +103,13 @@ class AuthController extends Controller
 
         return redirect()->back()->with('message', 'Successfully Created Admin');
     }
+
+
+    public function admin_delete($id)
+    {
+        $this->crud->delete('App\Models\User',$id);
+        return redirect()->route('admin.all_admin')->with('message','User has been deleted successfully');
+    }
+
 
 }

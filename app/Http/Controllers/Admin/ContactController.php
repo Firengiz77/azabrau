@@ -36,7 +36,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(ContactRequest $request)
+    public function create(Request $request)
     {
         $this->crud->create('App\Models\Contact',$request);
         return redirect()->route('admin.contact')->with('message','Contact has been created successfully.');
@@ -56,7 +56,6 @@ class ContactController extends Controller
         $data->phone = $request->phone;
         $data->address = $request->address;
         $data->email = $request->email;
-        $data->open_time = $request->open_time;
         $data->fb_link = $request->fb_link;
         $data->wp_link = $request->wp_link;
         $data->insta_link = $request->insta_link;

@@ -89,7 +89,9 @@ class SliderController extends Controller
     { 
         $data = Slider::find($id);
 
-        $data->alt = $request->alt;
+        $data->link = $request->link;
+        $data->title = $request->title;
+        $data->desc = $request->desc;
 
         if ($request->file('image')) {
             $file = $request->file('image');

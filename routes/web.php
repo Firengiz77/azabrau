@@ -41,6 +41,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/admin-logout',[AuthController::class,'logout'])->name('logout');
     Route::post('/admin-image',[AuthController::class,'update_image'])->name('update_image');
     Route::post('/admin-update',[AuthController::class,'admin_update'])->name('update');
+    Route::get('/admin-delete/{id}',[AuthController::class,'admin_delete'])->name('delete');
     Route::post('/admin-password',[AuthController::class,'admin_password'])->name('admin_password');
 
     // slider routes
@@ -57,12 +58,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
   Route::get('/contact/delete/{id}',[ContactController::class,'destroy'])->name('contact_delete');
 
    // Blog routes
-   Route::get('/blog',[BlogController::class,'index'])->name('blog');
-   Route::get('/blogs/add',[BlogController::class,'show'])->name('blogs_add');
-   Route::get('/blog/edit/{id}',[BlogController::class,'edit'])->name('blog_edit');
-   Route::post('/blog/add',[BlogController::class,'create'])->name('blog_add');
-   Route::post('/blog/update/{id}',[BlogController::class,'update'])->name('blog_update');
-   Route::get('/blog/delete/{id}',[BlogController::class,'destroy'])->name('blog_delete');
+   Route::get('/news',[BlogController::class,'index'])->name('blog');
+   Route::get('/news/add',[BlogController::class,'show'])->name('blogs_add');
+   Route::get('/news/edit/{id}',[BlogController::class,'edit'])->name('blog_edit');
+   Route::post('/news/add',[BlogController::class,'create'])->name('blog_add');
+   Route::post('/news/update/{id}',[BlogController::class,'update'])->name('blog_update');
+   Route::get('/news/delete/{id}',[BlogController::class,'destroy'])->name('blog_delete');
 
  // Message routes
  Route::get('/messages',[MessageController::class,'index'])->name('message');
@@ -84,22 +85,10 @@ Route::name('front.')->group(function () {
 
     Route::get('/',[FrontController::class,'index'])->name('index');
     Route::get('/contact',[FrontController::class,'contact'])->name('contact');
-    Route::get('/blog',[FrontController::class,'blog'])->name('blog');
-    Route::get('/shop',[FrontController::class,'shop'])->name('shop');
-    Route::get('/blog_single/{slug}',[FrontController::class,'blog_single'])->name('blog_single');
+    Route::get('/xeberler',[FrontController::class,'blog'])->name('blog');
+    Route::get('/mehsullar',[FrontController::class,'shop'])->name('shop');
+    Route::get('/xeberler/{slug}',[FrontController::class,'blog_single'])->name('blog_single');
 });
 
 
-// user routes
 
-Route::name('user.')->group(function () {
-      Route::get('/register',[UserController::class,'index'])->name('index');
-      Route::get('/dashboard',[UserController::class,'dashboard'])->name('dashboard');
-      Route::post('/register1',[UserController::class,'register'])->name('register');
-      Route::get('/login',[UserController::class,'login_index'])->name('login_index');
-      Route::post('/login1',[UserController::class,'login'])->name('login');
-      Route::get('/logout',[UserController::class,'logout'])->name('logout');
-      Route::post('/user-image',[UserController::class,'update_image'])->name('update_image');
-      Route::post('/user-update',[UserController::class,'user_update'])->name('update');
-      Route::post('/user-password',[UserController::class,'user_password'])->name('user_password');
-  });

@@ -37,7 +37,7 @@ $admin=App\Models\User::find($id);
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
+                            <span class="fw-semibold d-block">{{ $admin->name }}</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>

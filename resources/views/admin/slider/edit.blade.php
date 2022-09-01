@@ -11,6 +11,12 @@
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div style=" display: flex;align-items: baseline;flex-direction: column-reverse;">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Slider </h4>
+
+              <div class="lang">
+                <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+            </div>
+
                 </div>
           
 
@@ -26,7 +32,7 @@
                         @csrf
                          <div class="d-flex align-items-start align-items-sm-center gap-4">
                        
-                             <div class="button-wrapper">
+                             <div class="button-wrapper" style="width:80%">
                                 <img
                                 src="{{  (!empty($slider->image)? url('upload/slider_images/'.$slider->image):asset('/admin/assets/img/avatars/1.png')  )}}"
                                 alt="user-avatar"
@@ -49,15 +55,32 @@
                                  />
                                </label>
 
-                               <div class="mb-3 col-md-6">
-                                <label for="alt" class="form-label">Alt Attribute</label>
+                               <div class="mb-3 col-md-6 translate">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="hidden"  id="title" name="title" value="{{ $slider->title }}">
                                 <input
                                   class="form-control"
                                   type="text"
-                                  id="alt"
-                                  name="alt"
-                                  value="{{ $slider->alt }}"
-                                  placeholder="{{ $slider->alt }}"
+                                  placeholder="{{ $slider->translate('title', app()->getLocale()) }}"
+                                />
+                              </div>
+
+                              <div class="mb-3 col-md-12 translate">
+                                <label for="" class="form-label">Desc</label>
+                                <input type="hidden" name="desc" value="{{ $slider->desc }}">
+                                <textarea
+                                  class="form-control" 
+                                  id="editor"
+                                  >{{ $slider->translate('desc', app()->getLocale()) }}</textarea>
+                              </div>
+
+                               <div class="mb-3 col-md-6 translate">
+                                <label for="link" class="form-label">Link</label>
+                                <input type="hidden"   id="link" name="link" value="{{ $slider->link }}">
+                                <input
+                                  class="form-control translate"
+                                  type="text"
+                                  placeholder="{{ $slider->translate('link', app()->getLocale()) }}"
                                 />
                               </div>
 
@@ -91,6 +114,10 @@
     </div>
     <!-- / Layout wrapper -->
 
+    <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
+    <script src="{{ asset('/admin/js/translate.js') }}"></script>
+    <script src="{{ asset('/admin/vendors/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
 
     
 @endsection

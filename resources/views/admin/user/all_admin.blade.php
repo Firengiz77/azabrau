@@ -1,5 +1,10 @@
 @extends('admin.layout.master')
 @section('container')
+@php
+$id=auth()->id();
+$admin2=App\Models\User::find($id);
+@endphp
+
 
     <!-- Content wrapper -->
     <div class="content-wrapper">
@@ -20,6 +25,9 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Super Admin</th>
+                            @if($admin2->superadmin === '1')
+                            <th>Delete</th>
+                            @endif
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
@@ -40,6 +48,12 @@
                                         @endif
 
                                     </strong></td>
+
+                                    @if($admin2->superadmin === '1')
+                                <td>  <a href="{{ route('admin.delete',$admin->id) }}" class="btn btn-outline-danger">Delete Admin</a></td>
+                                    @endif
+
+
                             </tr>
 
                         @endforeach

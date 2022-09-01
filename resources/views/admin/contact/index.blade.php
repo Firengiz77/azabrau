@@ -8,6 +8,11 @@
 
     <div class="container-xxl flex-grow-1 container-p-y">
       <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Contact</h4>
+       
+      <div class="lang">
+        <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
+        <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+    </div>
 
       <!-- Basic Layout & Basic with Icons -->
       <div class="row">
@@ -47,14 +52,16 @@
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Address</label>
-                  <div class="col-sm-10">
+                
+                  <div class="col-sm-10 translate">
                     <div class="input-group input-group-merge">
                       <span id="basic-icon-default-company2" class="input-group-text"
                         ><i class="bx bx-buildings"></i
                       ></span>
+                      <input type="hidden"   id="address"   name="address" value='{"az":"","en":""}'>
                       <input
                         type="text"
-                        name="address"
+                    
                         id="basic-icon-default-company"
                         class="form-control"
                         placeholder="Address"
@@ -80,23 +87,7 @@
                   </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 form-label" for="basic-icon-default-phone">Open Time</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-phone2" class="input-group-text"
-                        ><i class='bx bx-time' ></i></span>
-                      <input
-                        type="text"
-                        id="basic-icon-default-phone"
-                        class="form-control phone-mask"
-                        placeholder="Open Time"
-                          name="open_time"
-                        aria-describedby="basic-icon-default-phone2"
-                      />
-                    </div>
-                  </div>
-                </div>
+            
 
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company"> Facebook Link </label>
@@ -200,18 +191,17 @@
                 </div>
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Address</label>
-                  <div class="col-sm-10">
+                  <div class="col-sm-10 translate">
                     <div class="input-group input-group-merge">
                       <span id="basic-icon-default-company2" class="input-group-text"
                         ><i class="bx bx-buildings"></i
                       ></span>
+                      <input type="hidden"   id="address"   name="address" value='{{ $contact->address }}'>
                       <input
                         type="text"
-                        name="address"
                         id="basic-icon-default-company"
                         class="form-control"
-                        value="{{ $contact->address }}"
-                        placeholder="Address"
+                        placeholder="{{ $contact->translate('address', app()->getLocale()) }}"
                         aria-describedby="basic-icon-default-company2"
                       />
                     </div>
@@ -230,25 +220,6 @@
                         name="email"
                         value="{{ $contact->email }}"
                         aria-describedby="basic-icon-default-email2"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 form-label" for="basic-icon-default-phone">Open Time</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-phone2" class="input-group-text"
-                        ><i class='bx bx-time' ></i></span>
-                      <input
-                        type="text"
-                        id="basic-icon-default-phone"
-                        class="form-control phone-mask"
-                        placeholder="Open Time"
-                          name="open_time"
-                          value="{{ $contact->open_time }}"
-                        aria-describedby="basic-icon-default-phone2"
                       />
                     </div>
                   </div>
@@ -329,6 +300,12 @@
     </div>
     <!-- / Content -->
 
+
+
+    <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
+    <script src="{{ asset('/admin/js/translate.js') }}"></script>
+    <script src="{{ asset('/admin/vendors/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
 
 
 @endsection
