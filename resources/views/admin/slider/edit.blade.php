@@ -74,15 +74,6 @@
                                   >{{ $slider->translate('desc', app()->getLocale()) }}</textarea>
                               </div>
 
-                               <div class="mb-3 col-md-6 translate">
-                                <label for="link" class="form-label">Link</label>
-                                <input type="hidden"   id="link" name="link" value="{{ $slider->link }}">
-                                <input
-                                  class="form-control translate"
-                                  type="text"
-                                  placeholder="{{ $slider->translate('link', app()->getLocale()) }}"
-                                />
-                              </div>
 
                                <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
                                  <i class="bx bx-reset d-block d-sm-none"></i>

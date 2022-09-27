@@ -67,15 +67,7 @@
                                   ></textarea>
                               </div>
 
-                              <div class="mb-3 col-md-6 translate">
-                                <label for="link" class="form-label">Link</label>
-                                <input type="hidden"   id="link" name="link"   value='{"az":"","en":""}'>
-                                <input
-                                  class="form-control translate"
-                                  type="text"
-                                 
-                                />
-                              </div>
+                            
 
 
 

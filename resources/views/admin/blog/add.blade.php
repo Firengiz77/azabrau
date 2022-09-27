@@ -99,23 +99,7 @@
                   </div>
                 </div>
 
-                <div class="row mb-3 translate">
-                  <label class="col-sm-12 form-label" for="basic-icon-default-phone">Author</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-phone2" class="input-group-text"
-                        ><i class='bx bx-time' ></i></span>
-                        <input type="hidden" name="author" value='{"az":"","en":""}'>
-                      <input
-                        type="text"
-                        id="basic-icon-default-phone"
-                        class="form-control phone-mask"
-                        placeholder="Author"
-                        aria-describedby="basic-icon-default-phone2"
-                      />
-                    </div>
-                  </div>
-                </div>
+          
 
                 <div class="row mb-3">
                   <label class="col-sm-12 col-form-label" for="basic-icon-default-company"> Slug </label>

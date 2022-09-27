@@ -89,7 +89,7 @@ class SliderController extends Controller
     { 
         $data = Slider::find($id);
 
-        $data->link = $request->link;
+       
         $data->title = $request->title;
         $data->desc = $request->desc;
 

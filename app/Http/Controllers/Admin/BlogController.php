@@ -90,7 +90,7 @@ class BlogController extends Controller
         $data->title = $request->title;
         $data->desc = $request->desc;
         $data->slug = $request->slug;
-        $data->author = $request->author;
+       
 
         if ($request->file('image')) {
             $file = $request->file('image');

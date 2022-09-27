@@ -11,7 +11,7 @@ class Blog extends Model implements ITranslatable
 {
     use HasFactory;
 
-    protected $fillable = ['image','name','title','desc','author','slug'];
+    protected $fillable = ['image','name','title','desc','slug'];
 
     public function translate($attr, $lang)
     {

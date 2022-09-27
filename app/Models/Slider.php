@@ -10,7 +10,7 @@ class Slider extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image','link','title','desc'];
+    protected $fillable = ['image','title','desc'];
 
     public function translate($attr, $lang)
     {

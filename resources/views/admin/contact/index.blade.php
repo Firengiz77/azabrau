@@ -18,7 +18,7 @@
       <div class="row">
 
         <!-- Basic with Icons -->
-        <div class="col-lg-6">
+        {{-- <div class="col-lg-6">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
               <h5 class="mb-0">Add Contact</h5>
@@ -30,7 +30,7 @@
               </div>
           @endif
 
-              <form method="POST" action="{{ route('admin.contact_add') }}">
+            <form method="POST" action="{{ route('admin.contact_add') }}">
                 @csrf
                 <div class="row mb-3">
                   <label class="col-sm-2 form-label" for="basic-icon-default-phone">Phone</label>
@@ -145,10 +145,10 @@
                     <button type="submit" class="btn btn-primary">Add</button>
                   </div>
                 </div>
-              </form>
+              </form> 
             </div>
           </div>
-        </div>
+        </div> --}}
 
 
 
@@ -156,7 +156,7 @@
 
 
 
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between">
               <h5 class="mb-0">Edit Contact</h5>
@@ -286,7 +286,7 @@
                   </div>
                 </div>
               </form>
-              <a style="display: flex;flex-direction: row;justify-content: end;" href="{{ route('admin.contact_delete',$contact->id) }}" >  <button class="btn btn-danger">Delete Contact</button></a>
+           
             </div>
           </div>
         </div>
