@@ -101,10 +101,7 @@ class SliderController extends Controller
             $data['image'] = $filename;
         }
         $data->save();
-
-
-    return redirect()->route('admin.slider')->with('message','Slider has been created successfully.');
-        
+         return redirect()->route('admin.slider')->with('message','Slider has been created successfully.'); 
     }
 
     /**

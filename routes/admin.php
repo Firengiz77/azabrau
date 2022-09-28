@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Front\UserController;
+use App\Http\Controllers\Admin\CategoryController;
 
 
 
@@ -29,6 +30,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
   Route::post('/contact/update/{id}',[ContactController::class,'update'])->name('contact_update');
   Route::get('/contact/delete/{id}',[ContactController::class,'destroy'])->name('contact_delete');
 
+
    // Blog routes
    Route::get('/news',[BlogController::class,'index'])->name('blog');
    Route::get('/news/add',[BlogController::class,'show'])->name('blogs_add');
@@ -36,6 +38,20 @@ Route::prefix('admin')->name('admin.')->group(function () {
    Route::post('/news/add',[BlogController::class,'create'])->name('blog_add');
    Route::post('/news/update/{id}',[BlogController::class,'update'])->name('blog_update');
    Route::get('/news/delete/{id}',[BlogController::class,'destroy'])->name('blog_delete');
+
+
+
+   
+    // Category routes
+    Route::get('/category',[CategoryController::class,'index'])->name('category');
+    Route::get('/category/edit/{id}',[CategoryController::class,'edit'])->name('category_edit');
+    Route::post('/category/add',[CategoryController::class,'create'])->name('category_add');
+    Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category_update');
+    Route::get('/category/delete/{id}',[CategoryController::class,'destroy'])->name('category_delete');
+
+
+
+
 
  // Message routes
  Route::get('/messages',[MessageController::class,'index'])->name('message');
