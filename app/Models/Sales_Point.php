@@ -7,17 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 use App\Helpers\ITranslatable;
 
 
-class Blog extends Model implements ITranslatable
+class Sales_Point extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image','name','title','desc','slug','slug_en','slug_ru'];
+    protected $fillable = ['name','address','phone_1','phone_2','link'];
 
     public function translate($attr, $lang)
     {
         return json_decode($this[$attr])->$lang;
     }
 
-
-
+  
 }

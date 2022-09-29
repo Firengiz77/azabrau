@@ -12,6 +12,7 @@
       <div class="lang">
         <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
         <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+        <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
     </div>
 
       <!-- Basic Layout & Basic with Icons -->

@@ -85,10 +85,20 @@
                 <div data-i18n="Blog">Message</div>
               </a>
             </li>
+            <li class="menu-item @if(Route::is('admin.category')) active @endif">
+              <a href="{{route('admin.category')}}" class="menu-link">
+                <i class='bx bxs-user-check menu-icon'></i>
+                <div data-i18n="Category">Category</div>
+              </a>
+            </li>
 
 
-
-
+            <li class="menu-item @if(Route::is('admin.sales_point')) active @endif">
+              <a href="{{route('admin.sales_point')}}" class="menu-link">
+                <i class='bx bxs-user-check menu-icon'></i>
+                <div data-i18n="Category">Sales Point</div>
+              </a>
+            </li>
 
 
           </ul>

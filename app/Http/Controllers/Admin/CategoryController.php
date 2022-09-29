@@ -36,7 +36,7 @@ class CategoryController extends Controller
      */
     public function create(Request $request)
     {
-        $this->crud->create('App\Models\Catwgory',$request);
+        $this->crud->create('App\Models\Category',$request);
 
         return redirect()->route('admin.category')->with('message','Category has been created successfully.');
     }
@@ -72,7 +72,8 @@ class CategoryController extends Controller
     public function edit($id)
     {
       $category =  $this->crud->edit('App\Models\Category',$id);
-        return view('admin.category.edit',compact('category'));
+      $categories = Category::get();
+        return view('admin.category.edit',compact('category','categories'));
     }
 
     /**

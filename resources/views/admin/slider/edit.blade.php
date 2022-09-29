@@ -9,12 +9,13 @@
           
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <div style=" display: flex;align-items: baseline;flex-direction: column-reverse;">
+                <div style=" display: flex;align-items: baseline;flex-direction: column;">
               <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Slider </h4>
 
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
                 <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+                <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
             </div>
 
                 </div>
@@ -77,7 +78,7 @@
 
                                <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
                                  <i class="bx bx-reset d-block d-sm-none"></i>
-                                 <span class="d-none d-sm-block">Upload</span>
+                                 <span class="d-none d-sm-block">Edit Slider</span>
                                </button>
      
                                <p class="text-muted mb-0">Allowed JPG, GIF, JPEG, SVG or PNG. Max size of 150K</p>

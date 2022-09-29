@@ -60,9 +60,9 @@ class SliderController extends Controller
      * @param  \App\Models\Slider  $slider
      * @return \Illuminate\Http\Response
      */
-    public function show(Slider $slider)
+    public function show()
     {
-        //
+        return view('admin.slider.add');
     }
 
     /**

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3307
--- Üretim Zamanı: 28 Eyl 2022, 15:14:45
+-- Üretim Zamanı: 29 Eyl 2022, 13:32:20
 -- Sunucu sürümü: 10.4.22-MariaDB
 -- PHP Sürümü: 8.1.1
 
@@ -34,6 +34,8 @@ CREATE TABLE `blogs` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -42,10 +44,8 @@ CREATE TABLE `blogs` (
 -- Tablo döküm verisi `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug`, `created_at`, `updated_at`) VALUES
-(2, '2022081908272.jpg', '{\"az\":\"Blog 2 az\",\"en\":\"Blog 2 en\"}', '{\"az\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum  az\",\"en\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum  en\"}', '{\"az\":\"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum</p>\\n\",\"en\":\"<p>Blog 2<strong> en az</strong></p>\\n\"}', 'blog_1', '2022-08-19 04:27:41', '2022-08-31 06:33:31'),
-(3, '2022081908282.jpg', '{\"az\":\"What is Lorem Ipsum? az\",\"en\":\"Why do we use it? en\"}', '{\"az\":\"What is Lorem Ipsum? az\",\"en\":\"What is Lorem Ipsum? en\"}', '{\"az\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.\",\"en\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.\"}', 'blog_3', '2022-08-19 04:28:33', '2022-08-30 07:01:09'),
-(4, '2022081908304.jpg', '{\"az\":\"Why do we use it? az\",\"en\":\"Why do we use it? en\"}', '{\"az\":\"Why do we use it?az\",\"en\":\"Why do we use it? en\"}', '{\"az\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.\",\"en\":\"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.\"}', 'blog_4', '2022-08-19 04:30:14', '2022-08-30 07:00:50');
+INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
+(5, '202209290741team-img-1.png', '{\"az\":\"ert\",\"en\":\"as\",\"ru\":\"yunhj\"}', '{\"az\":\"ert\",\"en\":\"asd\",\"ru\":\"ghj\"}', '{\"az\":\"ert\",\"en\":\"asd\",\"ru\":\"ghj\"}', 'asd', 'efasd en', 'sgsdg  ru', '2022-09-29 03:41:38', '2022-09-29 04:08:02');
 
 -- --------------------------------------------------------
 
@@ -56,10 +56,18 @@ INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug`, `created_at
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `cat_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cat_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Tablo döküm verisi `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `cat_id`, `created_at`, `updated_at`) VALUES
+(1, '{\"az\":\"cate az\",\"en\":\"Cate\",\"ru\":\"cate ru\"}', '1', '2022-09-29 02:33:26', '2022-09-29 03:45:55'),
+(2, '{\"az\":\"SDF\",\"en\":\"dsf\",\"ru\":\"dfg\"}', '1', '2022-09-29 02:58:39', '2022-09-29 03:46:07');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`id`, `phone`, `address`, `email`, `fb_link`, `wp_link`, `insta_link`, `created_at`, `updated_at`) VALUES
-(7, '0504686868', '{\"az\":\"Azerbaijan,Baku\",\"en\":\"Azerbaycan,Baki az\"}', 'dev@gmail.com', 'google.com', 'google.com', 'google.com', '2022-09-01 08:04:51', '2022-09-01 08:04:59');
+(7, '0504686868', '{\"az\":\"Azerbaijan,Baku az\",\"en\":\"Azerbaycan,Baki en\",\"ru\":\"Azerbaijan,Baku ru\"}', 'dev@gmail.com', 'google.com', 'google.com', 'google.com', '2022-09-01 08:04:51', '2022-09-29 03:44:21');
 
 -- --------------------------------------------------------
 
@@ -150,7 +158,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2022_08_18_102350_create_blogs_table', 4),
 (8, '2022_08_18_131912_create_messages_table', 5),
 (9, '2022_09_27_110621_create_news_table', 6),
-(10, '2022_09_28_080843_create_categories_table', 7);
+(10, '2022_09_28_080843_create_categories_table', 7),
+(11, '2022_09_29_101613_create_sales__points_table', 8);
 
 -- --------------------------------------------------------
 
@@ -186,6 +195,30 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `sales__points`
+--
+
+CREATE TABLE `sales__points` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `link` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_1` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Tablo döküm verisi `sales__points`
+--
+
+INSERT INTO `sales__points` (`id`, `name`, `address`, `link`, `phone_1`, `phone_2`, `created_at`, `updated_at`) VALUES
+(3, '{\"az\":\"Azerbaycan,Baki az\",\"en\":\"Azerbaijan,Baku en\",\"ru\":\"Azerbaycan,Baki ru\"}', '{\"az\":\"Azerbaycan,Baki az\",\"en\":\" Azerbaijan,Baku en \",\"ru\":\"Azerbaycan,Baki ru\"}', 'sdf', '+994 51 458 62 47', '+994 51 458 62 47', '2022-09-29 07:12:50', '2022-09-29 07:27:27');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `sliders`
 --
 
@@ -203,7 +236,7 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `image`, `title`, `desc`, `created_at`, `updated_at`) VALUES
-(4, '20220818073518.jpg', '{\"az\":\"Lorem Ipsum is simply dumm az\",\"en\":\"Lorem Ipsum is simply dummy  en\"}', '{\"az\":\"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum az</p>\\n\",\"en\":\"<p>Lorem Ipsum is simply du en</p>\\n\"}', '2022-08-18 02:53:37', '2022-09-01 04:25:34');
+(10, '202209290743team-img-1.png', '{\"az\":\"asdf\",\"en\":\"sdf\",\"ru\":\"sdg\"}', '{\"az\":\"<p>dfgbfx</p>\\n\",\"en\":\"<p>dbfgsdfgb</p>\\n\",\"ru\":\"<p>sdfgsdf</p>\\n\"}', '2022-09-29 03:43:08', '2022-09-29 03:43:08');
 
 -- --------------------------------------------------------
 
@@ -291,6 +324,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Tablo için indeksler `sales__points`
+--
+ALTER TABLE `sales__points`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `sliders`
 --
 ALTER TABLE `sliders`
@@ -311,13 +350,13 @@ ALTER TABLE `users`
 -- Tablo için AUTO_INCREMENT değeri `blogs`
 --
 ALTER TABLE `blogs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `contacts`
@@ -341,7 +380,7 @@ ALTER TABLE `messages`
 -- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `personal_access_tokens`
@@ -350,10 +389,16 @@ ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `sales__points`
+--
+ALTER TABLE `sales__points`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`

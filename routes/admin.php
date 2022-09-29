@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Front\UserController;
 use App\Http\Controllers\Admin\CategoryController;
-
+use App\Http\Controllers\Admin\SalesPointController;
 
 
 
@@ -21,6 +21,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/slider',[SliderController::class,'index'])->name('slider');
     Route::get('/slider/edit/{id}',[SliderController::class,'edit'])->name('slider_edit');
     Route::post('/slider/add',[SliderController::class,'create'])->name('slider_add');
+    Route::get('/sliders/add',[SliderController::class,'show'])->name('sliders_add');
     Route::post('/slider/update/{id}',[SliderController::class,'update'])->name('slider_update');
     Route::get('/slider/delete/{id}',[SliderController::class,'destroy'])->name('slider_delete');
 
@@ -38,9 +39,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
    Route::post('/news/add',[BlogController::class,'create'])->name('blog_add');
    Route::post('/news/update/{id}',[BlogController::class,'update'])->name('blog_update');
    Route::get('/news/delete/{id}',[BlogController::class,'destroy'])->name('blog_delete');
-
-
-
    
     // Category routes
     Route::get('/category',[CategoryController::class,'index'])->name('category');
@@ -49,6 +47,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category_update');
     Route::get('/category/delete/{id}',[CategoryController::class,'destroy'])->name('category_delete');
 
+
+
+
+        // sales_point routes
+        Route::get('/sales_point',[SalesPointController::class,'index'])->name('sales_point');
+        Route::get('/sales_point/edit/{id}',[SalesPointController::class,'edit'])->name('sales_edit');
+        Route::post('/sales_point/add',[SalesPointController::class,'create'])->name('sales_add');
+        Route::get('/sales_points/add',[SalesPointController::class,'show'])->name('sales_point_add');
+        Route::post('/sales_point/update/{id}',[SalesPointController::class,'update'])->name('sales_update');
+        Route::get('/sales_point/delete/{id}',[SalesPointController::class,'destroy'])->name('sales_delete');
 
 
 

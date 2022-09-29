@@ -7,13 +7,13 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
             <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Blog</h4>
-              <a class="btn btn-success" href="{{ route('admin.blogs_add') }}"> Add Blog </a>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> News</h4>
+              <a class="btn btn-success" href="{{ route('admin.blogs_add') }}"> Add News </a>
 
           </div>
               <!-- Basic Bootstrap Table -->
               <div class="card">
-                <h5 class="card-header">All Blog</h5>
+                <h5 class="card-header">All News</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
@@ -26,7 +26,7 @@
                     </thead>
                     <tbody class="table-border-bottom-0">
 
-     @foreach ($blogs as $blog )
+                 @foreach ($blogs as $blog )
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{!! json_decode($blog['name'])->{app()->getLocale()} !!}</strong></td>
                         <td>

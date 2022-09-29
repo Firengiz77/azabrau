@@ -1,0 +1,131 @@
+@extends('admin.layout.master')
+
+@section('container')
+
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+          
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+                <div style=" display: flex;align-items: baseline;flex-direction: column-reverse;">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Category </h4>
+
+         
+                </div>
+          
+                <div class="lang">
+                  <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
+                  <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+                  <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+              </div>
+
+              
+              <!-- Examples -->
+              <div class="row">
+                <div class="col-md-4 col-lg-6 mb-3 card-body" style="border:1px solid #a1acb8;border-radius:8px">
+                    @if(session()->has('message'))
+                      <div class="alert alert-success">
+                          {{ session()->get('message') }}
+                      </div>
+                  @endif
+                    <form enctype="multipart/form-data" id="formAccountSettings" method="POST" action="{{ route('admin.category_add') }}">
+                        @csrf
+                       
+                        <div class="row mb-3">
+                          <select id="largeSelect" name="cat_id" class="form-select form-select-lg">
+                              <option value="0">Select Category :</option>
+                              @foreach($categories as $category)
+                              <option value="{{ $category->id }}" > {!! json_decode($category['name'])->{app()->getLocale()} !!} </option>
+                              @endforeach
+
+                          </select>
+                      </div>
+
+
+                               <div class="mb-3 col-md-12 translate">
+                                <label for="title" class="form-label"> Name </label>
+                                <input type="hidden" id="title" name="name"  value='{"az":"","en":"","ru":""}'>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  placeholder="Name"
+                                />
+                              </div>
+
+                              <div class="mb-3 col-md-12 translate">
+                                <label for="" class="form-label">Category :</label>
+                                <input type="hidden" name="cat_id" value=''>
+                              </div>
+
+                              <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
+                                <i class="bx bx-reset d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Add Category</span>
+                              </button>
+                             </div>
+                           </div>
+                        
+
+                            </form>
+
+                            <div class="row">
+                            @foreach ($categories as $category)
+                            <div class="col-md-6 col-lg-6 mb-3">
+                              <div class="card h-100">
+                               
+                                <div class="card-body">
+                                  <h5 class="card-title">Name</h5>
+                                  <p class="card-text">
+                                    {{ $category->translate('name', app()->getLocale()) }}
+                                  </p>
+            
+                                  <a href="{{ route('admin.category_edit',$category->id) }}" class="btn btn-outline-primary">Edit Category</a>
+                                  <a href="{{ route('admin.slider_delete',$category->id) }}" class="btn btn-outline-danger">Delete Category</a>
+            
+                                </div>
+                              </div>
+                            </div>
+                            @endforeach
+                          </div>
+
+                  </div>
+
+                
+               
+               
+
+            
+                </div>
+              <!-- Examples -->
+
+
+             
+
+
+            </div>
+            <!-- / Content -->
+
+
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+
+
+
+
+    <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
+    <script src="{{ asset('/admin/js/translate.js') }}"></script>
+    <script src="{{ asset('/admin/vendors/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
+    
+@endsection

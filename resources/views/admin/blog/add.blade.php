@@ -7,7 +7,7 @@
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Blog</h4>
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> News</h4>
 
       <!-- Basic Layout & Basic with Icons -->
       <div class="row">
@@ -16,10 +16,11 @@
         <div class="col-lg-12">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between" style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h5 class="mb-0">Add Blog</h5>
+              <h5 class="mb-0">Add News</h5>
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
                 <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+                <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
             </div>
             </div>
             <div class="card-body">
@@ -51,7 +52,7 @@
                       <span id="basic-icon-default-phone2" class="input-group-text"
                         ><i class="bx bx-phone"></i
                       ></span>
-                      <input type="hidden" name="name" value='{"az":"","en":""}'>
+                      <input type="hidden" name="name" value='{"az":"","en":"","ru":""}'>
                       <input
                       type="text"
 
@@ -70,7 +71,7 @@
                       <span id="basic-icon-default-company2" class="input-group-text"
                         ><i class="bx bx-buildings"></i
                       ></span>
-                      <input type="hidden" name="title" value='{"az":"","en":""}'>
+                      <input type="hidden" name="title" value='{"az":"","en":"","ru":""}'>
                       <input
                         type="text"
 
@@ -87,7 +88,7 @@
                   <div class="col-sm-10">
                     <div class="input-group input-group-merge">
                       <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                      <input type="hidden" name="desc" value='{"az":"","en":""}'>
+                      <input type="hidden" name="desc" value='{"az":"","en":"","ru":""}'>
                       <input
                         type="text"
                         id="basic-icon-default-email"
@@ -102,7 +103,7 @@
           
 
                 <div class="row mb-3">
-                  <label class="col-sm-12 col-form-label" for="basic-icon-default-company"> Slug </label>
+                  <label class="col-sm-12 col-form-label" for="basic-icon-default-company"> Slug az </label>
                   <div class="col-sm-10">
                     <div class="input-group input-group-merge">
                       <span id="basic-icon-default-company2" class="input-group-text"
@@ -120,9 +121,48 @@
                     </div>
                   </div>
                 </div>
+                <div class="row mb-3">
+                  <label class="col-sm-12 col-form-label" for="basic-icon-default-company"> Slug en </label>
+                  <div class="col-sm-10">
+                    <div class="input-group input-group-merge">
+                      <span id="basic-icon-default-company2" class="input-group-text"
+                        >
+                        <i class='bx bxl-facebook'></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="slug_en"
+                        id="basic-icon-default-company"
+                        class="form-control"
+                        placeholder="Slug en"
+                        aria-describedby="basic-icon-default-company2"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <label class="col-sm-12 col-form-label" for="basic-icon-default-company"> Slug ru </label>
+                  <div class="col-sm-10">
+                    <div class="input-group input-group-merge">
+                      <span id="basic-icon-default-company2" class="input-group-text"
+                        >
+                        <i class='bx bxl-facebook'></i>
+                      </span>
+                      <input
+                        type="text"
+                        name="slug_ru"
+                        id="basic-icon-default-company"
+                        class="form-control"
+                        placeholder="Slug ru"
+                        aria-describedby="basic-icon-default-company2"
+                      />
+                    </div>
+                  </div>
+                </div>
 
                 <div class="row justify-content-end">
-                  <div class="col-sm-10">
+                  <div class="col-lg-12">
                     <button type="submit" class="btn btn-primary">Add</button>
                   </div>
                 </div>

@@ -10,11 +10,12 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Blog </h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> News </h4>
              
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
                 <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
+                <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
             </div>
                 </div>
 
@@ -55,7 +56,6 @@
                                <div class="mb-3 col-md-12 translate">
                                 <label for="alt" class="form-label">Name</label>
                                   <input type="hidden" name="name" value="{{ $blog->name }}">
-
                                 <input
                                   class="form-control"
                                   type="text"
@@ -81,9 +81,10 @@
                                   id="editor"
                                   >{{ $blog->translate('desc', app()->getLocale()) }}</textarea>
                               </div>
-                            
-                              <div class="mb-3 col-md-12">
-                                <label for="alt" class="form-label">Slug</label>
+                             
+                            <div style="display: flex">
+                              <div class="mb-3 col-md-4" style="margin-right:10px">
+                                <label for="alt" class="form-label">Slug az</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -93,6 +94,32 @@
                                   placeholder="{{ $blog->slug }}"
                                 />
                               </div>
+
+                        
+                              <div class="mb-3 col-md-4" style="margin-right:10px">
+                                <label for="alt" class="form-label">Slug en</label>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  id="alt"
+                                  name="slug_en"
+                                  value="{{ $blog->slug_en }}"
+                                  placeholder="{{ $blog->slug_en }}"
+                                />
+                              </div>
+                              <div class="mb-3 col-md-4">
+                                <label for="alt" class="form-label">Slug ru</label>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  id="alt"
+                                  name="slug_ru"
+                                  value="{{ $blog->slug_ru }}"
+                                  placeholder="{{ $blog->slug_ru }}"
+                                />
+                              </div>
+                            </div>
+                        
 
                                <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
                                  <i class="bx bx-reset d-block d-sm-none"></i>
