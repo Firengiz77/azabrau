@@ -7,26 +7,26 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
             <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Slider</h4>
-              <a class="btn btn-success" href="{{ route('admin.sliders_add') }}"> Add Slider </a>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Product</h4>
+              <a class="btn btn-success" href="{{ route('admin.products_add') }}"> Add Product </a>
 
           </div>
               <!-- Basic Bootstrap Table -->
               <div class="card">
-                <h5 class="card-header">All Slider</h5>
+                <h5 class="card-header">All Products</h5>
                 <div class="table-responsive text-nowrap">
                   <table class="table">
                     <thead>
                       <tr>
           
                         <th>Image</th>
-                        <th>Title</th>
+                        <th>Name</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
 
-                 @foreach ($sliders as $slider )
+                 @foreach ($products as $product )
                       <tr>
                     
                         <td>
@@ -38,16 +38,16 @@
                               class="avatar avatar-xs pull-up"
                               title="Blog Image"
                             >
-                              <img src="{{  (!empty($slider->image)? url('upload/slider_images/'.$slider->image):asset('/admin/assets/img/avatars/1.png')  )}}"alt="Avatar" class="rounded-circle" />
+                              <img src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}"alt="Avatar" class="rounded-circle" />
                             </li>
                          
                           
                           </ul>
                         </td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{!! json_decode($slider['title'])->{app()->getLocale()} !!}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{!! json_decode($product['name'])->{app()->getLocale()} !!}</strong></td>
                         <td>
-                          <a href="{{ route('admin.slider_edit',$slider->id) }}" class="btn btn-outline-primary">Edit Slider</a>
-                          <a href="{{ route('admin.slider_delete',$slider->id) }}" class="btn btn-outline-danger delete-confirm">Delete Slider</a>
+                          <a href="{{ route('admin.product_edit',$product->id) }}" class="btn btn-outline-primary">Edit Product</a>
+                          <a href="{{ route('admin.product_delete',$product->id) }}" class="btn btn-outline-danger delete-confirm">Delete Product</a>
                         </td>
                       </tr>
                    

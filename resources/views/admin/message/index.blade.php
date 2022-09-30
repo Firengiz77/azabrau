@@ -33,7 +33,7 @@
                         </td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->message }}</strong></td>
                         <td>
-                          <a href="{{ route('admin.message_delete',$message->id) }}" class="btn btn-outline-danger">Delete Message</a>
+                          <a href="{{ route('admin.message_delete',$message->id) }}" class="btn btn-outline-danger delete-confirm">Delete Message</a>
                         </td>
                       </tr>
                    
@@ -58,4 +58,27 @@
         <!-- / Layout page -->
      
     
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+        <script>
+          $('.delete-confirm').on('click', function (event) {
+              event.preventDefault();
+              const url = $(this).attr('href');
+              swal({
+                  title: 'Are you sure?',
+                  text: 'This record and it`s details will be permanantly deleted!',
+                  icon: 'warning',
+                  buttons: ["Cancel", "Yes!"],
+              }).then(function(value) {
+                  if (value) {
+                      window.location.href = url;
+                  }
+              });
+          });
+    </script>
+
+
 @endsection

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1:3307
--- Üretim Zamanı: 29 Eyl 2022, 13:32:20
+-- Üretim Zamanı: 30 Eyl 2022, 14:48:41
 -- Sunucu sürümü: 10.4.22-MariaDB
 -- PHP Sürümü: 8.1.1
 
@@ -40,13 +40,6 @@ CREATE TABLE `blogs` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Tablo döküm verisi `blogs`
---
-
-INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
-(5, '202209290741team-img-1.png', '{\"az\":\"ert\",\"en\":\"as\",\"ru\":\"yunhj\"}', '{\"az\":\"ert\",\"en\":\"asd\",\"ru\":\"ghj\"}', '{\"az\":\"ert\",\"en\":\"asd\",\"ru\":\"ghj\"}', 'asd', 'efasd en', 'sgsdg  ru', '2022-09-29 03:41:38', '2022-09-29 04:08:02');
-
 -- --------------------------------------------------------
 
 --
@@ -66,8 +59,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `cat_id`, `created_at`, `updated_at`) VALUES
-(1, '{\"az\":\"cate az\",\"en\":\"Cate\",\"ru\":\"cate ru\"}', '1', '2022-09-29 02:33:26', '2022-09-29 03:45:55'),
-(2, '{\"az\":\"SDF\",\"en\":\"dsf\",\"ru\":\"dfg\"}', '1', '2022-09-29 02:58:39', '2022-09-29 03:46:07');
+(7, '{\"az\":\"dfghdfgh\",\"en\":\"jlkjlk\",\"ru\":\"loujol\"}', NULL, '2022-09-30 02:00:55', '2022-09-30 02:00:55'),
+(8, '{\"az\":\"iop;uio\",\"en\":\"rtyurty\",\"ru\":\"ftyuftyu\"}', NULL, '2022-09-30 02:01:01', '2022-09-30 02:01:01');
 
 -- --------------------------------------------------------
 
@@ -78,6 +71,7 @@ INSERT INTO `categories` (`id`, `name`, `cat_id`, `created_at`, `updated_at`) VA
 CREATE TABLE `contacts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_2` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `fb_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -91,8 +85,8 @@ CREATE TABLE `contacts` (
 -- Tablo döküm verisi `contacts`
 --
 
-INSERT INTO `contacts` (`id`, `phone`, `address`, `email`, `fb_link`, `wp_link`, `insta_link`, `created_at`, `updated_at`) VALUES
-(7, '0504686868', '{\"az\":\"Azerbaijan,Baku az\",\"en\":\"Azerbaycan,Baki en\",\"ru\":\"Azerbaijan,Baku ru\"}', 'dev@gmail.com', 'google.com', 'google.com', 'google.com', '2022-09-01 08:04:51', '2022-09-29 03:44:21');
+INSERT INTO `contacts` (`id`, `phone`, `phone_2`, `address`, `email`, `fb_link`, `wp_link`, `insta_link`, `created_at`, `updated_at`) VALUES
+(7, '0504686868', '0504686868 we', '{\"az\":\"Azerbaijan,Baku az\",\"en\":\"Azerbaijan,Baku en\",\"ru\":\"Azerbaijan,Baku ru\"}', 'dev@gmail.com', 'google.com', 'google.com', 'google.com', '2022-09-01 08:04:51', '2022-09-30 01:44:03');
 
 -- --------------------------------------------------------
 
@@ -125,13 +119,6 @@ CREATE TABLE `messages` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Tablo döküm verisi `messages`
---
-
-INSERT INTO `messages` (`id`, `name`, `email`, `message`, `created_at`, `updated_at`) VALUES
-(2, 'test2', 'dev@gmail.com', 'test2', '2022-08-19 03:54:16', '2022-08-19 03:54:16');
-
 -- --------------------------------------------------------
 
 --
@@ -159,7 +146,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (8, '2022_08_18_131912_create_messages_table', 5),
 (9, '2022_09_27_110621_create_news_table', 6),
 (10, '2022_09_28_080843_create_categories_table', 7),
-(11, '2022_09_29_101613_create_sales__points_table', 8);
+(11, '2022_09_29_101613_create_sales__points_table', 8),
+(12, '2022_09_30_065529_create_products_table', 9);
 
 -- --------------------------------------------------------
 
@@ -195,6 +183,34 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cesid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `spirt` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumbnail` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `menseyi` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `istehsal_il` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `terkibi` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uygunluq` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `temp` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `saxlama_formasi` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cat_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_az` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `sales__points`
 --
 
@@ -208,13 +224,6 @@ CREATE TABLE `sales__points` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Tablo döküm verisi `sales__points`
---
-
-INSERT INTO `sales__points` (`id`, `name`, `address`, `link`, `phone_1`, `phone_2`, `created_at`, `updated_at`) VALUES
-(3, '{\"az\":\"Azerbaycan,Baki az\",\"en\":\"Azerbaijan,Baku en\",\"ru\":\"Azerbaycan,Baki ru\"}', '{\"az\":\"Azerbaycan,Baki az\",\"en\":\" Azerbaijan,Baku en \",\"ru\":\"Azerbaycan,Baki ru\"}', 'sdf', '+994 51 458 62 47', '+994 51 458 62 47', '2022-09-29 07:12:50', '2022-09-29 07:27:27');
 
 -- --------------------------------------------------------
 
@@ -236,7 +245,8 @@ CREATE TABLE `sliders` (
 --
 
 INSERT INTO `sliders` (`id`, `image`, `title`, `desc`, `created_at`, `updated_at`) VALUES
-(10, '202209290743team-img-1.png', '{\"az\":\"asdf\",\"en\":\"sdf\",\"ru\":\"sdg\"}', '{\"az\":\"<p>dfgbfx</p>\\n\",\"en\":\"<p>dbfgsdfgb</p>\\n\",\"ru\":\"<p>sdfgsdf</p>\\n\"}', '2022-09-29 03:43:08', '2022-09-29 03:43:08');
+(11, '202209300706team-img-1.png', '{\"az\":\"title az\",\"en\":\"title EN\",\"ru\":\"title ru\"}', '{\"az\":\"<p>ru</p>\\n\",\"en\":\"<p>en</p>\\n\",\"ru\":\"<p>sdgsd</p>\\n\"}', '2022-09-30 03:06:40', '2022-09-30 03:06:40'),
+(12, '202209300707Arter_logo-(slogan) 1.png', '{\"az\":\"dtd b az\",\"en\":\"tfhdh en\",\"ru\":\"rururu\"}', '{\"az\":\"<p>r dt dfg az</p>\\n\",\"en\":\"<p>dhthngh en</p>\\n\",\"ru\":\"<p>rurudyfgh</p>\\n\"}', '2022-09-30 03:07:04', '2022-09-30 03:07:04');
 
 -- --------------------------------------------------------
 
@@ -324,6 +334,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Tablo için indeksler `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `sales__points`
 --
 ALTER TABLE `sales__points`
@@ -356,7 +372,7 @@ ALTER TABLE `blogs`
 -- Tablo için AUTO_INCREMENT değeri `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `contacts`
@@ -380,13 +396,19 @@ ALTER TABLE `messages`
 -- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `sales__points`
@@ -398,7 +420,7 @@ ALTER TABLE `sales__points`
 -- Tablo için AUTO_INCREMENT değeri `sliders`
 --
 ALTER TABLE `sliders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `users`

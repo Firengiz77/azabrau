@@ -6,18 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\ITranslatable;
 
-class Contact extends Model
+class Product extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['address','phone','phone_2','email','fb_link','wp_link','insta_link'];
+    protected $guarded = [];
 
-
-    
     public function translate($attr, $lang)
     {
         return json_decode($this[$attr])->$lang;
     }
+
+    public function category(){
+        return $this->belongsTo('App\Models\Category','cat_id');
+    }
+
+
 
 
 

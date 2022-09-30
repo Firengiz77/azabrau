@@ -20,6 +20,16 @@ class Crud
             $request['image'] = $filename;
         }
     }
+    if($table_name === 'App\Models\Product'){
+        if ($request->file('thumbnail')) {
+         $file = $request->file('thumbnail');
+         @unlink(public_path('/upload/product_images/') . $request->thumbnail);
+         $filename = date('YmdHi') . $file->getClientOriginalName();
+         $file->move(public_path('/upload/product_images'), $filename);
+         $request['thumbnail'] = $filename;
+     }
+ }
+
     if($table_name === 'App\Models\Blog'){
         if ($request->file('image')) {
          $file = $request->file('image');

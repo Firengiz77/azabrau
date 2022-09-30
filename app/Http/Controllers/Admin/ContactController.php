@@ -3,11 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Contact;
-use App\Http\Requests\StoreContactRequest;
-use App\Http\Requests\UpdateContactRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\ContactRequest;
 use App\Helpers\Crud;
 
 class ContactController extends Controller
@@ -54,6 +51,7 @@ class ContactController extends Controller
         $data = Contact::find($id);
      
         $data->phone = $request->phone;
+        $data->phone_2 = $request->phone_2;
         $data->address = $request->address;
         $data->email = $request->email;
         $data->fb_link = $request->fb_link;

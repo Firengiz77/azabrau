@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Front\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SalesPointController;
+use App\Http\Controllers\Admin\ProductController;
 
 
 
@@ -57,6 +58,16 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/sales_points/add',[SalesPointController::class,'show'])->name('sales_point_add');
         Route::post('/sales_point/update/{id}',[SalesPointController::class,'update'])->name('sales_update');
         Route::get('/sales_point/delete/{id}',[SalesPointController::class,'destroy'])->name('sales_delete');
+
+
+         // product routes
+    Route::get('/product',[ProductController::class,'index'])->name('product');
+    Route::get('/product/edit/{id}',[ProductController::class,'edit'])->name('product_edit');
+    Route::post('/product/add',[ProductController::class,'create'])->name('product_add');
+    Route::get('/products/add',[ProductController::class,'show'])->name('products_add');
+    Route::post('/product/update/{id}',[ProductController::class,'update'])->name('product_update');
+    Route::get('/product/delete/{id}',[ProductController::class,'destroy'])->name('product_delete');
+
 
 
 

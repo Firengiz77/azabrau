@@ -191,6 +191,26 @@
                   </div>
                 </div>
                 <div class="row mb-3">
+                  <label class="col-sm-2 form-label" for="basic-icon-default-phone">Phone 2</label>
+                  <div class="col-sm-10">
+                    <div class="input-group input-group-merge">
+                      <span id="basic-icon-default-phone2" class="input-group-text"
+                        ><i class="bx bx-phone"></i
+                      ></span>
+                      <input
+                        type="text"
+                        id="basic-icon-default-phone"
+                        class="form-control phone-mask"
+                        placeholder="994 070 888 4581"
+                        name="phone_2"
+                         value="{{ $contact->phone_2 }}"
+                        aria-describedby="basic-icon-default-phone2"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
                   <label class="col-sm-2 col-form-label" for="basic-icon-default-company">Address</label>
                   <div class="col-sm-10 translate">
                     <div class="input-group input-group-merge">
