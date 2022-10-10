@@ -18,6 +18,8 @@
                     <thead>
                       <tr>
                         <th>Name</th>
+                        <th>Surname</th>
+                        <th>Phone</th>
                         <th>Email</th>
                         <th>Message</th>
                         <th>Delete</th>
@@ -28,7 +30,10 @@
      @foreach ($messages as $message )
                       <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->name }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->surname }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->phone }}</strong></td>
                         <td>
+
                          {{ $message->email }}
                         </td>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->message }}</strong></td>

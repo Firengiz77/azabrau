@@ -97,7 +97,12 @@
                 <div data-i18n="Product">Product</div>
               </a>
             </li>
-
+            <li class="menu-item @if(Route::is('admin.page')) active @endif">
+              <a href="{{route('admin.page')}}" class="menu-link">
+                <i class='bx bxs-user-check menu-icon'></i>
+                <div data-i18n="Pages">Pages</div>
+              </a>
+            </li>
 
 
             <li class="menu-item @if(Route::is('admin.sales_point')) active @endif">

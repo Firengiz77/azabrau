@@ -29,6 +29,14 @@ class Crud
          $request['thumbnail'] = $filename;
      }
  }
+ if($table_name === 'App\Models\Pages'){
+    if(isset($request->on_off)){
+        $request->on_off = 1;
+    }
+
+ }
+
+
 
     if($table_name === 'App\Models\Blog'){
         if ($request->file('image')) {

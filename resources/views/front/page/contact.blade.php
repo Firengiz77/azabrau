@@ -1,115 +1,95 @@
 @extends('front.layout.master')
 
 @section('container')
-
-    <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="{{asset('/front/img/breadcrumb.jpg')}}">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb__text">
-                        <h2>Contact Us</h2>
-                        <div class="breadcrumb__option">
-                            <a href="{{route('front.index')}}">Home</a>
-                            <span>Contact Us</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
-    <!-- Contact Section Begin -->
-    <section class="contact spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_phone"></span>
-                        <h4>Phone</h4>
-                        <p>{{ $contact->phone }}</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_pin_alt"></span>
-                        <h4>Address</h4>
-                        <p>{{ $contact->address }}</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_clock_alt"></span>
-                        <h4>Open time</h4>
-                        <p>{{ $contact->open_time }}</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-6 text-center">
-                    <div class="contact__widget">
-                        <span class="icon_mail_alt"></span>
-                        <h4>Email</h4>
-                        <p>{{ $contact->email }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section End -->
-
-    <!-- Map Begin -->
-    <div class="map">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49116.39176087041!2d-86.41867791216099!3d39.69977417971648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886ca48c841038a1%3A0x70cfba96bf847f0!2sPlainfield%2C%20IN%2C%20USA!5e0!3m2!1sen!2sbd!4v1586106673811!5m2!1sen!2sbd"
-            height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-        <div class="map-inside">
-            <i class="icon_pin"></i>
-            <div class="inside-widget">
-                <h4>New York</h4>
-                <ul>
-                    <li>Phone: {{ $contact->phone }}</li>
-                    <li>Add: {{ $contact->address }}</li>
-                </ul>
-            </div>
+   <!--Home Start-->
+   <section id="page-home">
+    <img src="{{ asset('/front/img/products-img.png') }}" alt="">
+    <div class="page-bg"></div>
+    <div class="container">
+        <div class="row">
+            <h1 class="page-head-text">
+                ƏLAQƏ
+            </h1>
+            <p class="page-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
+                sed volutpat.
+            </p>
+            <a class="down-img" href="javascript:void(0)">
+                <img src="{{ asset('/front/img/down-arrow.svg') }}" alt="">
+            </a>
         </div>
     </div>
-    <!-- Map End -->
-
-    <!-- Contact Form Begin -->
-    <div class="contact-form spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="contact__form__title">
-                        <h2>Leave Message</h2>
-                    </div>
+</section>
+<!--Home End-->
+<!--Breadcrumb-->
+<div class="container">
+    <div class="row">
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{{ route('index') }}">
+                    Ana Səhifə
+                </a>
+            </li>
+            <span>/</span>
+            <li class="breadcrumb-item">
+                Əlaqə
+            </li>
+        </ul>
+    </div>
+</div>
+<!--Breadcrumb-->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact">
+                <div class="col-4">
+                    <h3 class="contact-head">
+                        Ünvan
+                    </h3>
+                    <p class="contact-text">
+                {!! json_decode($contact['address'])->{app()->getLocale()} !!}
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h3 class="contact-head">
+                        Telefon
+                    </h3>
+                    <p class="contact-text">
+                        <a href="tel:+{{ str_replace(' ','',$contact->phone )}}">
+                            {{ $contact->phone}}
+                        </a>
+                    </p>
+                    <p class="contact-text">
+                        <a href="tel:+{{ str_replace(' ','',$contact->phone_2) }}">
+                            {{ $contact->phone_2}}
+                        </a>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <h3 class="contact-head">
+                        e-mail
+                    </h3>
+                    <p class="contact-text">
+                        <a href="mailTo:{{ $contact->email }}">
+                          {{ $contact->email }}
+                        </a>
+                    </p>
                 </div>
             </div>
-            @if(session()->has('message'))
-                <div class="alert alert-success">
-                    {{ session()->get('message') }}
-                </div>
-            @endif
 
-            <form action="{{ route('admin.message_add') }}" method="post">
-                @csrf
-                <div class="row">
-                    <div class="col-lg-6 col-md-6">
-                            <input type="text" name="name" placeholder="Your name">
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <input type="text" name="email" placeholder="Your Email">
-                    </div>
-                    <div class="col-lg-12 text-center">
-                        <textarea name="message" placeholder="Your message"></textarea>
-                        <button type="submit" class="site-btn">SEND MESSAGE</button>
-                    </div>
-                </div>
+
+            <form action="{{ route('sendmail2') }}" method="post">
+                <input class="contact-input text-input" type="text" name="name" placeholder="Adınız">
+                <input class="contact-input text-input" type="text" name="surname" placeholder="Soyadınız">
+                <input class="contact-input contact-mail" type="text" name="email" placeholder="E-mail adresi">
+                <input class="contact-input contact-number" type="text" name="phone" placeholder="Telefon nömrəsi">
+                <textarea name="" id="" cols="30" rows="10" name="msj" placeholder="Əlavə qeyd"></textarea>
+                <button class="btn" type="submit">
+                    Göndər
+                </button>
             </form>
         </div>
     </div>
-    <!-- Contact Form End -->
-
-
-
+</section>
+    
 @endsection

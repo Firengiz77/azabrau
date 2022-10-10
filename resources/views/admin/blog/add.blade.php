@@ -74,7 +74,6 @@
                       <input type="hidden" name="title" value='{"az":"","en":"","ru":""}'>
                       <input
                         type="text"
-
                         id="basic-icon-default-company"
                         class="form-control"
                         placeholder="Title"
@@ -83,21 +82,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="row mb-3 translate">
-                  <label class="col-sm-12 col-form-label" for="basic-icon-default-email">Desc</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                      <input type="hidden" name="desc" value='{"az":"","en":"","ru":""}'>
-                      <input
-                        type="text"
-                        id="basic-icon-default-email"
-                        class="form-control"
-                        placeholder="Desc"
-                        aria-describedby="basic-icon-default-email2"
-                      />
-                    </div>
-                  </div>
+                <div class="mb-3 col-md-12 translate">
+                  <label for="" class="form-label">Desc</label>
+                  <input type="hidden" name="desc" value='{"az":"","en":"","ru":""}'>
+                  <textarea
+                    class="form-control" 
+                    id="editor"
+                    ></textarea>
                 </div>
 
           
@@ -178,9 +169,9 @@
     <!-- / Content -->
 
 
-<script src="{{ asset('/admin/js/file-upload.js') }}"></script>
-<script src="{{ asset('/admin/js/translate.js') }}"></script>
-<script src="{{ asset('/admin/vendors/ckeditor.js') }}"></script>
-<script src="{{ asset('/admin/js/cketditor.js') }}"></script>
-<script src="{{ asset('/admin/js/swal.js') }}"></script>
+    <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
+    <script src="{{ asset('/admin/js/translate.js') }}"></script>
+    <script src="{{ asset('/admin/vendors/ckeditor/ckeditor.js') }}"></script>
+        <script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
+    
 @endsection

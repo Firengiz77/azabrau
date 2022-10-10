@@ -1,391 +1,196 @@
 @extends('front.layout.master')
+
 @section('container')
 
 
-    <!-- Hero Section Begin -->
-    <section class="hero">
+    <!--Home Start-->
+    <section id="home">
+        <div class="container home-1">
+            <div class="row">
+                <img src="{{ asset('/front/img/logo2-azabrau.png') }}" alt="">
+                <p class="home-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                </p>
+            </div>
+        </div>
+        <div class="container home-2">
+            <div class="row">
+                <h1 class="head-text">
+                    ŞƏKİ ŞƏRABI
+                </h1>
+                <p class="home-text">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem
+                    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is
+                    simply dummy text of the printing and typesetting industry.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--Home End-->
+    <!--About Start-->
+    <section id="about">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
-                    <div class="hero__categories">
-                        <div class="hero__categories__all">
-                            <i class="fa fa-bars"></i>
-                            <span>All departments</span>
-                        </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
+                <div class="col-5">
+                    <h2 class="about-head">
+                        Haqqımızda
+                    </h2>
+                    <h4 class="about-head-2">
+                        Lorem Ipsum is simply
+                    </h4>
+                    <p class="about-text">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem
+                        Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum
+                        is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text
+                        of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the
+                        printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
+                        typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and
+                        typesetting industry.
+                    </p>
+                    <button class="btn">
+                        Ətraflı
+                    </button>
+                    <div class="texture-1">
+                        <img src="{{ asset('/front/img/texture-1.png') }}" alt="">
                     </div>
                 </div>
-                <div class="col-lg-9">
-                   
-                    <div class="hero__item set-bg" data-setbg="{{  (!empty($slider->image)? url('upload/slider_images/'.$slider->image):asset('/admin/assets/img/avatars/1.png')  )}}">
-                        <div class="hero__text">
-                            <span>FRUIT FRESH</span>
-                            <h2>Vegetable <br />100% Organic</h2>
-                            <p>Free Pickup and Delivery Available</p>
-                            <a href="{{ $slider->alt }}" class="primary-btn">SHOP NOW</a>
+                <div class="col-6">
+                    <img src="{{ asset('/front/img/about-img.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--About End-->
+    <!--Products Start-->
+    <section id="products">
+        <div class="container">
+            <div class="row">
+                <h2 class="page-head">
+                    Məhsullar
+                </h2>
+            </div>
+        </div>
+        <div class="owl-carousel owl-theme product-slider">
+            <div class="item">
+                <div class="bg"></div>
+                <img src="{{ asset('/front/img/sharab.png') }}" alt="">
+                <div class="product-text">
+                    <h4 class="product-head">
+                        Gücləndirilmiş şərab
+                        “Ağdam Ağ Şərab”
+                    </h4>
+                    <p class="product-body">
+                        Çeşid: 100% Qırmızı spirtli içkilər
+                        Spirt: 19%
+                    </p>
+                    <button class="btn">
+                        Ətraflı
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="texture-2">
+            <img src="{{ asset('/front/img/texture-2.png') }}" alt="">
+        </div>
+    </section>
+    <!--Products End-->
+    <!--Home Gif Start-->
+    <section id="home-gif">
+        <div class="gif">
+            <img src="{{ asset('/front/img/home-gif.gif') }}" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="gif-text">
+                        <h2 class="gif-head">
+                            ŞƏRABÇILIQ
+                            BİZİM İŞİMİZDİR!
+                        </h2>
+                        <p class="gif-body">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting
+                            industry. Lorem Ipsum has. Lorem Ipsum is simply dummy.
+                        </p>
+                        <button class="btn white-btn">
+                            Ətraflı
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Home Gif End-->
+    <!--Brends Start-->
+    <section id="brends">
+        <div class="container">
+            <div class="row">
+                <h2 class="page-head">
+                    Brendlər
+                </h2>
+                <div class="brends">
+                    <img src="{{ asset('/front/img/brends.png') }}" alt="">
+                    <div class="container">
+                        <div class="az-brends">
+                            <h3 class="az-head">
+                                AZERBAYCAN
+                                ŞƏRABI
+                            </h3>
+                            <form action="" method="get">
+                                <button class="btn white-btn">
+                                    Ətraflı
+                                </button>
+                            </form>
+                        </div>
+                        <div class="ru-brends">
+                            <h3 class="ru-head">
+                                RUSİYA
+                                ŞƏRABI
+                            </h3>
+                            <form action="" method="get">
+                                <button class="btn white-btn">
+                                    Ətraflı
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Hero Section End -->
+    <!--Brends End-->
+    @php
+         $news2= App\Models\Blog::get();
+    @endphp
+    <!--News Start-->
+    <section id="news">
+        <h2 class="page-head">
+            Xəbərlər
+        </h2> 
+        <div class="owl-carousel owl-theme news-slider">
 
-    <!-- Featured Section Begin -->
-    <section class="featured spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Featured Product</h2>
+            @foreach ($news2 as $news)
+            <div class="item">
+                <a href="#">
+                    <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
+                    <div class="news-text">
+                        <h3 class="news-head">
+                            {!! json_decode($news['name'])->{app()->getLocale()} !!}
+                        </h3>
+                        <p class="news-date">
+                            {{ date('d.m.Y', strtotime($news->created_at))  }}
+                        </p>
                     </div>
-                    <div class="featured__controls">
-                        <ul>
-                            <li class="active" data-filter="*">All</li>
-                            <li data-filter=".oranges">Oranges</li>
-                            <li data-filter=".fresh-meat">Fresh Meat</li>
-                            <li data-filter=".vegetables">Vegetables</li>
-                            <li data-filter=".fastfood">Fastfood</li>
-                        </ul>
+                    <div class="texture-3">
+                        <img src="{{ asset('/front/img/texture-3.png') }}" alt="">
                     </div>
-                </div>
+                    <div class="texture-4">
+                        <img src="{{ asset('/front/img/texture-4.png') }}" alt="">
+                    </div>
+                </a>
             </div>
-            <div class="row featured__filter">
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-1.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix vegetables fresh-meat">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood oranges">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fastfood">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fresh-meat vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6 mix fastfood vegetables">
-                    <div class="featured__item">
-                        <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
-                            <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="featured__item__text">
-                            <h6><a href="#">Crab Pool Security</a></h6>
-                            <h5>$30.00</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            @endforeach
         </div>
     </section>
-    <!-- Featured Section End -->
+    <!--News End-->
 
-    <!-- Banner Begin -->
-    <div class="banner">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{asset('/front/img/banner/banner-1.jpg')}}" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="banner__pic">
-                        <img src="{{asset('/front/img/banner/banner-2.jpg')}}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Banner End -->
-
-    <!-- Latest Product Section Begin -->
-    <section class="latest-product spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Latest Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="latest-product__text">
-                        <h4>Top Rated Products</h4>
-                        <div class="latest-product__slider owl-carousel">
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="latest-prdouct__slider__item">
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-1.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-2.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="latest-product__item">
-                                    <div class="latest-product__item__pic">
-                                        <img src="img/latest-product/lp-3.jpg" alt="">
-                                    </div>
-                                    <div class="latest-product__item__text">
-                                        <h6>Crab Pool Security</h6>
-                                        <span>$30.00</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-        </div>
-    </section>
-    <!-- Latest Product Section End -->
-
-    <!-- Blog Section Begin -->
-    <section class="from-blog spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title from-blog__title">
-                        <h2>From The Blog</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-
-                @foreach ($blogs as $blog )
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <div class="blog__item">
-                        <div class="blog__item__pic">
-                            <img src="{{  (!empty($blog->image)? url('upload/blog_images/'.$blog->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt=" {!! json_decode($blog['name'])->{app()->getLocale()} !!}">
-                        </div>
-                        <div class="blog__item__text">
-                            <ul>
-                                <li><i class="fa fa-calendar-o"></i> {{ date('M m,Y', strtotime($blog->created_at)) }}</li>
-                            </ul>
-                            <h5><a href="#">{!! json_decode($blog['name'])->{app()->getLocale()} !!}</a></h5>
-                            <p>{!! json_decode($blog['title'])->{app()->getLocale()} !!} </p>
-                            <a href="{{ route('front.blog_single',['slug'=>$blog->slug]) }}" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-              
-
-
-            </div>
-        </div>
-    </section>
-    <!-- Blog Section End -->
-
-
-
-
-
+    
 @endsection

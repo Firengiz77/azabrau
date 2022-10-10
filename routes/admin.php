@@ -6,10 +6,10 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\MessageController;
-use App\Http\Controllers\Front\UserController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SalesPointController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PagesController;
 
 
 
@@ -33,7 +33,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
   Route::get('/contact/delete/{id}',[ContactController::class,'destroy'])->name('contact_delete');
 
 
-   // Blog routes
+   // Blog news routes
    Route::get('/news',[BlogController::class,'index'])->name('blog');
    Route::get('/news/add',[BlogController::class,'show'])->name('blogs_add');
    Route::get('/news/edit/{id}',[BlogController::class,'edit'])->name('blog_edit');
@@ -47,7 +47,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/category/add',[CategoryController::class,'create'])->name('category_add');
     Route::post('/category/update/{id}',[CategoryController::class,'update'])->name('category_update');
     Route::get('/category/delete/{id}',[CategoryController::class,'destroy'])->name('category_delete');
-
 
 
 
@@ -69,6 +68,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/product/delete/{id}',[ProductController::class,'destroy'])->name('product_delete');
 
 
+   // pages routes
+   Route::get('/page',[PagesController::class,'index'])->name('page');
+   Route::get('/page/edit/{id}',[PagesController::class,'edit'])->name('page_edit');
+   Route::post('/page/add',[PagesController::class,'create'])->name('page_add');
+   Route::get('/pages/add',[PagesController::class,'show'])->name('pages_add');
+   Route::post('/page/update/{id}',[PagesController::class,'update'])->name('page_update');
+   Route::get('/page/delete/{id}',[PagesController::class,'destroy'])->name('page_delete');
 
 
 

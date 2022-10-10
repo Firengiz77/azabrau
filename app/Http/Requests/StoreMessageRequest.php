@@ -26,7 +26,9 @@ class StoreMessageRequest extends FormRequest
         return [
             'name'=>'required',
             'email'=>'required',
-            'message'=>'required'
+            'msj'=>'required',
+            'surname'=>'required',
+            'phone'=>'required'
         ];
     }
 }

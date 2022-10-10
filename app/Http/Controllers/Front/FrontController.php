@@ -6,40 +6,129 @@ use App\Models\Blog;
 use App\Models\Slider;
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Models\Pages;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Route;
+use App\Http\Resources\PageResource;
+use App\Http\Request\StoreMessageRequest;
+use App\Models\Sales_Point;
 
 class FrontController extends Controller
 {
-    public function __construct()
+
+    public function getPage( $slug = "/" , $project_slug = null)
     {
+     
+        $lang = App::getlocale();
+        
+        // $projects_page_slug = Seo::where('id', 1)->first();
+        
+        if ($lang == "en") {
+            // $projects_page_slug = $projects_page_slug->slug_en;
+            $page = Pages::where("slug_en", $slug)->first();
+        }
+        else if ($lang == "ru") {
+            // $projects_page_slug = $projects_page_slug->slug_ru;
+            $page = Pages::where("slug_ru", $slug)->first();
+        }
+        else {
+            // $projects_page_slug = $projects_page_slug->slug_az;
+            $page = Pages::where("slug_az", $slug)->first();
+        }
+
+        $view = $page['viewname'];
+        $route = $page['route'];
+        $current_route = Route::currentRouteName();
+        if (empty($current_route)) {
+            $current_route = $route;
+        }
+        if ($page['parent_id'] > 0) {
+            $page_id = $page['parent_id'];
+            $current_route = "#";
+        } else {
+            $page_id = $page['page_id'];
+        }
+        $fallback = config('app.locale');
+        $seos0 = Pages::where('on_off',1)->orderBy('page_id','asc')->get();
+        $pagescollection = PageResource::collection($seos0);
+        $pagess = $pagescollection->toArray($seos0);
         $contact = Contact::first();
-        \View::share('contact', $contact);
-       
+        $maps= Sales_Point::get();
+        
+
+        // $seos1 = Pages::where('on_off',0)->where('aca_stu',1)->get();
+        // $pagescollection1 = PageResource::collection($seos1);
+        // $pagess1 = $pagescollection1->toArray($seos1);
+
+        // $feeds = Profile::where('username', 'tuttobellobaku')->first()->refreshFeed(4);
+        $feeds = [];
+        
+            return view('front.page.' . $view,)->
+            with([
+            'pagess' => $pagess, 'page' => $page, 
+            'route' => $route, 'current_slug' => $slug, 
+            'current_route' => $current_route, 
+            'page_id' => $page_id,
+            "fallback"=>$fallback, 'project_slug'=>$project_slug,
+            'feeds'=>$feeds, 'seos'=>$seos0,'contact'=>$contact,'maps'=>$maps
+       ]);
     }
-    public function index(){
-        $slider = Slider::first();
-        $blogs = Blog::orderBy('id','asc')->get();
-        return view('front.page.index',compact('slider','blogs'));
+
+
+    public static function getChildPage($parent_id): array
+    {
+        $seos = Pages::where('parent_id', $parent_id)->get();
+        $pagescollection = PageResource::collection($seos);
+        $childPages = $pagescollection->toArray($seos);
+
+        return $childPages;
     }
-    public function contact(){
+
+    public static function getParentPage($page_id): array
+    {
+        $seos = Pages::where('page_id', $page_id)->get();
+        $pagescollection = PageResource::collection($seos);
+        $parentPages = $pagescollection->toArray($seos);
+        return $parentPages;
+    }
+
+
+
+    public function sendmail2(Request $request,StoreMessageRequest $request2){
       
-        return view('front.page.contact');
-    }
-    public function blog(){
-        $blogs = Blog::orderBy('created_at','asc')->paginate(10);
-        $related_blogs = Blog::orderBy('created_at','desc')->take(2)->get();
-        return view('front.page.blog',compact('blogs','related_blogs'));
+        $valiator = $request2->validated();
+        $messagess = Messages::create($request2->all());
+        $messagess->save();
+
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required',
+            'msj'=>'required',
+            'surname'=>'required',
+            'phone'=>'required',
+       
+        ]);
+        $email='firengizsariyeva77@gmail.com'; 
+        $array = [
+           'name'=> $request->name,
+           'email'=> $request->email, 
+           'msj'=>$request->msj,
+           'surname'=>$request->surname,
+           'phone'=>$request->phone,
+        ]; 
+        Mail::send('front.sendmail', $array,  function ($message) use($email)  {
+              $message->to( $email, 'Az Abrau');
+              $message->subject('Az Abrau');
+
+ 
+        });  
+              
+                return redirect()->back();
+         
+    
     }
 
-    public function blog_single($slug){
-        $blog = Blog::where('slug',$slug)->first();
-        $related_blogs = Blog::orderBy('created_at','desc')->take(3)->get();
-        return view('front.page.blog_single',compact('blog','related_blogs'));
-    }
-
-    public function shop(){
-        return view('front.page.shop');
-    }
 
 
 }
