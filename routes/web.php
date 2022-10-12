@@ -15,7 +15,7 @@ Route::get('/en/filter',[FrontController::class,'filter'])->name('filter_en');
 Route::get('/en/filter_all',[FrontController::class,'filter_all'])->name('filter_all_en');
 Route::get('/ru/filter',[FrontController::class,'filter'])->name('filter_ru');
 Route::get('/ru/filter_all',[FrontController::class,'filter_all'])->name('filter_all_ru');
-
+Route::get('search',[FrontController::class, 'search']);
 
 
 

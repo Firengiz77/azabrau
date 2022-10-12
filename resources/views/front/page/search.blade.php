@@ -1,18 +1,13 @@
 @extends('front.layout.master')
 
-@section('container')
-
-
 @php
-    $product = App\Models\Product::where('slug_'.App::getLocale(),request()->segment(3))->orWhere('slug_'.App::getLocale(),request()->segment(4))->first();
-    $category = App\Models\Category::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
-    $product_all = App\Models\Product::where('cat_id',$category->id)->get();
+    $search_text=$_GET['search_field'];
+    $product = App\Models\Product::where('name','LIKE','%'.$search_text.'%')->first();
     $page_products= App\Models\Pages::where('page_id',4)->first();
+    $contact = App\Models\Contact::first();
 @endphp
 
-@section('title'){!! json_decode($product['name'])->{app()->getLocale()} !!}@endsection
-@section('description'){{substr($product['title'], 0, 155)}}@endsection
-
+@section('container')
 
    <!--Home Start-->
     <!--Breadcrumb-->
@@ -159,47 +154,6 @@
     </section>
     <!--Product About End-->
 
-    <!--Products Start-->
-    <section id="products">
-        <div class="container">
-            <div class="row">
-                <h2 class="page-head">
-                    Digər Məhsullar
-                </h2>
-            </div>
-        </div>
-        <div class="owl-carousel owl-theme product-slider">
 
-          
-               
-   @foreach ($product_all as $p_all )
-       
- 
-            <div class="item">
-                <div class="bg"></div>
-                <img src="{{  (!empty($p_all->thumbnail)? url('upload/product_images/'.$p_all->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
-                <div class="product-text">
-                    <h4 class="product-head">
-                        {{ $p_all->translate('name', app()->getLocale()) }}
-                    </h4>
-                    <p class="product-body">
-                        Çeşid: {{ $p_all->translate('cesid', app()->getLocale()) }}
-                        Spirt:  {{ $p_all->spirt }}
-                    </p>
-                <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()} ]) }}">    <button class="btn">
-                        Ətraflı
-                    </button>
-                </a>
-                </div>
-            </div>
-            @endforeach
-       
-       
-        </div>
-        <div class="texture-6">
-            <img src="{{ asset('/front/img/texture-6.png') }}" alt="">
-        </div>
-    </section>
-    <!--Products End-->
-    
 @endsection
+

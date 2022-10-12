@@ -95,11 +95,12 @@
                    
                     </ul>
                 </nav>
-                <form class="search" action="">
+                <form class="search" action="{{url('/search')}}" method="get">
+                @csrf
                     <a href="javascript:void(0)">
                         <img class="open-search" src="{{ asset('/front/img/search.svg') }}" alt="">
                     </a>
-                    <input class="search-input" type="text">
+                    <input class="search-input"  name="search_field"  type="text">
                     <img class="close-search" src="{{ asset('/front/img/x-icon.png') }}" alt="">
                 </form>
                 <div class="social">
@@ -113,7 +114,7 @@
                         <img src="{{ asset('/front/img/lang.svg') }}" alt="">
                         <ul class="lang">
 
-                            
+                        @if($page->route !=='search')
                                 @if(Route::is('index'))
                                 @if(app()->getLocale() === 'az')
                                 <li>  <a href="/" class="active">Az</a></li>
@@ -146,8 +147,7 @@
                                 <li>  <a  href="/ru/{{ $page->slug_ru }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_ru){{ '/'.$blog->slug_ru }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_ru){{ '/'.$product_s['category']['slug_ru'] }}@endif{{ '/'.$product_s->slug_ru }}@endforeach  @endif" >Ru</a>  </li>
                             
 
-
-
+                                @endif
                                 @endif
                         
 
