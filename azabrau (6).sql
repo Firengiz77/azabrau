@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 10, 2022 at 01:48 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Anamakine: 127.0.0.1
+-- Üretim Zamanı: 12 Eki 2022, 13:51:34
+-- Sunucu sürümü: 10.4.25-MariaDB
+-- PHP Sürümü: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `azabrau`
+-- Veritabanı: `azabrau`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blogs`
+-- Tablo için tablo yapısı `blogs`
 --
 
 CREATE TABLE `blogs` (
@@ -33,7 +33,7 @@ CREATE TABLE `blogs` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_az` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -41,41 +41,50 @@ CREATE TABLE `blogs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `blogs`
+-- Tablo döküm verisi `blogs`
 --
 
-INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
-(7, '202210100755aesop-wines-yH6kh_DGBHY-unsplash 2.png', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. az</p>\\n\",\"en\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. en</p>\\n\",\"ru\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. ru</p>\\n\"}', 'news-1-az', 'news-1-en', 'news-1-ru', '2022-10-10 03:55:21', '2022-10-10 06:03:04'),
-(8, '202210100756nathaniel-kohfield-EMrhlmTDUSg-unsplash 1.png', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', 'news-2-az', 'news-2-en', 'news-2-ru', '2022-10-10 03:56:07', '2022-10-10 03:56:07'),
-(9, '202210100756aesop-wines-yH6kh_DGBHY-unsplash 2.png', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', 'news-3-az', 'news-3-en', 'news-3-ru', '2022-10-10 03:56:30', '2022-10-10 03:56:30'),
-(10, '202210101019slider1.jpg', '{\"az\":\"asdf\",\"en\":\"asdf\",\"ru\":\"asdf\"}', '{\"az\":\"asdf\",\"en\":\"asfd\",\"ru\":\"asfd\"}', '{\"az\":\"<p>asdfasdf</p>\\n\",\"en\":\"<p>safasdf</p>\\n\",\"ru\":\"<p>asdf</p>\\n\"}', 'asdf', 'asdf', 'asdf', '2022-10-10 06:19:47', '2022-10-10 06:19:47');
+INSERT INTO `blogs` (`id`, `image`, `name`, `title`, `desc`, `slug_az`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
+(7, '202210100755aesop-wines-yH6kh_DGBHY-unsplash 2.png', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. az</p>\\n\",\"en\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. en</p>\\n\",\"ru\":\"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. A rhoncus turpis phasellus nec. Sed elementum ut lobortis cras cursus quisque. Lobortis lobortis dolor facilisi purus dui magna libero tortor vitae. Purus nisl tincidunt molestie non. At in pellentesque arcu, congue pharetra velit. Quis malesuada montes, commodo in.<br />\\nSit volutpat volutpat ante neque at. A, nulla sed proin pharetra lorem sed proin commodo. Eros lorem sed mus pretium. Fermentum ornare sit magna scelerisque nibh. Amet, a nibh pulvinar auctor et sollicitudin aliquet nibh non. Elementum convallis a in donec a laoreet vel. Vulputate consequat parturient nisi ac aliquet. Fusce arcu eleifend sed nec. Ipsum eget quam leo nisi ut. Ac nec aliquam, quis neque. Lorem nisl platea faucibus dapibus ac auctor fermentum, donec non. Donec urna neque senectus iaculis tristique mattis gravida in volutpat. A, elit vel non molestie magna tincidunt pretium sollicitudin. Mauris ultrices risus ut enim vestibulum eget maecenas metus porttitor.<br />\\nGravida imperdiet et, id in vestibulum scelerisque. Enim vitae ornare quis euismod. Porttitor amet, leo quam quis. Facilisis donec libero purus massa netus amet. Ac laoreet facilisis in in auctor ut tristique sed. Pharetra tortor aliquam posuere odio risus at lobortis. Lorem etiam quis dictum nulla in massa. Varius augue in sem congue nullam hendrerit nunc. Sed porta dolor non semper iaculis ultrices. Et lectus natoque erat donec tellus, ante. ru</p>\\n\"}', 'news-7-az', 'news-7-en', 'news-7-ru', '2022-10-10 03:55:21', '2022-10-12 03:25:09'),
+(8, '202210100756nathaniel-kohfield-EMrhlmTDUSg-unsplash 1.png', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', '{\"az\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası az\",\"en\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası en\",\"ru\":\"Abrau Winonah De - alkoqolsuz sərinləşdirici içkilərin yeni kolleksiyası ru\"}', 'news-8-az', 'news-8-en', 'news-8-ru', '2022-10-10 03:56:07', '2022-10-11 06:07:46'),
+(9, '202210100756aesop-wines-yH6kh_DGBHY-unsplash 2.png', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', '{\"az\":\"sdfg\",\"en\":\"sdf\",\"ru\":\"sdfg\"}', 'news-9-az', 'news-9-en', 'news-9-ru', '2022-10-10 03:56:30', '2022-10-11 06:07:56'),
+(10, '202210101019slider1.jpg', '{\"az\":\"asdf\",\"en\":\"asdf\",\"ru\":\"asdf\"}', '{\"az\":\"asdf\",\"en\":\"asfd\",\"ru\":\"asfd\"}', '{\"az\":\"<p>asdfasdf</p>\\n\",\"en\":\"<p>safasdf</p>\\n\",\"ru\":\"<p>asdf</p>\\n\"}', 'news-10-az', 'news-10-en', 'news-10-ru', '2022-10-10 06:19:47', '2022-10-11 06:07:36');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Tablo için tablo yapısı `categories`
 --
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_az` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cat_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '0',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `categories`
+-- Tablo döküm verisi `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`, `cat_id`, `created_at`, `updated_at`) VALUES
-(7, '{\"az\":\"dfghdfgh\",\"en\":\"jlkjlk\",\"ru\":\"loujol\"}', NULL, '2022-09-30 02:00:55', '2022-09-30 02:00:55'),
-(8, '{\"az\":\"iop;uio\",\"en\":\"rtyurty\",\"ru\":\"ftyuftyu\"}', NULL, '2022-09-30 02:01:01', '2022-09-30 02:01:01');
+INSERT INTO `categories` (`id`, `name`, `slug_az`, `slug_en`, `slug_ru`, `cat_id`, `created_at`, `updated_at`) VALUES
+(9, '{\"az\":\"Şəki şərabı az\",\"en\":\"Şəki şərabı\",\"ru\":\"Şəki şərabı ru\"}', 'seki-serabi-az', 'seki-serabi-en', 'seki-serabi-ru', '0', '2022-10-11 03:03:23', '2022-10-11 05:35:08'),
+(10, '{\"az\":\"AzAbrau az\",\"en\":\"AzAbrau\",\"ru\":\"AzAbrau ru\"}', 'azabrau-az', 'azabrau-en', 'azabrau-ru', '0', '2022-10-11 03:03:36', '2022-10-11 05:35:45'),
+(11, '{\"az\":\"Yüngül şərablar az\",\"en\":\"Yüngül şərablar\",\"ru\":\"Yüngül şərablar ru\"}', 'yungul-serablar-az', 'yungul-serablar-en', 'yungul-serablar-ru', '9', '2022-10-11 03:03:47', '2022-10-11 05:37:35'),
+(12, '{\"az\":\"Portveyn az\",\"en\":\"Portveyn\",\"ru\":\"Portveyn ru\"}', 'portveyn-az', 'portveyn-en', 'portveyn-ru', '9', '2022-10-11 03:03:55', '2022-10-11 05:36:13'),
+(13, '{\"az\":\"Alkaqolsuz içkilər az\",\"en\":\"Alkaqolsuz içkilər\",\"ru\":\"Alkaqolsuz içkilər ru\"}', 'alkaqolsuz-ickiler-az', 'alkaqolsuz-ickiler-en', 'alkaqolsuz-ickiler-ru', '10', '2022-10-11 03:04:14', '2022-10-11 05:37:52'),
+(14, '{\"az\":\"Yüksək alkoqollu içkilər az\",\"en\":\"Yüksək alkoqollu içkilər\",\"ru\":\"Yüksək alkoqollu içkilər ru\"}', 'yuksek-alkoqollu-ickiler-az', 'yuksek-alkoqollu-ickiler-en', 'yuksek-alkoqollu-ickiler-ru', '10', '2022-10-11 03:04:25', '2022-10-11 05:38:00'),
+(15, '{\"az\":\"Köpüklü şərablar az\",\"en\":\"Köpüklü şərablar\",\"ru\":\"Köpüklü şərablar ru\"}', 'kopuklu-serablar-az', 'kopuklu-serablar-en', 'kopuklu-serablar-ru', '10', '2022-10-11 03:04:35', '2022-10-11 05:38:04'),
+(16, '{\"az\":\"Yüngül şərablar az\",\"en\":\"Yüngül şərablar\",\"ru\":\"Yüngül şərablar ru\"}', 'yungul-serablar-az', 'yungul-serablar-en', 'yungul-serablar-ru', '10', '2022-10-11 03:04:45', '2022-10-11 05:38:09');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `contacts`
+-- Tablo için tablo yapısı `contacts`
 --
 
 CREATE TABLE `contacts` (
@@ -92,7 +101,7 @@ CREATE TABLE `contacts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `contacts`
+-- Tablo döküm verisi `contacts`
 --
 
 INSERT INTO `contacts` (`id`, `phone`, `phone_2`, `address`, `email`, `fb_link`, `wp_link`, `insta_link`, `created_at`, `updated_at`) VALUES
@@ -101,7 +110,7 @@ INSERT INTO `contacts` (`id`, `phone`, `phone_2`, `address`, `email`, `fb_link`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `failed_jobs`
+-- Tablo için tablo yapısı `failed_jobs`
 --
 
 CREATE TABLE `failed_jobs` (
@@ -117,7 +126,7 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messages`
+-- Tablo için tablo yapısı `messages`
 --
 
 CREATE TABLE `messages` (
@@ -134,7 +143,7 @@ CREATE TABLE `messages` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migrations`
+-- Tablo için tablo yapısı `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -144,7 +153,7 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `migrations`
+-- Tablo döküm verisi `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
@@ -165,7 +174,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pages`
+-- Tablo için tablo yapısı `pages`
 --
 
 CREATE TABLE `pages` (
@@ -195,22 +204,23 @@ CREATE TABLE `pages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `pages`
+-- Tablo döküm verisi `pages`
 --
 
 INSERT INTO `pages` (`id`, `page_az`, `page_en`, `page_ru`, `slug_az`, `slug_en`, `slug_ru`, `title_az`, `title_en`, `title_ru`, `description_az`, `description_en`, `description_ru`, `keywords_az`, `keywords_en`, `keywords_ru`, `viewname`, `route`, `parent_id`, `on_off`, `page_id`, `created_at`, `updated_at`) VALUES
 (1, 'Home Page', 'Home Page', 'Home Page', '/', '/', '/', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'Home Page', 'index', 'index', '0', '0', '11', '2022-10-10 00:41:25', '2022-10-10 02:14:53'),
 (2, 'Contact-az', 'Contact-en', 'Contact-ru', 'elaqe', 'contact', 'contact-ru', 'Contact', 'Contact', 'Contact', 'Contact', 'Contact', 'Contact', 'Contact', 'Contact', 'Contact', 'contact', 'contact', '0', '1', '5', '2022-10-10 01:27:45', '2022-10-10 02:15:04'),
 (4, 'Haqqimizda', 'About', 'About-ru', 'haqqimizda', 'about', 'about-ru', 'Haqqimizda', 'About', 'About-ru', 'Haqqimizda', 'About', 'About-ru', 'Haqqimizda', 'About', 'About-ru', 'about', 'about', '0', '1', '1', '2022-10-10 02:12:21', '2022-10-10 02:12:21'),
-(5, 'AZ ABRAU', 'AZ ABRAU', 'AZ ABRAU', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', '0', '1', '2', '2022-10-10 02:14:00', '2022-10-10 02:14:00'),
+(5, 'AZ ABRAU', 'AZ ABRAU', 'AZ ABRAU', 'mehsullar', 'products', 'products-ru', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'azabrau', 'products', 'products', '0', '1', '2', '2022-10-10 02:14:00', '2022-10-11 02:57:18'),
 (6, 'SATIŞ MƏNTƏQƏLƏRİ', 'SATIŞ MƏNTƏQƏLƏRİ-en', 'SATIŞ MƏNTƏQƏLƏRİ-ru', 'satis-menteqeleri', 'satis-menteqeleri-en', 'satis-menteqeleri-ru', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis_menteqeleri', 'satis_menteqeleri', '0', '1', '3', '2022-10-10 02:14:46', '2022-10-10 02:14:46'),
 (7, 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'xeberler', 'news', 'xeberler-ru', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'news', 'news', '0', '1', '4', '2022-10-10 02:15:39', '2022-10-10 02:15:39'),
-(8, 'Single News', 'Single News', 'Single News', 'single-news', 'single-news-en', 'single-news-ru', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'news_single', 'news_single', '0', '0', '7', '2022-10-10 07:27:29', '2022-10-10 07:27:33');
+(8, 'Single News', 'Single News', 'Single News', 'xeberler', 'news', 'xeberler-ru', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'news_single', 'news_single', '0', '0', '7', '2022-10-10 07:27:29', '2022-10-12 02:43:52'),
+(9, 'Single Product', 'Single Product', 'Single Product', 'mehsullar', 'products', 'products-ru', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single_product', 'single_product', '0', '0', '9', '2022-10-11 03:56:33', '2022-10-12 02:47:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_resets`
+-- Tablo için tablo yapısı `password_resets`
 --
 
 CREATE TABLE `password_resets` (
@@ -222,7 +232,7 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `personal_access_tokens`
+-- Tablo için tablo yapısı `personal_access_tokens`
 --
 
 CREATE TABLE `personal_access_tokens` (
@@ -241,7 +251,7 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Tablo için tablo yapısı `products`
 --
 
 CREATE TABLE `products` (
@@ -266,10 +276,18 @@ CREATE TABLE `products` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Tablo döküm verisi `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `cesid`, `spirt`, `thumbnail`, `title`, `menseyi`, `istehsal_il`, `desc`, `terkibi`, `uygunluq`, `temp`, `saxlama_formasi`, `cat_id`, `slug_az`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
+(2, '{\"az\":\"Sarab 1 az edited\",\"en\":\"Sarab 1 en edited\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '25', '202210120750koton.jpg', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Baku\",\"en\":\"Baku en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"1999\",\"en\":\"1999\",\"ru\":\"1999\"}', '{\"az\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"en\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"ru\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; ru</p>\\n\"}', '{\"az\":\"Spirt\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"ela\",\"en\":\"ela\",\"ru\":\"Sarab 1 ru\"}', '12', '{\"az\":\"quru yerde saxlayin az\",\"en\":\"quru yerde saxlayin en\",\"ru\":\"quru yerde saxlayin\"}', '11', 'sarab-1-az', 'sarab-1-en', 'sarab-1-ru', '2022-10-11 03:22:14', '2022-10-12 03:50:49'),
+(5, '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '202210110736sharab.png', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"2333\",\"en\":\"345\",\"ru\":\"3444\"}', '{\"az\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). az</p>\\n\",\"en\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). en</p>\\n\",\"ru\":\"<p>m Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by ru</p>\\n\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '{\"az\":\"sarab 2 az\",\"en\":\"f\",\"ru\":\"sarab2  ru\"}', '13', 'sarab-2-az', 'sarab-2-en', 'sarab-2-ru', '2022-10-11 03:36:13', '2022-10-12 03:21:02');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sales__points`
+-- Tablo için tablo yapısı `sales__points`
 --
 
 CREATE TABLE `sales__points` (
@@ -284,7 +302,7 @@ CREATE TABLE `sales__points` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sales__points`
+-- Tablo döküm verisi `sales__points`
 --
 
 INSERT INTO `sales__points` (`id`, `name`, `address`, `link`, `phone_1`, `phone_2`, `created_at`, `updated_at`) VALUES
@@ -295,7 +313,7 @@ INSERT INTO `sales__points` (`id`, `name`, `address`, `link`, `phone_1`, `phone_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sliders`
+-- Tablo için tablo yapısı `sliders`
 --
 
 CREATE TABLE `sliders` (
@@ -308,17 +326,17 @@ CREATE TABLE `sliders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `sliders`
+-- Tablo döküm verisi `sliders`
 --
 
 INSERT INTO `sliders` (`id`, `image`, `title`, `desc`, `created_at`, `updated_at`) VALUES
-(11, '202209300706team-img-1.png', '{\"az\":\"title az\",\"en\":\"title EN\",\"ru\":\"title ru\"}', '{\"az\":\"<p>ru</p>\\n\",\"en\":\"<p>en</p>\\n\",\"ru\":\"<p>sdgsd</p>\\n\"}', '2022-09-30 03:06:40', '2022-09-30 03:06:40'),
-(12, '202209300707Arter_logo-(slogan) 1.png', '{\"az\":\"dtd b az\",\"en\":\"tfhdh en\",\"ru\":\"rururu\"}', '{\"az\":\"<p>r dt dfg az</p>\\n\",\"en\":\"<p>dhthngh en</p>\\n\",\"ru\":\"<p>rurudyfgh</p>\\n\"}', '2022-09-30 03:07:04', '2022-09-30 03:07:04');
+(11, '202209300706team-img-1.png', '{\"az\":\"ŞƏKİ ŞƏRABI\",\"en\":\"ŞƏKİ ŞƏRABI en\",\"ru\":\"ŞƏKİ ŞƏRABI ru\"}', '{\"az\":\"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry. az</p>\\n\",\"en\":\"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry. en</p>\\n\",\"ru\":\"<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and typesetting industry.</p>\\n\"}', '2022-09-30 03:06:40', '2022-10-12 03:04:52'),
+(12, '202210120700slider1.png', '{\"az\":\"az Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has\",\"en\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has\",\"ru\":\"ru Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has\"}', '{\"az\":\"\",\"en\":\"\",\"ru\":\"\"}', '2022-09-30 03:07:04', '2022-10-12 03:00:15');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tablo için tablo yapısı `users`
 --
 
 CREATE TABLE `users` (
@@ -336,7 +354,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `users`
+-- Tablo döküm verisi `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `admin_status`, `image`, `superadmin`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
@@ -346,60 +364,60 @@ INSERT INTO `users` (`id`, `name`, `email`, `admin_status`, `image`, `superadmin
 (5, 'firengizsariyeva79@gmail.com', 'firengizsariyeva79@gmail.com', 1, NULL, '2', NULL, '$2y$10$d0NJmcd34OcTddUHAtVi6uwmuwmBhl38D7lc0vHMlB5n888v23SHy', NULL, '2022-09-01 04:06:18', '2022-09-01 04:06:18');
 
 --
--- Indexes for dumped tables
+-- Dökümü yapılmış tablolar için indeksler
 --
 
 --
--- Indexes for table `blogs`
+-- Tablo için indeksler `blogs`
 --
 ALTER TABLE `blogs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categories`
+-- Tablo için indeksler `categories`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `contacts`
+-- Tablo için indeksler `contacts`
 --
 ALTER TABLE `contacts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `failed_jobs`
+-- Tablo için indeksler `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
--- Indexes for table `messages`
+-- Tablo için indeksler `messages`
 --
 ALTER TABLE `messages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `migrations`
+-- Tablo için indeksler `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pages`
+-- Tablo için indeksler `pages`
 --
 ALTER TABLE `pages`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `password_resets`
+-- Tablo için indeksler `password_resets`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indexes for table `personal_access_tokens`
+-- Tablo için indeksler `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
@@ -407,102 +425,102 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
--- Indexes for table `products`
+-- Tablo için indeksler `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sales__points`
+-- Tablo için indeksler `sales__points`
 --
 ALTER TABLE `sales__points`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `sliders`
+-- Tablo için indeksler `sliders`
 --
 ALTER TABLE `sliders`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Tablo için indeksler `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
 --
--- AUTO_INCREMENT for table `blogs`
+-- Tablo için AUTO_INCREMENT değeri `blogs`
 --
 ALTER TABLE `blogs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `categories`
+-- Tablo için AUTO_INCREMENT değeri `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `contacts`
+-- Tablo için AUTO_INCREMENT değeri `contacts`
 --
 ALTER TABLE `contacts`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `failed_jobs`
+-- Tablo için AUTO_INCREMENT değeri `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `messages`
+-- Tablo için AUTO_INCREMENT değeri `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `migrations`
+-- Tablo için AUTO_INCREMENT değeri `migrations`
 --
 ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `pages`
+-- Tablo için AUTO_INCREMENT değeri `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `personal_access_tokens`
+-- Tablo için AUTO_INCREMENT değeri `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `products`
+-- Tablo için AUTO_INCREMENT değeri `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `sales__points`
+-- Tablo için AUTO_INCREMENT değeri `sales__points`
 --
 ALTER TABLE `sales__points`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `sliders`
+-- Tablo için AUTO_INCREMENT değeri `sliders`
 --
 ALTER TABLE `sliders`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `users`
+-- Tablo için AUTO_INCREMENT değeri `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;

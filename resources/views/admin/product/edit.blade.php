@@ -6,20 +6,18 @@
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
-          
+
 
             <div class="container-xxl flex-grow-1 container-p-y">
-                <div style=" display: flex;align-items: baseline;flex-direction: column;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Slider </h4>
-
+                <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> News </h4>
+             
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
                 <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
             </div>
-
                 </div>
-          
 
               <!-- Examples -->
               <div class="row mb-5">
@@ -31,9 +29,7 @@
                   @endif
                     <form enctype="multipart/form-data" id="formAccountSettings" method="POST" action="{{ route('admin.product_update',$product->id) }}">
                         @csrf
-                         <div class="d-flex align-items-start align-items-sm-center gap-4">
-                       
-                             <div class="button-wrapper" style="width:80%">
+                        
                                 <img
                                 src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}"
                                 alt="user-avatar"
@@ -42,16 +38,28 @@
                                 width="100"
                                 id="uploadedAvatar"
                               />
+                              <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0" style="margin-top:16px">
+                                <span class="d-none d-sm-block">Upload new photo</span>
+                                <i class="bx bx-upload d-block d-sm-none"></i>
+                                <input
+                                  type="file"
+                                  id="upload"
+                                  class="account-file-input"
+                                  hidden
+                                  name="thumbnail"
+                                  accept="image/png,image/jpeg,image/svg,image/jpg"
+                                />
+                              </label>
 
 
                               <div class="row mb-3">
                                 <div class="col-md-12">
                                   <select id="largeSelect" name="cat_id" class="form-select form-select-lg">
-                                    <option value="0">Select Category :</option>
+                                    <option value="{{ $product['category']['cat_id'] }}">Select Category :</option>
                                     @foreach($categories as $category2)
-                                        <option value="{{$category2->id}}"  @if($product['category']['cat_id'] == $category2->id) selected @endif > {!! json_decode($category2['name'])->{app()->getLocale()} !!} </option>
+                                        <option value="{{$category2->id}}" @if($product['category']['id'] == $category2->id) selected @endif > {!! json_decode($category2['name'])->{app()->getLocale()} !!} {{ $product['category']['cat_id'] }}
+                                          {{  $category2->id }}</option>
                                         @endforeach
-      
                                 </select>
                                 </div>
                               </div>
@@ -60,49 +68,41 @@
 
 
 
-                               <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0" style="margin-top:16px">
-                                 <span class="d-none d-sm-block">Upload new photo</span>
-                                 <i class="bx bx-upload d-block d-sm-none"></i>
-                                 <input
-                                   type="file"
-                                   id="upload"
-                                   class="account-file-input"
-                                   hidden
-                                   name="image"
-                                   accept="image/png,image/jpeg,image/svg,image/jpg"
-                                 />
-                               </label>
+                             
 
-                               <div class="mb-3 col-md-6 translate">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="hidden"  id="name" name="name" value="{{ $product->name }}">
+                               <div class="mb-3 col-md-12 translate">
+                                <label for="alt" class="form-label">Name</label>
+                                  <input type="hidden" name="name" value="{{ $product->name }}">
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('name', app()->getLocale()) }}"
+                                  id="alt"
+                                  placeholder="{!! json_decode($product['name'])->{app()->getLocale()} !!}"
                                 />
                               </div>
 
-
-                               <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-12 translate">
                                 <label for="title" class="form-label">Title</label>
-                                <input type="hidden"  id="title" name="title" value="{{ $product->title }}">
+                                <input type="hidden" name="title" value="{{ $product->title }}">
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('title', app()->getLocale()) }}"
+                                  id="title"
+                                  placeholder="{!! json_decode($product['title'])->{app()->getLocale()} !!}"
+                                />
+                              </div>
+                              <div class="mb-3 col-md-12 translate">
+                                <label for="cesid" class="form-label">Çeşid</label>
+                                <input type="hidden" name="cesid" value="{{ $product->cesid }}">
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  id="cesid"
+                                  placeholder="{!! json_decode($product['cesid'])->{app()->getLocale()} !!}"
                                 />
                               </div>
 
-                              <div class="mb-3 col-md-6 translate">
-                                <label for="cesid" class="form-label">Çeşid</label>
-                                <input type="hidden"  id="cesid" name="cesid" value="{{ $product->cesid }}">
-                                <input
-                                  class="form-control"
-                                  type="text"
-                                  placeholder="{{ $product->translate('cesid', app()->getLocale()) }}"
-                                />
-                              </div>
+                              
                               <div class="mb-3 col-md-6 translate">
                                 <label for="menseyi" class="form-label">Mənşəyi</label>
                                 <input type="hidden"  id="menseyi" name="menseyi" value="{{ $product->menseyi }}">
@@ -149,7 +149,7 @@
                                 />
                               </div>
 
-                              <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-6">
                                 <label for="saxlama_formasi" class="form-label">Spirt</label>
                                 <input
                                   class="form-control"
@@ -160,7 +160,7 @@
                                 />
                               </div>
                               
-                              <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-6">
                                 <label for="saxlama_formasi" class="form-label">Temperatur</label>
                                 <input
                                   class="form-control"
@@ -170,7 +170,7 @@
                                   placeholder="{{ $product->temp }}"
                                 />
                               </div>
-                              <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-6">
                                 <label for="saxlama_formasi" class="form-label">Slug az</label>
                                 <input
                                   class="form-control"
@@ -181,7 +181,7 @@
                                 />
                               </div>
 
-                              <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-6">
                                 <label for="saxlama_formasi" class="form-label">Slug en</label>
                                 <input
                                   class="form-control"
@@ -192,7 +192,7 @@
                                 />
                               </div>
 
-                              <div class="mb-3 col-md-6 translate">
+                              <div class="mb-3 col-md-6">
                                 <label for="saxlama_formasi" class="form-label">Slug ru</label>
                                 <input
                                   class="form-control"
@@ -252,3 +252,6 @@
 
     
 @endsection
+
+
+

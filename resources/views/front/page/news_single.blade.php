@@ -5,10 +5,7 @@
 
 
 @php
- 
     $news = App\Models\Blog::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
-
-    
 @endphp
 
 

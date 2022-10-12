@@ -7,22 +7,20 @@
     <section id="home">
         <div class="container home-1">
             <div class="row">
-                <img src="{{ asset('/front/img/logo2-azabrau.png') }}" alt="">
+                <img src="{{  (!empty($slider1->image)? url('upload/slider_images/'.$slider1->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                 <p class="home-text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                    {!! json_decode($slider1['title'])->{app()->getLocale()} !!}
                 </p>
             </div>
         </div>
         <div class="container home-2">
             <div class="row">
                 <h1 class="head-text">
-                    ŞƏKİ ŞƏRABI
+                    {!! json_decode($slider2['title'])->{app()->getLocale()} !!}
                 </h1>
-                <p class="home-text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem
-                    Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is
-                    simply dummy text of the printing and typesetting industry.
-                </p>
+                <div class="home-text" >
+                    {!! json_decode($slider2['desc'])->{app()->getLocale()} !!}
+                </div>
             </div>
         </div>
     </section>
@@ -47,9 +45,18 @@
                         typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and
                         typesetting industry.
                     </p>
-                    <button class="btn">
+                  <a @if(App::getLocale() === 'az')
+                  href="{{ $page_about->slug_az }}"
+                  @elseif(App::getLocale() === 'en')
+                  href="/en/{{ $page_about->slug_en }}"                      
+                  @else
+                  href="/ru/{{ $page_about->slug_ru }}"
+                  @endif
+
+
+                 > <button class="btn">
                         Ətraflı
-                    </button>
+                    </button>  </a>
                     <div class="texture-1">
                         <img src="{{ asset('/front/img/texture-1.png') }}" alt="">
                     </div>
@@ -61,6 +68,11 @@
         </div>
     </section>
     <!--About End-->
+    @php
+    $products = App\Models\Product::get();
+@endphp
+
+
     <!--Products Start-->
     <section id="products">
         <div class="container">
@@ -71,23 +83,29 @@
             </div>
         </div>
         <div class="owl-carousel owl-theme product-slider">
+            @foreach ($products as $product )
             <div class="item">
                 <div class="bg"></div>
-                <img src="{{ asset('/front/img/sharab.png') }}" alt="">
+                <img src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                 <div class="product-text">
                     <h4 class="product-head">
-                        Gücləndirilmiş şərab
-                        “Ağdam Ağ Şərab”
+                        {{ $product->translate('name', app()->getLocale()) }}
                     </h4>
                     <p class="product-body">
-                        Çeşid: 100% Qırmızı spirtli içkilər
-                        Spirt: 19%
+                        Çeşid:  {{ $product->translate('cesid', app()->getLocale()) }}
+                        Spirt:  {{ $product->spirt }}
                     </p>
-                    <button class="btn">
+                  <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()}  ]) }}" >
+                     <button class="btn">
                         Ətraflı
                     </button>
+                </a>
                 </div>
             </div>
+            @endforeach
+       
+       
+       
         </div>
         <div class="texture-2">
             <img src="{{ asset('/front/img/texture-2.png') }}" alt="">

@@ -180,8 +180,8 @@ form.active .close-search {
     justify-content: center;
 }
 .home-2 .home-text{
-    color: #ffffff;
-    max-width: 50%;
+    color: #ffffff !important;
+    max-width: 50% !important;
     margin-top: 15px !important;
 }
 .col-3{

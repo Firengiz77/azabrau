@@ -93,13 +93,13 @@ class BlogController extends Controller
         $data->slug_en = $request->slug_en;
         $data->slug_ru = $request->slug_ru;
 
-        if ($request->file('image')) {
+    if ($request->file('image')) {
             $file = $request->file('image');
             @unlink(public_path('/upload/blog_images/') . $data->image);
             $filename = date('YmdHi') . $file->getClientOriginalName();
             $file->move(public_path('/upload/blog_images'), $filename);
             $data['image'] = $filename;
-        }
+    }
 
         $data->save();
 

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Resources\PageResource;
 use App\Http\Request\StoreMessageRequest;
 use App\Models\Sales_Point;
+use App\Models\Product;
+use App\Models\Category;
+
 
 class FrontController extends Controller
 {
@@ -48,7 +51,7 @@ class FrontController extends Controller
         }
         else {
             // $projects_page_slug = $projects_page_slug->slug_az;
-            if(request()->segment(3) !== null){
+            if(request()->segment(3) !== null || request()->segment(2) !== null){
                 $page = Pages::where('slug_az',$slug)->latest()->first();
          }
          else{
@@ -77,6 +80,10 @@ class FrontController extends Controller
         $maps= Sales_Point::get();
         $page_single = Pages::where('id',8)->first();
         $page_product = Pages::where('id',9)->first();
+        $slider1 = Slider::where('id',12)->first();
+        $slider2 = Slider::where('id',11)->first();
+        $page_about = Pages::where('id',4)->first();
+        
         
 
         // $seos1 = Pages::where('on_off',0)->where('aca_stu',1)->get();
@@ -88,7 +95,7 @@ class FrontController extends Controller
         
             return view('front.page.' . $view,)->
             with([
-            'pagess' => $pagess, 'page' => $page, 
+            'pagess' => $pagess, 'page' => $page, 'slider2'=>$slider2,'slider1'=>$slider1,'page_about'=>$page_about,
             'route' => $route, 'current_slug' => $slug, 
             'current_route' => $current_route, 
             'page_id' => $page_id,
@@ -150,6 +157,46 @@ class FrontController extends Controller
          
     
     }
+
+
+    public function filter( Request $request){
+        $id = $request->id;
+        $data = $request->all();
+        $checked = $request->input('orderCheck',[]);
+        // $ids = Category::where('cat_id',9)->get()->pluck('id')->toArray();
+        // return $ids;
+        if(count($checked) < 2) { 
+            $products = Product::whereIn('cat_id',$id)->get();
+            $view = view('front.widget.products', compact('products'));
+        }
+      
+        return collect([
+         'html' => $view->render(),
+     ]);
+
+
+      //  return response()->json(['id'=>$id,'products'=>$products]);
+    }
+
+    public function filter_all( Request $request){
+    
+    
+        $ids = Category::where('cat_id',$request->id)->get()->pluck('id')->toArray();
+        
+        $products = Product::whereIn('cat_id',$ids)->get();
+        $view = view('front.widget.products', compact('products'));
+      
+      
+        return collect([
+         'html' => $view->render(),
+     ]);
+
+
+      //  return response()->json(['id'=>$id,'products'=>$products]);
+    }
+
+
+
 
 
 

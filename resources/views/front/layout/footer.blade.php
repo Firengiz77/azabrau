@@ -5,7 +5,25 @@
                 <div class="row">
                     <div class="col-4">
                         <ul class="foot-nav">
-                            <li class="foot-item">
+                            @foreach ($pagess as $pages)
+                            @if($pages['parent_id']==0)
+                               <li class="foot-item">
+                                   <a
+                                   @if(app()->getLocale() === 'az')
+                                   href="{{ "/".$pages['slug']}}"
+                                   @else
+                                   href="{{ "/".App::getLocale()."/".$pages['slug']}}"
+                                   @endif >
+                                   {{ $pages['page'] }} 
+                                </a>
+                               </li>
+                           @endif
+                           @endforeach
+
+                         
+
+
+                            {{-- <li class="foot-item">
                                 Haqqımızda
                             </li>
                             <li class="foot-item">
@@ -22,7 +40,7 @@
                             </li>
                             <li class="foot-item">
                                 Əlaqə
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="col-4">
@@ -32,8 +50,8 @@
                                     Telefon
                                 </p>
                                 <span class="contact-text">
-                                    <a href="tel:+994501234567">
-                                        +994 50 123 45 67
+                                    <a href="tel:{{ str_replace(' ','',$contact->phone) }}">
+                                     {{   $contact->phone }}
                                     </a>
                                 </span>
                             </li>
@@ -42,7 +60,7 @@
                                     E-mail
                                 </p>
                                 <span class="contact-text">
-                                    info@azabrau.az
+                                    {{ $contact->email }}
                                 </span>
                             </li>
                             <li class="contact-group">
@@ -50,8 +68,7 @@
                                     Ünvan
                                 </p>
                                 <span class="contact-text">
-                                    Port Baku,Neftchilar Avenue 153,
-                                    Baku Azerbaijan
+                                    {!! json_decode($contact['address'])->{app()->getLocale()} !!}
                                 </span>
                             </li>
                         </ul>
@@ -106,5 +123,9 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="{{ asset('/front/js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('/front/js/main.js') }}"></script>
+
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 
 </html>

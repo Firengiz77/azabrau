@@ -63,6 +63,7 @@
                                   placeholder="{!! json_decode($blog['name'])->{app()->getLocale()} !!}"
                                 />
                               </div>
+
                               <div class="mb-3 col-md-12 translate">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="hidden" name="title" value="{{ $blog->title }}">
@@ -75,7 +76,7 @@
                               </div>
                               <div class="mb-3 col-md-12 translate">
                                 <label for="" class="form-label">Desc</label>
-                                <input type="hidden" name="desc" value="{{ $blog->desc }}">
+                                <input type="hidden" name="desc" value="{!! $blog->desc !!}">
                                 <textarea
                                   class="form-control" 
                                   id="editor"
@@ -147,6 +148,6 @@
 <script src="{{ asset('/admin/js/file-upload.js') }}"></script>
 <script src="{{ asset('/admin/js/translate.js') }}"></script>
 <script src="{{ asset('/admin/vendors/ckeditor/ckeditor.js') }}"></script>
-    <script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
+<script src="{{ asset('/admin/assets/js/cketditor.js') }}"></script>
 
 @endsection

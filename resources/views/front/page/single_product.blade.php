@@ -32,7 +32,7 @@
                 </li>
                 <span>/</span>
                 <li class="breadcrumb-item">
-                    Cullen
+                    {{ $product->translate('name', app()->getLocale()) }}
                 </li>
             </ul>
         </div>
@@ -171,7 +171,7 @@
  
             <div class="item">
                 <div class="bg"></div>
-                <img src="{{ asset('/front/img/sharab.png') }}" alt="">
+                <img src="{{  (!empty($p_all->thumbnail)? url('upload/product_images/'.$p_all->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                 <div class="product-text">
                     <h4 class="product-head">
                         {{ $p_all->translate('name', app()->getLocale()) }}

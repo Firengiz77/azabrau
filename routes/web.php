@@ -9,6 +9,14 @@ use Illuminate\Support\Facades\App;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/filter',[FrontController::class,'filter'])->name('filter');
+Route::get('/filter_all',[FrontController::class,'filter_all'])->name('filter_all');
+Route::get('/en/filter',[FrontController::class,'filter'])->name('filter_en');
+Route::get('/en/filter_all',[FrontController::class,'filter_all'])->name('filter_all_en');
+Route::get('/ru/filter',[FrontController::class,'filter'])->name('filter_ru');
+Route::get('/ru/filter_all',[FrontController::class,'filter_all'])->name('filter_all_ru');
+
+
 
 
 if(Request::segment(1) !== 'admin'){
@@ -44,7 +52,6 @@ Route::group([
         Route::get('/single', [FrontController::class,'getSinglePage'])->name('single');
         Route::get('{slug}/{project_slug?}', [FrontController::class,'getPage'])->name('single2');
         Route::get('{slug2}/{project_slug1?}/{project_slug2?}', [FrontController::class,'getPage'])->name('single3');
-
         });
     
 Route::post('/sendmail2', [FrontController::class,'sendmail2'])->name('sendmail2');
