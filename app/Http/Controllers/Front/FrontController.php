@@ -35,7 +35,6 @@ class FrontController extends Controller
          else{
             $page = Pages::where("slug_en", $slug)->first();
          }
-
            
         }
         else if ($lang == "ru") {
@@ -195,6 +194,11 @@ class FrontController extends Controller
       //  return response()->json(['id'=>$id,'products'=>$products]);
     }
 
+    public function search(){
+        $search_text=$_GET['search_field'];
+        $product = Product::where('name','LIKE','%'.$search_text.'%')->first();
+        return view('front.page.search',compact('product')); 
+    }
 
 
 
