@@ -2,12 +2,14 @@
 
 @section('container')
 
-@php
-    if(App::getLocale() === 'az'){
-        
-    }
-@endphp
 
+
+@php
+ 
+    $news = App\Models\Blog::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
+
+    
+@endphp
 
 
 
@@ -29,6 +31,7 @@
             </li>
             <span>/</span>
             <li class="breadcrumb-item">
+                {!! json_decode($news['name'])->{app()->getLocale()} !!}
                
             </li>
         </ul>
@@ -38,7 +41,7 @@
 <!--News Single Start-->
 <section id="news-single">
     <div class="texture-5">
-        <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
+        <img src="{{ asset('/front/img/texture-5.png') }}" alt="">
     </div>
     <div class="container">
         <div class="row">
@@ -49,9 +52,9 @@
             <p class="date">
                 {{ date('d.m.Y', strtotime($news->created_at))  }}
             </p>
-            <p class="news-single-text">
+            <div class="news-single-text">
                 {!! json_decode($news['desc'])->{app()->getLocale()} !!}
-            </p>
+            </div>
          
          
         </div>

@@ -89,9 +89,9 @@
                                   class="form-control"
                                   type="text"
                                   id="alt"
-                                  name="slug"
-                                  value="{{ $blog->slug }}"
-                                  placeholder="{{ $blog->slug }}"
+                                  name="slug_az"
+                                  value="{{ $blog->slug_az }}"
+                                  placeholder="{{ $blog->slug_az }}"
                                 />
                               </div>
 

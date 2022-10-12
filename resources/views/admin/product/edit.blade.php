@@ -50,7 +50,7 @@
                                     <option value="0">Select Category :</option>
                                     @foreach($categories as $category2)
                                         <option value="{{$category2->id}}"  @if($product['category']['cat_id'] == $category2->id) selected @endif > {!! json_decode($category2['name'])->{app()->getLocale()} !!} </option>
-                                    @endforeach
+                                        @endforeach
       
                                 </select>
                                 </div>
@@ -175,7 +175,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  name="temp"
+                                  name="slug_az"
                                   value="{{ $product->slug_az }}"
                                   placeholder="{{ $product->slug_az }}"
                                 />
@@ -186,7 +186,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  name="slug_az"
+                                  name="slug_en"
                                   value="{{ $product->slug_en }}"
                                   placeholder="{{ $product->slug_en }}"
                                 />
@@ -197,7 +197,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  name="slug_en"
+                                  name="slug_ru"
                                   value="{{ $product->slug_ru }}"
                                   placeholder="{{ $product->slug_ru }}"
                                 />

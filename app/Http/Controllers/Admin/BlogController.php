@@ -89,7 +89,7 @@ class BlogController extends Controller
         $data->name = $request->name;
         $data->title = $request->title;
         $data->desc = $request->desc;
-        $data->slug = $request->slug;
+        $data->slug_az = $request->slug_az;
         $data->slug_en = $request->slug_en;
         $data->slug_ru = $request->slug_ru;
 

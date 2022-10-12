@@ -103,10 +103,10 @@
                       </span>
                       <input
                         type="text"
-                        name="slug"
+                        name="slug_az"
                         id="basic-icon-default-company"
                         class="form-control"
-                        placeholder="Slug"
+                        placeholder="Slug az"
                         aria-describedby="basic-icon-default-company2"
                       />
                     </div>

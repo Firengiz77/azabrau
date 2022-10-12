@@ -2,7 +2,6 @@
 
 @php
     $news = App\Models\Blog::first();
-    $page_single = App\Models\Pages::where('id',8)->first();
     $news2= App\Models\Blog::get();
 @endphp
 
@@ -63,7 +62,7 @@
                         <p class="text">
                             {!! json_decode($news['title'])->{app()->getLocale()} !!}
                         </p>
-                       <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->slug]) }}"> <button class="btn">
+                       <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}"> <button class="btn">
                             Ətraflı
                         </button>
                     </a>
@@ -74,14 +73,14 @@
                     
                
                 <div class="news-card item">
-                    <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->slug]) }}">
+                    <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}">
                         
                         <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                         <div class="news-text">
                             <h3 class="news-head">
                                 {!! json_decode($news['name'])->{app()->getLocale()} !!}
                             </h3>
-                            <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->slug]) }}" class="detail">
+                            <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}" class="detail">
                                 Ətraflı
                             </a>
                             <p class="news-date">

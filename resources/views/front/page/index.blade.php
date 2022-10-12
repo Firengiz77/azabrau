@@ -168,7 +168,7 @@
 
             @foreach ($news2 as $news)
             <div class="item">
-                <a href="#">
+                <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}"">
                     <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                     <div class="news-text">
                         <h3 class="news-head">

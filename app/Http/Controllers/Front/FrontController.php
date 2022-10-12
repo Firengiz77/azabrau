@@ -17,7 +17,7 @@ use App\Models\Sales_Point;
 class FrontController extends Controller
 {
 
-    public function getPage( $slug = "/" , $project_slug = null)
+    public function getPage( $slug = "/" , $project_slug = null,$project_slug2 = null,$project_slug1 = null)
     {
      
         $lang = App::getlocale();
@@ -26,15 +26,35 @@ class FrontController extends Controller
         
         if ($lang == "en") {
             // $projects_page_slug = $projects_page_slug->slug_en;
+            if(request()->segment(3) !== null){
+                $page = Pages::where('slug_en',$slug)->latest()->first();
+         }
+         else{
             $page = Pages::where("slug_en", $slug)->first();
+         }
+
+           
         }
         else if ($lang == "ru") {
             // $projects_page_slug = $projects_page_slug->slug_ru;
+         //   $page = Pages::where("slug_ru", $slug)->first();
+            if(request()->segment(3) !== null){
+                $page = Pages::where('slug_ru',$slug)->latest()->first();
+         }
+         else{
             $page = Pages::where("slug_ru", $slug)->first();
+         }
+
         }
         else {
             // $projects_page_slug = $projects_page_slug->slug_az;
+            if(request()->segment(3) !== null){
+                $page = Pages::where('slug_az',$slug)->latest()->first();
+         }
+         else{
             $page = Pages::where("slug_az", $slug)->first();
+         }
+           
         }
 
         $view = $page['viewname'];
@@ -55,6 +75,8 @@ class FrontController extends Controller
         $pagess = $pagescollection->toArray($seos0);
         $contact = Contact::first();
         $maps= Sales_Point::get();
+        $page_single = Pages::where('id',8)->first();
+        $page_product = Pages::where('id',9)->first();
         
 
         // $seos1 = Pages::where('on_off',0)->where('aca_stu',1)->get();
@@ -71,7 +93,7 @@ class FrontController extends Controller
             'current_route' => $current_route, 
             'page_id' => $page_id,
             "fallback"=>$fallback, 'project_slug'=>$project_slug,
-            'feeds'=>$feeds, 'seos'=>$seos0,'contact'=>$contact,'maps'=>$maps
+            'feeds'=>$feeds, 'seos'=>$seos0,'contact'=>$contact,'maps'=>$maps,'page_single'=>$page_single,'page_product'=>$page_product
        ]);
     }
 

@@ -43,6 +43,7 @@ Route::group([
         Route::get('/', [FrontController::class,'getPage'])->name('index');
         Route::get('/single', [FrontController::class,'getSinglePage'])->name('single');
         Route::get('{slug}/{project_slug?}', [FrontController::class,'getPage'])->name('single2');
+        Route::get('{slug2}/{project_slug1?}/{project_slug2?}', [FrontController::class,'getPage'])->name('single3');
 
         });
     

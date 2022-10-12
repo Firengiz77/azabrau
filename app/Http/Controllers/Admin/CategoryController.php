@@ -90,6 +90,9 @@ class CategoryController extends Controller
        
         $data->name = $request->name;
         $data->cat_id = $request->cat_id;
+        $data->slug_az = $request->slug_az;
+        $data->slug_en = $request->slug_en;
+        $data->slug_ru = $request->slug_ru;
 
         $data->save();
          return redirect()->route('admin.category')->with('message','Category has been created successfully.'); 

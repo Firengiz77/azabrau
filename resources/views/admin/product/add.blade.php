@@ -143,7 +143,7 @@
                       class="form-control"
                       type="text"
                      name="spirt"
-                      name="spirt"
+            
                       placeholder="spirt"
                     />
                   </div>

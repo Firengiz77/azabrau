@@ -56,6 +56,21 @@
                               />
                             </div>
 
+
+                            <div class="mb-3 col-md-12 translate">
+                              <label for="slug_az" class="form-label"> Slug (az) </label>
+                              <input type="text" class="form-control"  id="slug_az" name="slug_az" value="{{ $category->slug_az  }}"  placeholder="Slug (az)">
+
+                              <label for="slug_en" class="form-label"> Slug (en) </label>
+                              <input type="text" class="form-control"  id="slug_en" name="slug_en"   value="{{ $category->slug_en  }}"  placeholder="Slug (en)">
+                      
+                              <label for="slug_ru" class="form-label"> Slug (ru) </label>
+                              <input type="text"    class="form-control" id="slug_ru" name="slug_ru"  value="{{ $category->slug_ru  }}" placeholder="Slug (ru)">
+                            
+                            </div>
+
+
+
                         
                             
                              

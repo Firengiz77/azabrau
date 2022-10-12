@@ -3,7 +3,7 @@ $('.product-slider').owlCarousel({
     center: true,
     margin:10,
     nav:true,
-    navText: ["<img src='../img/left.svg'>","<img src='../img/right.svg'>"],
+    navText: ["<img src='/front/img/left.svg'>","<img src='/front/img/right.svg'>"],
     responsive:{
         0:{
             items:1

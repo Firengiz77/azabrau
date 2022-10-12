@@ -53,11 +53,19 @@
                                   placeholder="Name"
                                 />
                               </div>
-
+                              
                               <div class="mb-3 col-md-12 translate">
-                                <label for="" class="form-label">Category :</label>
-                                <input type="hidden" name="cat_id" value=''>
+                                <label for="slug_az" class="form-label"> Slug (az) </label>
+                                <input type="text" class="form-control"  id="slug_az" name="slug_az"  placeholder="Slug (az)">
+
+                                <label for="slug_en" class="form-label"> Slug (en) </label>
+                                <input type="text" class="form-control"  id="slug_en" name="slug_en"  placeholder="Slug (en)">
+                        
+                                <label for="slug_ru" class="form-label"> Slug (ru) </label>
+                                <input type="text"    class="form-control" id="slug_ru" name="slug_ru"  placeholder="Slug (ru)">
+                              
                               </div>
+
 
                               <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
                                 <i class="bx bx-reset d-block d-sm-none"></i>
