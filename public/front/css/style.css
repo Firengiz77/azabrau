@@ -497,7 +497,7 @@ footer{
     color: #E60E07 !important;
     font-family: 'mondia-regular','sans-serif' !important;
 }
-.foot-item{
+.foot-item a{
     font-family: 'arno-pro-semibold','sans-serif';
     color: #292929;
     font-weight: 600;

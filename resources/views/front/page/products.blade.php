@@ -1,4 +1,11 @@
 @extends('front.layout.master')
+@section('title'){{ $page->{'title_'.App::getLocale() } }}@endsection
+@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 155)}}@endsection
+@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 55)}} @endsection
+
+
+
+
 @section('container')
     @php
         $products = App\Models\Product::get();

@@ -6,8 +6,11 @@
 
 @php
     $news = App\Models\Blog::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
+    $page_news= App\Models\Pages::where('page_id',4)->first();
 @endphp
 
+@section('title'){!! json_decode($news['name'])->{app()->getLocale()} !!}@endsection
+@section('description'){{substr($news['title'], 0, 155)}}@endsection
 
 
 
@@ -22,7 +25,15 @@
             </li>
             <span>/</span>
             <li class="breadcrumb-item">
-                <a href="#">
+                <a
+                @if(App::getLocale() === 'az')
+                 href="/{{$page_news->slug_az}}"
+                 @elseif(App::getLocale() === 'en')
+                 href="/en/{{$page_news->slug_az}}"
+                 @else
+                 href="/ru/{{$page_news->slug_az}}"
+                 @endif
+                 >
                     Xəbərlər
                 </a>
             </li>

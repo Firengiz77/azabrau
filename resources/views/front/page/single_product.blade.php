@@ -8,10 +8,12 @@
     $product = App\Models\Product::where('slug_'.App::getLocale(),request()->segment(3))->orWhere('slug_'.App::getLocale(),request()->segment(4))->first();
     $category = App\Models\Category::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
     $product_all = App\Models\Product::where('cat_id',$category->id)->get();
-
+    $page_products= App\Models\Pages::where('page_id',4)->first();
     
 @endphp
 
+@section('title'){!! json_decode($product['name'])->{app()->getLocale()} !!}@endsection
+@section('description'){{substr($product['title'], 0, 155)}}@endsection
 
 
    <!--Home Start-->
@@ -26,7 +28,13 @@
                 </li>
                 <span>/</span>
                 <li class="breadcrumb-item">
-                    <a href="">
+                    <a   @if(App::getLocale() === 'az')
+                 href="/{{$page_products->slug_az}}"
+                 @elseif(App::getLocale() === 'en')
+                 href="/en/{{$page_products->slug_az}}"
+                 @else
+                 href="/ru/{{$page_products->slug_az}}"
+                 @endif>
                         Məhsullar
                     </a>
                 </li>
