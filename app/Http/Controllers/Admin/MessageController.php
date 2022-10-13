@@ -98,7 +98,7 @@ class MessageController extends Controller
     {
 
         $this->crud->delete('App\Models\Message',$id);
-        return redirect()->route('admin.contact')->with('message','Message has been deleted successfully');
+        return redirect()->route('admin.message')->with('message','Message has been deleted successfully');
 
     }
 }

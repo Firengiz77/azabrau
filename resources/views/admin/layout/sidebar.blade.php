@@ -97,17 +97,21 @@
                 <div data-i18n="Product">Product</div>
               </a>
             </li>
+
+            @if($admin->superadmin === '1')
             <li class="menu-item @if(Route::is('admin.page')) active @endif">
               <a href="{{route('admin.page')}}" class="menu-link">
-                <i class='bx bxs-user-check menu-icon'></i>
+                <i class='bx bx-last-page menu-icon'></i>
                 <div data-i18n="Pages">Pages</div>
               </a>
             </li>
+            @endif
+
 
 
             <li class="menu-item @if(Route::is('admin.sales_point')) active @endif">
               <a href="{{route('admin.sales_point')}}" class="menu-link">
-                <i class='bx bxs-user-check menu-icon'></i>
+                <i class='bx bxs-map-pin menu-icon' ></i>
                 <div data-i18n="Category">Sales Point</div>
               </a>
             </li>

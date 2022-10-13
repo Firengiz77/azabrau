@@ -28,7 +28,6 @@
 
                  @foreach ($pages as $page )
                       <tr>
-                  
                         <td>
                           {{  $page->page_az }}
                         </td>
@@ -38,7 +37,6 @@
                           <a href="{{ route('admin.page_delete',$page->id) }}" class="btn btn-outline-danger delete-confirm">Delete Page</a>
                         </td>
                       </tr>
-                   
                       @endforeach
 
                     </tbody>

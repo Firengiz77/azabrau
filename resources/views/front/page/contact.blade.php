@@ -82,13 +82,18 @@
                 </div>
             </div>
 
-
+            @if(session()->has('message'))
+            <div class="alert alert-success" style="text-align:center;">
+                {{ session()->get('message') }}
+            </div>
+        @endif 
             <form action="{{ route('sendmail2') }}" method="post">
+                @csrf
                 <input class="contact-input text-input" type="text" name="name" placeholder="Adınız">
                 <input class="contact-input text-input" type="text" name="surname" placeholder="Soyadınız">
                 <input class="contact-input contact-mail" type="text" name="email" placeholder="E-mail adresi">
                 <input class="contact-input contact-number" type="text" name="phone" placeholder="Telefon nömrəsi">
-                <textarea name="" id="" cols="30" rows="10" name="msj" placeholder="Əlavə qeyd"></textarea>
+                <textarea id="" cols="30" rows="10" name="msj" placeholder="Əlavə qeyd"></textarea>
                 <button class="btn" type="submit">
                     {{__('send')}}
                 </button>

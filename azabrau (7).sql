@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 12 Eki 2022, 13:51:34
+-- Üretim Zamanı: 13 Eki 2022, 08:40:21
 -- Sunucu sürümü: 10.4.25-MariaDB
 -- PHP Sürümü: 8.1.10
 
@@ -215,7 +215,8 @@ INSERT INTO `pages` (`id`, `page_az`, `page_en`, `page_ru`, `slug_az`, `slug_en`
 (6, 'SATIŞ MƏNTƏQƏLƏRİ', 'SATIŞ MƏNTƏQƏLƏRİ-en', 'SATIŞ MƏNTƏQƏLƏRİ-ru', 'satis-menteqeleri', 'satis-menteqeleri-en', 'satis-menteqeleri-ru', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis-menteqeleri', 'satis_menteqeleri', 'satis_menteqeleri', '0', '1', '3', '2022-10-10 02:14:46', '2022-10-10 02:14:46'),
 (7, 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'xeberler', 'news', 'xeberler-ru', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'XƏBƏRLƏR', 'news', 'news', '0', '1', '4', '2022-10-10 02:15:39', '2022-10-10 02:15:39'),
 (8, 'Single News', 'Single News', 'Single News', 'xeberler', 'news', 'xeberler-ru', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'single-news', 'news_single', 'news_single', '0', '0', '7', '2022-10-10 07:27:29', '2022-10-12 02:43:52'),
-(9, 'Single Product', 'Single Product', 'Single Product', 'mehsullar', 'products', 'products-ru', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single_product', 'single_product', '0', '0', '9', '2022-10-11 03:56:33', '2022-10-12 02:47:24');
+(9, 'Single Product', 'Single Product', 'Single Product', 'mehsullar', 'products', 'products-ru', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single-product', 'single_product', 'single_product', '0', '0', '9', '2022-10-11 03:56:33', '2022-10-12 02:47:24'),
+(10, 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', 'search', '0', '0', '12', '2022-10-13 00:39:46', '2022-10-13 00:39:50');
 
 -- --------------------------------------------------------
 
@@ -273,16 +274,18 @@ CREATE TABLE `products` (
   `slug_en` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `slug_ru` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `sifaris` mediumtext COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Tablo döküm verisi `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `cesid`, `spirt`, `thumbnail`, `title`, `menseyi`, `istehsal_il`, `desc`, `terkibi`, `uygunluq`, `temp`, `saxlama_formasi`, `cat_id`, `slug_az`, `slug_en`, `slug_ru`, `created_at`, `updated_at`) VALUES
-(2, '{\"az\":\"Sarab 1 az edited\",\"en\":\"Sarab 1 en edited\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '25', '202210120750koton.jpg', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Baku\",\"en\":\"Baku en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"1999\",\"en\":\"1999\",\"ru\":\"1999\"}', '{\"az\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"en\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"ru\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; ru</p>\\n\"}', '{\"az\":\"Spirt\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"ela\",\"en\":\"ela\",\"ru\":\"Sarab 1 ru\"}', '12', '{\"az\":\"quru yerde saxlayin az\",\"en\":\"quru yerde saxlayin en\",\"ru\":\"quru yerde saxlayin\"}', '11', 'sarab-1-az', 'sarab-1-en', 'sarab-1-ru', '2022-10-11 03:22:14', '2022-10-12 03:50:49'),
-(5, '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '202210110736sharab.png', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"2333\",\"en\":\"345\",\"ru\":\"3444\"}', '{\"az\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). az</p>\\n\",\"en\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). en</p>\\n\",\"ru\":\"<p>m Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by ru</p>\\n\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '{\"az\":\"sarab 2 az\",\"en\":\"f\",\"ru\":\"sarab2  ru\"}', '13', 'sarab-2-az', 'sarab-2-en', 'sarab-2-ru', '2022-10-11 03:36:13', '2022-10-12 03:21:02');
+INSERT INTO `products` (`id`, `name`, `cesid`, `spirt`, `thumbnail`, `title`, `menseyi`, `istehsal_il`, `desc`, `terkibi`, `uygunluq`, `temp`, `saxlama_formasi`, `cat_id`, `slug_az`, `slug_en`, `slug_ru`, `created_at`, `updated_at`, `sifaris`) VALUES
+(2, '{\"az\":\"Sarab 1 az edited\",\"en\":\"Sarab 1 en edited\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '25', '202210130548sharab.png', '{\"az\":\"Sarab 1 az\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"Baku\",\"en\":\"Baku en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"1999\",\"en\":\"1999\",\"ru\":\"1999\"}', '{\"az\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"en\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; az</p>\\n\",\"ru\":\"<p><strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&#39;s standard dummy text ever since the 1500s,&nbsp; ru</p>\\n\"}', '{\"az\":\"Spirt\",\"en\":\"Sarab 1 en\",\"ru\":\"Sarab 1 ru\"}', '{\"az\":\"ela\",\"en\":\"ela\",\"ru\":\"Sarab 1 ru\"}', '12', '{\"az\":\"quru yerde saxlayin az\",\"en\":\"quru yerde saxlayin en\",\"ru\":\"quru yerde saxlayin\"}', '11', 'sarab-1-az', 'sarab-1-en', 'sarab-1-ru', '2022-10-11 03:22:14', '2022-10-13 01:48:55', 'https://www.google.com/'),
+(5, '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '202210110736sharab.png', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"2333\",\"en\":\"345\",\"ru\":\"3444\"}', '{\"az\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). az</p>\\n\",\"en\":\"<p>&nbsp;web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). en</p>\\n\",\"ru\":\"<p>m Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using &#39;Content here, content here&#39;, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for &#39;lorem ipsum&#39; will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by ru</p>\\n\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '{\"az\":\"sarab 2 az\",\"en\":\"sarab2 \",\"ru\":\"sarab2  ru\"}', '345', '{\"az\":\"sarab 2 az\",\"en\":\"f\",\"ru\":\"sarab2  ru\"}', '13', 'sarab-2-az', 'sarab-2-en', 'sarab-2-ru', '2022-10-11 03:36:13', '2022-10-13 01:44:19', 'https://www.google.com/'),
+(6, '{\"az\":\"ghjk\",\"en\":\"asdf\",\"ru\":\"asdf\"}', '{\"az\":\"drt\",\"en\":\"asdfa\",\"ru\":\"asdf\"}', 'asdf', '202210130549sharab.png', '{\"az\":\"tdy\",\"en\":\"asdf\",\"ru\":\"asdf\"}', '{\"az\":\"drtyh\",\"en\":\"asdf\",\"ru\":\"asdf\"}', '{\"az\":\"fgh\",\"en\":\"fasdf\",\"ru\":\"fghj\"}', '{\"az\":\"<p>fgj</p>\\n\",\"en\":\"<p>asdf</p>\\n\",\"ru\":\"<p>ghjkghjk</p>\\n\"}', '{\"az\":\"drhty\",\"en\":\"asdf\",\"ru\":\"asdfgjh\"}', '{\"az\":\"dtyh\",\"en\":\"asf\",\"ru\":\"jhf\"}', 'asdf', '{\"az\":\"fdgh\",\"en\":\"as\",\"ru\":\"fghj\"}', '11', 'asfd', 'asdf', 'asdf', '2022-10-13 01:42:46', '2022-10-13 01:49:02', 'https://www.google.com/');
 
 -- --------------------------------------------------------
 
@@ -481,7 +484,7 @@ ALTER TABLE `failed_jobs`
 -- Tablo için AUTO_INCREMENT değeri `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `migrations`
@@ -493,7 +496,7 @@ ALTER TABLE `migrations`
 -- Tablo için AUTO_INCREMENT değeri `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `personal_access_tokens`
@@ -505,7 +508,7 @@ ALTER TABLE `personal_access_tokens`
 -- Tablo için AUTO_INCREMENT değeri `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `sales__points`

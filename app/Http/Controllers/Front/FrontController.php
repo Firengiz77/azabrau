@@ -11,14 +11,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\PageResource;
-use App\Http\Request\StoreMessageRequest;
+use App\Http\Requests\StoreMessageRequest;
 use App\Models\Sales_Point;
 use App\Models\Product;
 use App\Models\Category;
+use App\Helpers\Crud;
 
 
 class FrontController extends Controller
 {
+
+    protected $crud;
+    public function __construct(Crud $crud)
+    {
+        $this->crud = $crud;
+    }
+
 
     public function getPage( $slug = "/" , $project_slug = null,$project_slug2 = null,$project_slug1 = null)
     {
@@ -123,36 +131,27 @@ class FrontController extends Controller
 
 
 
-    public function sendmail2(Request $request,StoreMessageRequest $request2){
+    public function sendmail2(Request $request){
       
-        $valiator = $request2->validated();
-        $messagess = Messages::create($request2->all());
-        $messagess->save();
+        $this->crud->create('App\Models\Message',$request);
+        return redirect()->back()->with('message','Message Send Successfully');
 
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            'msj'=>'required',
-            'surname'=>'required',
-            'phone'=>'required',
-       
-        ]);
-        $email='firengizsariyeva77@gmail.com'; 
-        $array = [
-           'name'=> $request->name,
-           'email'=> $request->email, 
-           'msj'=>$request->msj,
-           'surname'=>$request->surname,
-           'phone'=>$request->phone,
-        ]; 
-        Mail::send('front.sendmail', $array,  function ($message) use($email)  {
-              $message->to( $email, 'Az Abrau');
-              $message->subject('Az Abrau');
+     
+        // $email='firengizsariyeva77@gmail.com'; 
+        // $array = [
+        //    'name'=> $request->name,
+        //    'email'=> $request->email, 
+        //    'msj'=>$request->msj,
+        //    'surname'=>$request->surname,
+        //    'phone'=>$request->phone,
+        // ]; 
+        // Mail::send('front.sendmail', $array,  function ($message) use($email)  {
+        //       $message->to( $email, 'Az Abrau');
+        //       $message->subject('Az Abrau');
 
- 
-        });  
+        // });  
               
-                return redirect()->back();
+               // return redirect()->back();
          
     
     }
