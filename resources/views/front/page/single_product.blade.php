@@ -96,11 +96,11 @@
                             <p class="product-single-text">
                                 {!! $product->translate('desc', app()->getLocale()) !!}
                             </p>
-                            <form action="" method="get">
+                            <a href="{{ $product->sifaris }}" target="_blank">
                                 <button class="btn">
                                     {{ __('sifaris_ver') }}   
                                 </button>
-                            </form>
+                            </a>
                         </div>
                     </div>
                     <div class="texture-5">

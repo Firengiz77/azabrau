@@ -140,7 +140,7 @@
                                 />
                               </div>
                               <div class="mb-3 col-md-6 translate">
-                                <label for="saxlama_formasi" class="form-label">İstehsal ili </label>
+                                <label for="istehsal_il" class="form-label">İstehsal ili </label>
                                 <input type="hidden"  id="istehsal_il" name="istehsal_il" value="{{ $product->istehsal_il }}">
                                 <input
                                   class="form-control"
@@ -150,7 +150,7 @@
                               </div>
 
                               <div class="mb-3 col-md-6">
-                                <label for="saxlama_formasi" class="form-label">Spirt</label>
+                                <label for="spirt" class="form-label">Spirt</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -161,7 +161,7 @@
                               </div>
                               
                               <div class="mb-3 col-md-6">
-                                <label for="saxlama_formasi" class="form-label">Temperatur</label>
+                                <label for="temp" class="form-label">Temperatur</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -171,7 +171,7 @@
                                 />
                               </div>
                               <div class="mb-3 col-md-6">
-                                <label for="saxlama_formasi" class="form-label">Slug az</label>
+                                <label for="slug_az" class="form-label">Slug az</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -182,7 +182,7 @@
                               </div>
 
                               <div class="mb-3 col-md-6">
-                                <label for="saxlama_formasi" class="form-label">Slug en</label>
+                                <label for="slug_en" class="form-label">Slug en</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -193,7 +193,7 @@
                               </div>
 
                               <div class="mb-3 col-md-6">
-                                <label for="saxlama_formasi" class="form-label">Slug ru</label>
+                                <label for="slug_ru" class="form-label">Slug ru</label>
                                 <input
                                   class="form-control"
                                   type="text"
@@ -202,6 +202,18 @@
                                   placeholder="{{ $product->slug_ru }}"
                                 />
                               </div>
+
+                              <div class="mb-3 col-md-6">
+                                <label for="sifaris" class="form-label">Sifariş</label>
+                                <input
+                                  class="form-control"
+                                  type="text"
+                                  name="sifaris"
+                                  value="{{ $product->sifaris }}"
+                                  placeholder="{{ $product->sifaris }}"
+                                />
+                              </div>
+
 
 
 

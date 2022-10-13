@@ -110,6 +110,7 @@ class ProductController extends Controller
         $data->slug_az = $request->slug_az;
         $data->slug_en = $request->slug_en;
         $data->slug_ru = $request->slug_ru;
+        $data->sifaris = $request->sifaris;
 
      
 
