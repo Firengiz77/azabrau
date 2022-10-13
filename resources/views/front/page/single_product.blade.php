@@ -21,7 +21,7 @@
             <ul class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('index') }}">
-                        Ana Səhifə
+                      {{ __('home_page') }}
                     </a>
                 </li>
                 <span>/</span>
@@ -33,7 +33,7 @@
                  @else
                  href="/ru/{{$page_products->slug_az}}"
                  @endif>
-                        Məhsullar
+                 {{ __('products') }}
                     </a>
                 </li>
                 <span>/</span>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="about-block">
                             <h3 class="product-about-head">
-                                Mənşəyi
+                                {{ __('menseyi') }}
                             </h3>
                             <p class="product-single-text">
                                 {{ $product->translate('menseyi', app()->getLocale()) }}
@@ -73,7 +73,7 @@
                         </div>
                         <div class="about-block">
                             <h3 class="product-about-head">
-                                Alkoqol dərəcəsi
+                                {{ __('alkol') }}
                             </h3>
                             <p class="product-single-text">
                                 {{ $product->spirt }}
@@ -82,7 +82,7 @@
                         </div>
                         <div class="about-block">
                             <h3 class="product-about-head">
-                                İstehsal ili
+                                {{ __('istehsal') }} 
                             </h3>
                             <p class="product-single-text">
                                 {{ $product->translate('istehsal_il', app()->getLocale()) }}
@@ -91,14 +91,14 @@
                         </div>
                         <div class="about-block">
                             <h3 class="product-about-head">
-                                Məhsul haqqında
+                                {{ __('mehsul_haqqinda') }}  
                             </h3>
                             <p class="product-single-text">
                                 {!! $product->translate('desc', app()->getLocale()) !!}
                             </p>
                             <form action="" method="get">
                                 <button class="btn">
-                                    Sifariş ver
+                                    {{ __('sifaris_ver') }}   
                                 </button>
                             </form>
                         </div>
@@ -120,7 +120,7 @@
                     <div class="col-3">
                         <img src="{{ asset('/front/img/grape.svg') }}" alt="">
                         <h4 class="product_about_head">
-                            Tərkibi
+                            {{ __('terkibi') }} 
                         </h4>
                         <p class="product_about_text">
                             {{ $product->translate('terkibi', app()->getLocale()) }}
@@ -129,7 +129,7 @@
                     <div class="col-3">
                         <img src="{{ asset('/front/img/pro-2.svg') }}" alt="">
                         <h4 class="product_about_head">
-                            Uygunluq
+                            {{ __('uygunluq') }}  
                         </h4>
                         <p class="product_about_text">
                             {{ $product->translate('uygunluq', app()->getLocale()) }}
@@ -138,7 +138,7 @@
                     <div class="col-3">
                         <img src="{{ asset('/front/img/pro-3.svg') }}" alt="">
                         <h4 class="product_about_head">
-                            Temperatur
+                            {{ __('temperatur') }}  
                         </h4>
                         <p class="product_about_text">
                             {{ $product->temp }}
@@ -147,7 +147,7 @@
                     <div class="col-3">
                         <img src="{{ asset('/front/img/pro-4.svg') }}" alt="">
                         <h4 class="product_about_head">
-                            Saxlama forması
+                            {{ __('saxlama_formasi') }} 
                         </h4>
                         <p class="product_about_text">
                             {{ $product->translate('saxlama_formasi', app()->getLocale()) }}
@@ -164,7 +164,7 @@
         <div class="container">
             <div class="row">
                 <h2 class="page-head">
-                    Digər Məhsullar
+                    {{ __('diger_mehsullar') }}
                 </h2>
             </div>
         </div>
@@ -174,7 +174,6 @@
                
    @foreach ($product_all as $p_all )
        
- 
             <div class="item">
                 <div class="bg"></div>
                 <img src="{{  (!empty($p_all->thumbnail)? url('upload/product_images/'.$p_all->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
@@ -183,11 +182,11 @@
                         {{ $p_all->translate('name', app()->getLocale()) }}
                     </h4>
                     <p class="product-body">
-                        Çeşid: {{ $p_all->translate('cesid', app()->getLocale()) }}
-                        Spirt:  {{ $p_all->spirt }}
+                        {{ __('cesid') }}: {{ $p_all->translate('cesid', app()->getLocale()) }}
+                        {{ __('spirt') }}:  {{ $p_all->spirt }}
                     </p>
                 <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()} ]) }}">    <button class="btn">
-                        Ətraflı
+                    {{ __('etrafli') }}
                     </button>
                 </a>
                 </div>

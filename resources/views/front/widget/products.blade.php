@@ -3,8 +3,6 @@
 @endphp
 
 @foreach ($products as $product )
-        
-
     <div class="product">
         <a  
          @if(App::getLocale() === 'en')

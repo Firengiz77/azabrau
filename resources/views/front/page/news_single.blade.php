@@ -2,8 +2,6 @@
 
 @section('container')
 
-
-
 @php
     $news = App\Models\Blog::where('slug_'.App::getLocale(),request()->segment(2))->orWhere('slug_'.App::getLocale(),request()->segment(3))->first();
     $page_news= App\Models\Pages::where('page_id',4)->first();
@@ -20,7 +18,7 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{{ route('index') }}">
-                    Ana Səhifə
+                    {{ __('home_page') }}
                 </a>
             </li>
             <span>/</span>
@@ -34,7 +32,7 @@
                  href="/ru/{{$page_news->slug_az}}"
                  @endif
                  >
-                    Xəbərlər
+                  {{ __('news') }}
                 </a>
             </li>
             <span>/</span>

@@ -25,12 +25,12 @@
             <ul class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('index') }}">
-                        Ana Səhifə
+                        {{ __('home_page') }}   
                     </a>
                 </li>
                 <span>/</span>
                 <li class="breadcrumb-item">
-                    Haqqımızda
+                        {{ __('about_1') }}   
                 </li>
             </ul>
         </div>
@@ -48,75 +48,45 @@
                         01
                     </h2>
                     <h4 class="about-page-head">
-                        Biz
-                        Kimik?
+                        {{ __('biz_kimik_1') }}   
                     </h4>
                     <div class="about-page-img">
                         <img src="{{ asset('/front/img/about-1.png') }}" alt="">
                     </div>
                     <div class="about-page-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit dignissim sed euismod ipsum
-                        vivamus cursus tristique elit velit. Diam fringilla amet fames justo morbi risus velit odio.
-                        Commodo id sagittis aliquam tempor. Dui volutpat risus, venenatis feugiat est. Mattis diam sed
-                        urna sed sed augue. Lacus, risus sed donec placerat euismod ut ut. Tortor mus ipsum nibh
-                        adipiscing vitae morbi nullam. Eget congue quam eu commodo. Nibh fames molestie sit imperdiet
-                        quis venenatis diam, a. Scelerisque habitasse nibh adipiscing mi.
-                        Adipiscing est et risus, magna lectus. Viverra amet augue tempus donec fringilla aliquam
-                        fringilla eget. Facilisis suspendisse sociis ut viverra id nisi, feugiat. Parturient lectus
-                        gravida eget sem donec gravida sed aliquam. Morbi sed aliquam egestas et, lectus. Nascetur
-                        cursus enim nascetur amet t
+                        {{ __('biz_kimik_2') }}      
                     </div>
                 </div>
                 <div class="about-page-block">
                     <i id="i2"></i>
                     <i id="i3"></i>
                     <h2 class="about-number">
-                        01
+                        02
                     </h2>
                     <h4 class="about-page-head">
-                        Biz
-                        Kimik?
+                        {{ __('biz_kimik_3') }}  
                     </h4>
                     <div class="about-page-img">
                         <img src="{{ asset('/front/img/about-1.png') }}" alt="">
                     </div>
                     <div class="about-page-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit dignissim sed euismod ipsum
-                        vivamus cursus tristique elit velit. Diam fringilla amet fames justo morbi risus velit odio.
-                        Commodo id sagittis aliquam tempor. Dui volutpat risus, venenatis feugiat est. Mattis diam sed
-                        urna sed sed augue. Lacus, risus sed donec placerat euismod ut ut. Tortor mus ipsum nibh
-                        adipiscing vitae morbi nullam. Eget congue quam eu commodo. Nibh fames molestie sit imperdiet
-                        quis venenatis diam, a. Scelerisque habitasse nibh adipiscing mi.
-                        Adipiscing est et risus, magna lectus. Viverra amet augue tempus donec fringilla aliquam
-                        fringilla eget. Facilisis suspendisse sociis ut viverra id nisi, feugiat. Parturient lectus
-                        gravida eget sem donec gravida sed aliquam. Morbi sed aliquam egestas et, lectus. Nascetur
-                        cursus enim nascetur amet t
+                        {{ __('biz_kimik_4') }}  
                     </div>
                 </div>
                 <div class="about-page-block">
                     <i id="i4"></i>
                     <i id="i5"></i>
                     <h2 class="about-number">
-                        01
+                        03
                     </h2>
                     <h4 class="about-page-head">
-                        Biz
-                        Kimik?
+                        {{ __('biz_kimik_5') }} 
                     </h4>
                     <div class="about-page-img">
                         <img src="{{ ('/front/img/about-1.png') }}" alt="">
                     </div>
                     <div class="about-page-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Elit dignissim sed euismod ipsum
-                        vivamus cursus tristique elit velit. Diam fringilla amet fames justo morbi risus velit odio.
-                        Commodo id sagittis aliquam tempor. Dui volutpat risus, venenatis feugiat est. Mattis diam sed
-                        urna sed sed augue. Lacus, risus sed donec placerat euismod ut ut. Tortor mus ipsum nibh
-                        adipiscing vitae morbi nullam. Eget congue quam eu commodo. Nibh fames molestie sit imperdiet
-                        quis venenatis diam, a. Scelerisque habitasse nibh adipiscing mi.
-                        Adipiscing est et risus, magna lectus. Viverra amet augue tempus donec fringilla aliquam
-                        fringilla eget. Facilisis suspendisse sociis ut viverra id nisi, feugiat. Parturient lectus
-                        gravida eget sem donec gravida sed aliquam. Morbi sed aliquam egestas et, lectus. Nascetur
-                        cursus enim nascetur amet t
+                        {{ __('biz_kimik_6') }} 
                     </div>
                 </div>
             </div>

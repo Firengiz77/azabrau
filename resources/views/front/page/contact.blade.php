@@ -14,11 +14,10 @@
     <div class="container">
         <div class="row">
             <h1 class="page-head-text">
-                ƏLAQƏ
+                {{ __('elaqe') }}
             </h1>
             <p class="page-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
-                sed volutpat.
+                {{ __('elaqe_text') }}
             </p>
             <a class="down-img" href="javascript:void(0)">
                 <img src="{{ asset('/front/img/down-arrow.svg') }}" alt="">
@@ -33,12 +32,12 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{{ route('index') }}">
-                    Ana Səhifə
+                   {{__('home_page')}}
                 </a>
             </li>
             <span>/</span>
             <li class="breadcrumb-item">
-                Əlaqə
+             {{__('elaqe')}}
             </li>
         </ul>
     </div>
@@ -50,7 +49,7 @@
             <div class="contact">
                 <div class="col-4">
                     <h3 class="contact-head">
-                        Ünvan
+                        {{__('address')}}
                     </h3>
                     <p class="contact-text">
                 {!! json_decode($contact['address'])->{app()->getLocale()} !!}
@@ -58,7 +57,7 @@
                 </div>
                 <div class="col-4">
                     <h3 class="contact-head">
-                        Telefon
+                        {{__('phone')}}
                     </h3>
                     <p class="contact-text">
                         <a href="tel:+{{ str_replace(' ','',$contact->phone )}}">
@@ -73,7 +72,7 @@
                 </div>
                 <div class="col-4">
                     <h3 class="contact-head">
-                        e-mail
+                        {{__('email')}}
                     </h3>
                     <p class="contact-text">
                         <a href="mailTo:{{ $contact->email }}">
@@ -91,7 +90,7 @@
                 <input class="contact-input contact-number" type="text" name="phone" placeholder="Telefon nömrəsi">
                 <textarea name="" id="" cols="30" rows="10" name="msj" placeholder="Əlavə qeyd"></textarea>
                 <button class="btn" type="submit">
-                    Göndər
+                    {{__('send')}}
                 </button>
             </form>
         </div>

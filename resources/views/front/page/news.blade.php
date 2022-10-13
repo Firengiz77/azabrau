@@ -21,11 +21,10 @@
         <div class="container">
             <div class="row">
                 <h1 class="page-head-text">
-                    XƏBƏRLƏR
+                    {{ __('news') }}
                 </h1>
                 <p class="page-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
-                    sed volutpat.
+                    {{ __('news_text') }}
                 </p>
                 <a class="down-img" href="javascript:void(0)">
                     <img src="{{ asset('/front/img/down-arrow.svg') }}" alt="">
@@ -40,12 +39,12 @@
             <ul class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('index') }}">
-                        Ana Səhifə
+                       {{ __('home_page')}}
                     </a>
                 </li>
                 <span>/</span>
                 <li class="breadcrumb-item">
-                    Xəbərlər
+                    {{ __('news') }}
                 </li>
             </ul>
         </div>
@@ -70,7 +69,7 @@
                             {!! json_decode($news['title'])->{app()->getLocale()} !!}
                         </p>
                        <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}"> <button class="btn">
-                            Ətraflı
+                        {{ __('etrafli') }}
                         </button>
                     </a>
                     </div>
@@ -88,7 +87,7 @@
                                 {!! json_decode($news['name'])->{app()->getLocale()} !!}
                             </h3>
                             <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}" class="detail">
-                                Ətraflı
+                                {{ __('etrafli') }}
                             </a>
                             <p class="news-date">
                                {{ date('d.m.Y', strtotime($news->created_at))  }}

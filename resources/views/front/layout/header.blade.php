@@ -95,6 +95,8 @@
                    
                     </ul>
                 </nav>
+        
+                  
                 <form class="search" action="{{url('/search')}}" method="get">
                 @csrf
                     <a href="javascript:void(0)">

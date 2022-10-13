@@ -14,11 +14,10 @@
     <div class="container">
         <div class="row">
             <h1 class="page-head-text">
-                SATIŞ NÖQTƏLƏRİ
+               {{ __('satis_noqteleri') }}
             </h1>
             <p class="page-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
-                sed volutpat.
+                {{ __('satis_noqteleri_text') }} 
             </p>
             <a class="down-img" href="javascript:void(0)">
                 <img src="{{ asset('/front/img/down-arrow.svg') }}" alt="">
@@ -33,12 +32,12 @@
         <ul class="breadcrumb">
             <li class="breadcrumb-item">
                 <a href="{{ route('index') }}">
-                    Ana Səhifə
+                    {{ __('home_page') }}
                 </a>
             </li>
             <span>/</span>
             <li class="breadcrumb-item">
-                Satış Nöqtələri
+                {{ __('satis_noqteleri') }}
             </li>
         </ul>
     </div>
@@ -55,7 +54,7 @@
     <div class="container">
         <div class="row">
             <h2 class="page-head">
-                Sizə ən yaxın mağazanı seçin
+                {{ __('satis_text_1') }} 
             </h2>
             <div class="maps">
                 <div class="col-4">
@@ -63,7 +62,7 @@
                         @foreach ($maps as $key => $map)
                             
                       
-                        <div class="location-card" data-id="{{ $key }}">
+                        <div class="location-card" data-id="{{ ++$key }}">
                             <h4 class="loc-head">
                                    {!! json_decode($map['name'])->{app()->getLocale()} !!}
                             </h4>
@@ -77,7 +76,7 @@
                                 {{  $map->phone_2 }} 
                             </a>
                             <a class="loc-btn" href="javaScript:void(0)">
-                                Xəritədə bax
+                                {{ __('xerite') }} 
                             </a>
                         </div>
                         @endforeach
@@ -89,7 +88,6 @@
                         @foreach ($maps as $map)
                         <iframe style="display: block;" src="{{ $map->link }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         @endforeach
-
                 </div>
                 </div>
             </div>

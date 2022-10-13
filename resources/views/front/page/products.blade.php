@@ -21,11 +21,10 @@
         <div class="container">
             <div class="row">
                 <h1 class="page-head-text">
-                    MƏHSULLAR
+                {{ __('products') }}
                 </h1>
                 <p class="page-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lectus egestas suspendisse porttitor elit
-                    sed volutpat.
+                    {{ __('products_text') }}
                 </p>
                 <a class="down-img" href="javascript:void(0)">
                     <img src="{{ asset('/front/img/down-arrow.svg') }}" alt="">
@@ -40,12 +39,12 @@
             <ul class="breadcrumb">
                 <li class="breadcrumb-item">
                     <a href="{{ route('index') }}">
-                        Ana Səhifə
+                        {{ __('home_page') }}  
                     </a>
                 </li>
                 <span>/</span>
                 <li class="breadcrumb-item">
-                    Məhsullar
+                    {{ __('products') }} 
                 </li>
             </ul>
         </div>
@@ -59,10 +58,10 @@
                     <div class="filter">
                         <div class="filter-head">
                             <h2>
-                                Kateqoriya
+                                {{ __('products') }}  
                             </h2>
-                            <a href="#">
-                                təmizlə
+                            <a href="">
+                                {{ __('temizle') }} 
                             </a>
                         </div>
                         <div class="border">
@@ -78,7 +77,7 @@
                                     <ul class="dropdown">
                                         <li class="form-group drop-item">
                                             <input type="checkbox" onclick="filter_all('{{ $c0->id }}')" class="all_{{ $c0->id }}" value="{{ $c0->id }}" id="{{ $c0->id }}">
-                                            <label for="{{ $c0->id }}">Hamısı</label>
+                                            <label for="{{ $c0->id }}"> {{ __('all') }} </label>
                                         </li>
 
                                         @php
@@ -99,64 +98,13 @@
                                 </ul>
                             @endforeach
 
-
-
-                            {{-- <ul class="filter-1">
-                                <li class="filter-1-first">
-                                    Şəki şərabı
-                                </li>
-                                <ul class="dropdown">
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="1">
-                                        <label for="1">Hamısı</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="2">
-                                        <label for="2">Yüngül şərablar</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="3">
-                                        <label for="3">Portveyn</label>
-                                    </li>
-                                </ul>
-                            </ul>
-                      
-
-                            <ul class="filter-2">
-                                <li class="filter-2-first">
-                                    AzAbrau
-                                </li>
-                                <ul class="dropdown">
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="4">
-                                        <label for="4">Hamısı</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="5">
-                                        <label for="5">Alkaqolsuz içkilər</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="6">
-                                        <label for="6">Yüksək alkoqollu içkilər</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="7">
-                                        <label for="7">Köpüklü şərablar</label>
-                                    </li>
-                                    <li class="form-group drop-item">
-                                        <input type="checkbox" id="8">
-                                        <label for="8">Yüngül şərablar</label>
-                                    </li>
-                                </ul>
-                            </ul> --}}
-
-
                         </ul>
                     </div>
                 </div>
                 <div class="col-8" id="products_12">
                     @include('front.widget.products')
                 </div>
+        
             </div>
         </div>
     </section>

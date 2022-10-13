@@ -36,19 +36,13 @@
             <div class="row">
                 <div class="col-5">
                     <h2 class="about-head">
-                        Haqqımızda
+                        {{ __('about_1') }}
                     </h2>
                     <h4 class="about-head-2">
-                        Lorem Ipsum is simply
+                        {{ __('about_2') }}
                     </h4>
                     <p class="about-text">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem
-                        Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum
-                        is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text
-                        of the printing and typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the
-                        printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and
-                        typesetting industry. Lorem Ipsum hasLorem Ipsum is simply dummy text of the printing and
-                        typesetting industry.
+                        {{ __('about_3') }}
                     </p>
                   <a @if(App::getLocale() === 'az')
                   href="{{ $page_about->slug_az }}"
@@ -60,7 +54,7 @@
 
 
                  > <button class="btn">
-                        Ətraflı
+                        {{ __('etrafli') }}
                     </button>  </a>
                     <div class="texture-1">
                         <img src="{{ asset('/front/img/texture-1.png') }}" alt="">
@@ -83,7 +77,7 @@
         <div class="container">
             <div class="row">
                 <h2 class="page-head">
-                    Məhsullar
+                    {{ __('products') }}
                 </h2>
             </div>
         </div>
@@ -97,12 +91,12 @@
                         {{ $product->translate('name', app()->getLocale()) }}
                     </h4>
                     <p class="product-body">
-                        Çeşid:  {{ $product->translate('cesid', app()->getLocale()) }}
-                        Spirt:  {{ $product->spirt }}
+                        {{ __('cesid') }}:  {{ $product->translate('cesid', app()->getLocale()) }}
+                        {{ __('spirt') }}:  {{ $product->spirt }}
                     </p>
                   <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()}  ]) }}" >
                      <button class="btn">
-                        Ətraflı
+                        {{ __('etrafli') }}
                     </button>
                 </a>
                 </div>
@@ -117,6 +111,7 @@
         </div>
     </section>
     <!--Products End-->
+
     <!--Home Gif Start-->
     <section id="home-gif">
         <div class="gif">
@@ -125,15 +120,13 @@
                 <div class="row">
                     <div class="gif-text">
                         <h2 class="gif-head">
-                            ŞƏRABÇILIQ
-                            BİZİM İŞİMİZDİR!
+                          {{ __('gif_1') }} 
                         </h2>
                         <p class="gif-body">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has. Lorem Ipsum is simply dummy.
+                            {{ __('gif_2') }} 
                         </p>
                         <button class="btn white-btn">
-                            Ətraflı
+                            {{ __('etrafli') }} 
                         </button>
                     </div>
                 </div>
@@ -146,30 +139,28 @@
         <div class="container">
             <div class="row">
                 <h2 class="page-head">
-                    Brendlər
+                    {{ __('brands') }} 
                 </h2>
                 <div class="brends">
                     <img src="{{ asset('/front/img/brends.png') }}" alt="">
                     <div class="container">
                         <div class="az-brends">
                             <h3 class="az-head">
-                                AZERBAYCAN
-                                ŞƏRABI
+                                {{ __('az_serab') }} 
                             </h3>
                             <form action="" method="get">
                                 <button class="btn white-btn">
-                                    Ətraflı
+                                    {{ __('etrafli') }} 
                                 </button>
                             </form>
                         </div>
                         <div class="ru-brends">
                             <h3 class="ru-head">
-                                RUSİYA
-                                ŞƏRABI
+                                {{ __('rus_serab') }} 
                             </h3>
                             <form action="" method="get">
                                 <button class="btn white-btn">
-                                    Ətraflı
+                                    {{ __('etrafli') }} 
                                 </button>
                             </form>
                         </div>
@@ -191,7 +182,7 @@
 
             @foreach ($news2 as $news)
             <div class="item">
-                <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}"">
+                <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}">
                     <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                     <div class="news-text">
                         <h3 class="news-head">

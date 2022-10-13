@@ -47,7 +47,7 @@
                         <ul class="foot-contact">
                             <li class="contact-group">
                                 <p class="contact-item">
-                                    Telefon
+                                    {{  __('phone') }}
                                 </p>
                                 <span class="contact-text">
                                     <a href="tel:{{ str_replace(' ','',$contact->phone) }}">
@@ -57,7 +57,7 @@
                             </li>
                             <li class="contact-group">
                                 <p class="contact-item">
-                                    E-mail
+                                    {{  __('email') }}
                                 </p>
                                 <span class="contact-text">
                                     {{ $contact->email }}
@@ -65,7 +65,7 @@
                             </li>
                             <li class="contact-group">
                                 <p class="contact-item">
-                                    Ünvan
+                                    {{  __('address') }}
                                 </p>
                                 <span class="contact-text">
                                     {!! json_decode($contact['address'])->{app()->getLocale()} !!}
@@ -93,20 +93,20 @@
             <div class="container">
                 <div class="row">
                     <p class="bottom-first">
-                        2022 Az Abrau
+                       {{__('footer_1')}}
                     </p>
                     <a class="bottom-logo" href="#">
                         <img src="{{ asset('/front/img/footer-logo.svg') }}" alt="">
                     </a>
                     <p class="bottom-end">
                         <a href="#">
-                            Məxfilik Siyasəti
+                            {{__('footer_2')}} 
                         </a>
                         <span>
                             |
                         </span>
                         <a href="#">
-                            Şərtlər və qaydalar
+                            {{__('footer_2')}} 
                         </a>
                     </p>
                 </div>
