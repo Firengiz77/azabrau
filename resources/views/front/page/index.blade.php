@@ -1,9 +1,9 @@
 @extends('front.layout.master')
 
 @section('container')
-@section('title'){{ $page->{'title_'.App::getLocale() } }}@endsection
-@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 155)}}@endsection
-@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 55)}} @endsection
+@section('title'){{ substr($page->{'title_'.App::getLocale() },0,60) }}@endsection
+@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 160)}}@endsection
+@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 60)}} @endsection
 
 
 
@@ -84,22 +84,24 @@
         <div class="owl-carousel owl-theme product-slider">
             @foreach ($products as $product )
             <div class="item">
-                <div class="bg"></div>
-                <img src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
-                <div class="product-text">
-                    <h4 class="product-head">
-                        {{ $product->translate('name', app()->getLocale()) }}
-                    </h4>
-                    <p class="product-body">
-                        {{ __('cesid') }}:  {{ $product->translate('cesid', app()->getLocale()) }}
-                        {{ __('spirt') }}:  {{ $product->spirt }}
-                    </p>
-                  <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()}  ]) }}" >
-                     <button class="btn">
-                        {{ __('etrafli') }}
-                    </button>
+                <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()}  ]) }}">
+                    <div class="bg"></div>
+                    <img src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
+                    <div class="product-text">
+                        <h4 class="product-head">
+                            {{ $product->translate('name', app()->getLocale()) }}
+                        </h4>
+                        <p class="product-body">
+                            {{ __('cesid') }}:  {{ $product->translate('cesid', app()->getLocale()) }}
+                            {{ __('spirt') }}:  {{ $product->spirt }}
+                        </p>
+                    <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()}  ]) }}" >
+                        <button class="btn">
+                            {{ __('etrafli') }}
+                        </button>
+                    </a>
+                    </div>
                 </a>
-                </div>
             </div>
             @endforeach
        
@@ -142,14 +144,16 @@
                     {{ __('brands') }} 
                 </h2>
                 <div class="brends">
+                <div class="news-effect-1 news-effect"></div>
+                <div class="news-effect-2 news-effect"></div>
                     <img src="{{ asset('/front/img/brends.png') }}" alt="">
                     <div class="container">
                         <div class="az-brends">
                             <h3 class="az-head">
                                 {{ __('az_serab') }} 
                             </h3>
-                            <form action="" method="get">
-                                <button class="btn white-btn">
+                            <form action="javascript:void(0)" method="get">
+                                <button class="btn btn-1 white-btn">
                                     {{ __('etrafli') }} 
                                 </button>
                             </form>
@@ -158,11 +162,55 @@
                             <h3 class="ru-head">
                                 {{ __('rus_serab') }} 
                             </h3>
-                            <form action="" method="get">
-                                <button class="btn white-btn">
+                            <form action="javascript:void(0)" method="get">
+                                <button class="btn btn-2 white-btn">
                                     {{ __('etrafli') }} 
                                 </button>
                             </form>
+                        </div>
+                        <div class="pop-up az">
+                            <div class="pop-up-main">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="pop-up-head">
+                                                Azərbaycan şərabı
+                                            </h2>
+                                            <p class="pop-up-text">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pop-up-img">
+                                    <img src="{{ asset('/front/img/pop-up-1.png') }}">
+                                </div>
+                                <div class="close-pop">
+                                    <img src="{{ asset('/front/img/pop-up-close.svg') }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pop-up ru">
+                            <div class="pop-up-main">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h2 class="pop-up-head">
+                                                Azərbaycan şərabı
+                                            </h2>
+                                            <p class="pop-up-text">
+                                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pop-up-img">
+                                    <img src="{{ asset('/front/img/pop-up-2.png') }}">
+                                </div>
+                                <div class="close-pop">
+                                    <img src="{{ asset('/front/img/pop-up-close.svg') }}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -183,11 +231,15 @@
             @foreach ($news2 as $news)
             <div class="item">
                 <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}">
+                    <div class="news-effect"></div>
                     <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                     <div class="news-text">
                         <h3 class="news-head">
                             {!! json_decode($news['name'])->{app()->getLocale()} !!}
                         </h3>
+                        <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}" class="detail">
+                            {{ __('etrafli') }}
+                        </a>
                         <p class="news-date">
                             {{ date('d.m.Y', strtotime($news->created_at))  }}
                         </p>

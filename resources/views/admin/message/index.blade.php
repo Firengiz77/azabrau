@@ -36,7 +36,7 @@
 
                          {{ $message->email }}
                         </td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->message }}</strong></td>
+                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ $message->msj }}</strong></td>
                         <td>
                           <a href="{{ route('admin.message_delete',$message->id) }}" class="btn btn-outline-danger delete-confirm">Delete Message</a>
                         </td>

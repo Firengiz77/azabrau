@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\PagesController;
 
 
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['admin'])->prefix('admin')->name('admin.')->group(function () {
     // admin user routes
 
 

@@ -7,8 +7,8 @@
     $page_news= App\Models\Pages::where('page_id',4)->first();
 @endphp
 
-@section('title'){!! json_decode($news['name'])->{app()->getLocale()} !!}@endsection
-@section('description'){{substr($news['title'], 0, 155)}}@endsection
+@section('title'){!! substr(json_decode($news['name'])->{app()->getLocale()},0,60) !!}@endsection
+@section('description'){{substr($news['title'], 0, 160)}}@endsection
 
 
 

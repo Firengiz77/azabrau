@@ -2,12 +2,13 @@
 
 @section('container')
 
+
   <!-- Content wrapper -->
   <div class="content-wrapper">
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Product</h4>
+      <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Products</h4>
 
       <!-- Basic Layout & Basic with Icons -->
       <div class="row">
@@ -16,11 +17,11 @@
         <div class="col-lg-12">
           <div class="card mb-4">
             <div class="card-header d-flex align-items-center justify-content-between" style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h5 class="mb-0">Add Product</h5>
+              <h5 class="mb-0">Add Products</h5>
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
             </div>
             </div>
             <div class="card-body">
@@ -55,8 +56,15 @@
                     <select id="largeSelect" name="cat_id" class="form-select form-select-lg">
                         <option value="0">Select Category :</option>
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}" > {!! json_decode($category['name'])->{app()->getLocale()} !!} </option>
+                      @if($category->cat_id == 0)  <optgroup style="font-weight:800"  value="{{ $category->id }}" label="{!! json_decode($category['name'])->{app()->getLocale()} !!} "> @endif
+                  @php
+                    $cat = App\Models\Category::where('cat_id',$category->id)->get();
+                    @endphp
+                         @foreach($cat as $cat2)
+                        <option value="{{ $cat2->id }}" > {!! json_decode($cat2['name'])->{app()->getLocale()} !!} </option>
                         @endforeach
+                          @endforeach
+                          </optgroup>
 
                     </select>
                 </div>
@@ -165,7 +173,7 @@
                       placeholder="Slug az"
                     />
                   </div>
-                  <div class="mb-3 col-md-12">
+                  <!-- <div class="mb-3 col-md-12">
                     <label for="slug_en" class="form-label">Slug en</label>
                     <input
                     name="slug_en"
@@ -173,7 +181,9 @@
                       type="text"
                       placeholder="Slug en"
                     />
-                  </div>
+                  </div> -->
+
+
                   <div class="mb-3 col-md-12">
                     <label for="slug_ru" class="form-label">Slug ru</label>
                  

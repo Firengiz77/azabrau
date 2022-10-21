@@ -87,7 +87,6 @@ class BlogController extends Controller
         $data = Blog::find($id);
 
         $data->name = $request->name;
-        $data->title = $request->title;
         $data->desc = $request->desc;
         $data->slug_az = $request->slug_az;
         $data->slug_en = $request->slug_en;

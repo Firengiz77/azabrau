@@ -19,8 +19,8 @@
               <h5 class="mb-0">Add News</h5>
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
             </div>
             </div>
             <div class="card-body">
@@ -64,24 +64,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="row mb-3 translate">
-                  <label class="col-sm-12 col-form-label" for="basic-icon-default-company">Title</label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-company2" class="input-group-text"
-                        ><i class="bx bx-buildings"></i
-                      ></span>
-                      <input type="hidden" name="title" value='{"az":"","en":"","ru":""}'>
-                      <input
-                        type="text"
-                        id="basic-icon-default-company"
-                        class="form-control"
-                        placeholder="Title"
-                        aria-describedby="basic-icon-default-company2"
-                      />
-                    </div>
-                  </div>
-                </div>
+               
                 <div class="mb-3 col-md-12 translate">
                   <label for="" class="form-label">Desc</label>
                   <input type="hidden" name="desc" value='{"az":"","en":"","ru":""}'>

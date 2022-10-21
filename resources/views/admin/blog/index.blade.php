@@ -20,7 +20,6 @@
                       <tr>
                         <th>Name</th>
                         <th>Image</th>
-                        <th>Title</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -44,7 +43,7 @@
                           
                           </ul>
                         </td>
-                        <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{!! json_decode($blog['title'])->{app()->getLocale()} !!}</strong></td>
+                       
                         <td>
                           <a href="{{ route('admin.blog_edit',$blog->id) }}" class="btn btn-outline-primary">Edit Blog</a>
                           <a href="{{ route('admin.blog_delete',$blog->id) }}" class="btn btn-outline-danger delete-confirm">Delete Blog</a>

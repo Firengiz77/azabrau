@@ -1,8 +1,8 @@
 @extends('front.layout.master')
 
-@section('title'){{ $page->{'title_'.App::getLocale() } }}@endsection
-@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 155)}}@endsection
-@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 55)}} @endsection
+@section('title'){{ substr($page->{'title_'.App::getLocale() },0,60) }}@endsection
+@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 160)}}@endsection
+@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 60)}} @endsection
 
 
 
@@ -55,24 +55,7 @@
         <div class="container">
             <div class="row">
                 <div class="main-card">
-                    <div class="col-6">
-                        <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
-                    </div>
-                    <div class="col-5">
-                        <h3 class="main-head">
-                            {!! json_decode($news['name'])->{app()->getLocale()} !!}
-                        </h3>
-                        <p class="date">
-                            {{ date('d.m.Y', strtotime($news->created_at))  }}
-                        </p>
-                        <p class="text">
-                            {!! json_decode($news['title'])->{app()->getLocale()} !!}
-                        </p>
-                       <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}"> <button class="btn">
-                        {{ __('etrafli') }}
-                        </button>
-                    </a>
-                    </div>
+            
                 </div>
 
                 @foreach ($news2 as $news)
@@ -80,7 +63,7 @@
                
                 <div class="news-card item">
                     <a href="{{ route('single2',['slug'=>$page_single->{'slug_'.App::getLocale()},'project_slug'=>$news->{'slug_'.App::getLocale()}]) }}">
-                        
+                        <div class="news-effect"></div>
                         <img src="{{  (!empty($news->image)? url('upload/blog_images/'.$news->image):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
                         <div class="news-text">
                             <h3 class="news-head">

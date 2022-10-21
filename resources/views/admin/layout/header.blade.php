@@ -16,6 +16,50 @@
 
     <title>Dashboard</title>
 
+
+
+       <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-zF0UU5ll2BAl61_luvx_KiSJon3AJeo&callback=initialize&libraries=&v=weekly"></script>
+    <script type="text/javascript">
+        function initialize() {
+            // Creating map object
+            var map = new google.maps.Map(document.getElementById('map_canvas'), {
+                zoom: 12,
+                center: new google.maps.LatLng(40.391172, 49.869291),
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+
+            // creates a draggable marker to the given coords
+            var vMarker = new google.maps.Marker({
+                position: new google.maps.LatLng(40.391172, 49.869291),
+                draggable: true
+            });
+
+            // adds a listener to the marker
+            // gets the coords when drag event ends
+            // then updates the input with the new coords
+            google.maps.event.addListener(vMarker, 'dragend', function (evt) {
+                $("#txtLat").val(evt.latLng.lat().toFixed(6));
+                $("#txtLng").val(evt.latLng.lng().toFixed(6));
+
+                map.panTo(evt.latLng);
+            });
+
+            // centers the map on markers coords
+            map.setCenter(vMarker.position);
+
+            // adds the marker on the map
+            vMarker.setMap(map);
+        }
+    </script>
+
+
+
+
+    
+
     <meta name="description" content="" />
 
     <!-- Favicon -->
@@ -48,6 +92,9 @@
     <style>
       .lang{
         margin-bottom:20px
+      }
+      img{
+      height:100% !important;
       }
 
 </style>

@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="shortcut icon" href="{{ asset('/front/img/favicon.png') }}" type="image/x-icon">
     <title>@yield('title')</title>
+
+ 
+
+
     <meta name="description" content="@yield('description')">
     <meta name="keywords" content="@yield('keywords')">
 
@@ -39,7 +43,7 @@
 
 </head>
 
-<body>
+<body >
     <!--Header Start-->
     <header>
         <div class="container">
@@ -80,13 +84,25 @@
                     <ul class="navbar">
                         @foreach ($pagess as $pages)
                         @if($pages['parent_id']==0)
-                           <li class="nav-item">
-                               <a
+                           <li class="nav-item @if($pages['route']==$current_route || $pages['page_id']==$page_id ) active  @elseif($current_route === 'single3' && $pages['route']==='products') active @elseif($pages['page_id']==='5' && $page_id==='7') active @endif">
+                               <a   
+                               @if($pages['route'] === 'index')
+
+                               @if(app()->getLocale() === 'az')
+                               href="{{ "/"}}"
+                               @else
+                               href="{{ "/ru"}}"
+                               @endif >
+
+                               @else
+
+
                                @if(app()->getLocale() === 'az')
                                href="{{ "/".$pages['slug']}}"
                                @else
                                href="{{ "/".App::getLocale()."/".$pages['slug']}}"
                                @endif >
+                               @endif
                                {{ $pages['page'] }} 
                             </a>
                            </li>
@@ -119,7 +135,7 @@
                         @if($page->route !=='search')
                                 @if(Route::is('index'))
                                 <li>  <a href="/" @if(App::getLocale() === 'az')  class="active" @endif  >Az</a></li>
-                                <li>  <a href="/en" @if(App::getLocale() === 'en')  class="active" @endif  >En</a>  </li>
+                                <!-- <li>  <a href="/en" @if(App::getLocale() === 'en')  class="active" @endif  >En</a>  </li> -->
                                 <li>  <a href="/ru" @if(App::getLocale() === 'ru')  class="active" @endif  >Ru</a>  </li>
                                 @else
                                 @php
@@ -134,8 +150,8 @@
                                 $product_single = App\Models\Product::where('slug_'.App::getLocale(),request()->segment(3))->orWhere('slug_'.App::getLocale(),request()->segment(4))->with('category')->get();
                                  @endphp
 
-                                <li>  <a @if(App::getLocale() === 'az')   class="active" @endif href="/{{ $page->slug_az }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_az){{ '/'.$blog->slug_az }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_az){{ '/'.$product_s['category']['slug_az'] }}@endif{{ '/'.$product_s->slug_az }}@endforeach @endif" class="active">Az</a></li>
-                                <li>  <a   @if(App::getLocale() === 'en')   class="active" @endif   href="/en/{{ $page->slug_en }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_en){{ '/'.$blog->slug_en }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_en){{ '/'.$product_s['category']['slug_en'] }}@endif{{ '/'.$product_s->slug_en }}@endforeach @endif">En</a>  </li>
+                                <li>  <a @if(App::getLocale() === 'az')   class="active" @endif href="/{{ $page->slug_az }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_az){{ '/'.$blog->slug_az }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_az){{ '/'.$product_s['category']['slug_az'] }}@endif{{ '/'.$product_s->slug_az }}@endforeach @endif" >Az</a></li>
+                                <!-- <li>  <a  @if(App::getLocale() === 'en')   class="active" @endif   href="/en/{{ $page->slug_en }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_en){{ '/'.$blog->slug_en }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_en){{ '/'.$product_s['category']['slug_en'] }}@endif{{ '/'.$product_s->slug_en }}@endforeach @endif">En</a>  </li> -->
                                 <li>  <a  @if(App::getLocale() === 'ru')   class="active" @endif   href="/ru/{{ $page->slug_ru }}@if($page->page_id == 7)@foreach($blogs_single as $blog)@if($blog->slug_ru){{ '/'.$blog->slug_ru }}@endif @endforeach @elseif($page->page_id == 9)@foreach($product_single as $product_s)@if($product_s->slug_ru){{ '/'.$product_s['category']['slug_ru'] }}@endif{{ '/'.$product_s->slug_ru }}@endforeach  @endif" >Ru</a>  </li>
                             
 
@@ -150,3 +166,4 @@
         </div>
     </header>
     <!--Header End-->
+      

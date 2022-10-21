@@ -11,7 +11,7 @@ class Sales_Point extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name','address','phone_1','phone_2','link'];
+    protected $fillable = ['name','address','phone_1','phone_2','txtLng','txtLat'];
 
     public function translate($attr, $lang)
     {

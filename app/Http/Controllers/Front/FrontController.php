@@ -16,6 +16,7 @@ use App\Models\Sales_Point;
 use App\Models\Product;
 use App\Models\Category;
 use App\Helpers\Crud;
+use Mail;
 
 
 class FrontController extends Controller
@@ -84,7 +85,6 @@ class FrontController extends Controller
         $pagescollection = PageResource::collection($seos0);
         $pagess = $pagescollection->toArray($seos0);
         $contact = Contact::first();
-        $maps= Sales_Point::get();
         $page_single = Pages::where('id',8)->first();
         $page_product = Pages::where('id',9)->first();
         $slider1 = Slider::where('id',12)->first();
@@ -107,7 +107,7 @@ class FrontController extends Controller
             'current_route' => $current_route, 
             'page_id' => $page_id,
             "fallback"=>$fallback, 'project_slug'=>$project_slug,
-            'feeds'=>$feeds, 'seos'=>$seos0,'contact'=>$contact,'maps'=>$maps,'page_single'=>$page_single,'page_product'=>$page_product
+            'feeds'=>$feeds, 'seos'=>$seos0,'contact'=>$contact,'page_single'=>$page_single,'page_product'=>$page_product
        ]);
     }
 
@@ -131,27 +131,27 @@ class FrontController extends Controller
 
 
 
-    public function sendmail2(Request $request){
+    public function sendmail2(Request $request2,StoreMessageRequest $request){
       
-        $this->crud->create('App\Models\Message',$request);
-        return redirect()->back()->with('message','Message Send Successfully');
-
+        $this->crud->create('App\Models\Message',$request2);
+      
      
-        // $email='firengizsariyeva77@gmail.com'; 
-        // $array = [
-        //    'name'=> $request->name,
-        //    'email'=> $request->email, 
-        //    'msj'=>$request->msj,
-        //    'surname'=>$request->surname,
-        //    'phone'=>$request->phone,
-        // ]; 
-        // Mail::send('front.sendmail', $array,  function ($message) use($email)  {
-        //       $message->to( $email, 'Az Abrau');
-        //       $message->subject('Az Abrau');
+        $email='firengizsariyeva77@gmail.com'; 
+        $array = [
+           'name'=> $request->name,
+           'email'=> $request->email, 
+           'msj'=>$request->msj,
+           'surname'=>$request->surname,
+           'phone'=>$request->phone,
+        ]; 
+        Mail::send('front.sendmail', $array,  function ($message) use($email)  {
+              $message->to( $email, 'Az Abrau');
+              $message->subject('Az Abrau');
 
-        // });  
+        });  
               
-               // return redirect()->back();
+  return redirect()->back()->with('message','Message Send Successfully');
+
          
     
     }
@@ -161,12 +161,13 @@ class FrontController extends Controller
         $id = $request->id;
         $data = $request->all();
         $checked = $request->input('orderCheck',[]);
+        $products = Product::query();
         // $ids = Category::where('cat_id',9)->get()->pluck('id')->toArray();
         // return $ids;
-        if(count($checked) < 2) { 
-            $products = Product::whereIn('cat_id',$id)->get();
-            $view = view('front.widget.products', compact('products'));
+        if($id) { 
+            $products = $products->whereIn('cat_id',$id);
         }
+        $view = view('front.widget.products')->with('products',$products->get());
       
         return collect([
          'html' => $view->render(),

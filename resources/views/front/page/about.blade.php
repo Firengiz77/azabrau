@@ -1,8 +1,8 @@
 @extends('front.layout.master')
 
-@section('title'){{ $page->{'title_'.App::getLocale() } }}@endsection
-@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 155)}}@endsection
-@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 55)}} @endsection
+@section('title'){{ substr($page->{'title_'.App::getLocale() },0,60) }}@endsection
+@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 160)}}@endsection
+@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 60)}} @endsection
 
 
 
@@ -93,5 +93,84 @@
         </div>
     </section>
     <!--About End-->
+    <!--Orders Start-->
+    <section id="awards">
+        <div class="container">
+            <div class="row">
+                <h2 class="page-head">
+                     {{ __('mukafatlar') }} 
+                </h2>
+                <p class="awards-text">
+                 {{ __('desc') }} 
+                </p>
+                <h3 class="awards-head">
+                    {{ __('basliq_1') }}
+                </h3>
+                <div class="owl-carousel owl-theme awards2-slider">
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ ('/front/img/award.png') }}" alt="">
+                            <h1 class="award-text">
+                            {{ __('mukafat_basligi_1') }}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="awards-head">
+                    {{ __('basliq_2') }}
+                </h3>
+                <div class="owl-carousel owl-theme awards2-slider">
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ ('/front/img/award.png') }}" alt="">
+                            <h1 class="award-text">
+                                {{__('mukafat_basligi_2')}}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="awards-head">
+                 {{ __('basliq_3') }}
+                </h3>
+                <div class="owl-carousel owl-theme awards2-slider">
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ ('/front/img/award.png') }}" alt="">
+                            <h1 class="award-text">
+                                {{__('mukafat_basligi_3')}}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="awards-head">
+                  {{ __('basliq_4') }}
+                </h3>
+                <div class="owl-carousel owl-theme awards2-slider">
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ ('/front/img/award.png') }}" alt="">
+                            <h1 class="award-text">
+                                {{__('mukafat_basligi_4')}}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+                <h3 class="awards-head">
+                {{ __('basliq_5') }}
+                </h3>
+                <div class="owl-carousel owl-theme awards2-slider">
+                    <div class="item">
+                        <a href="#">
+                            <img src="{{ ('/front/img/award.png') }}" alt="">
+                            <h1 class="award-text">
+                                {{__('mukafat_basligi_5')}}
+                            </h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Orders End-->
     
 @endsection

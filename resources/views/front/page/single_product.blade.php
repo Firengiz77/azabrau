@@ -10,8 +10,8 @@
     $page_products= App\Models\Pages::where('page_id',4)->first();
 @endphp
 
-@section('title'){!! json_decode($product['name'])->{app()->getLocale()} !!}@endsection
-@section('description'){{substr($product['title'], 0, 155)}}@endsection
+@section('title'){!! substr(json_decode($product['name'])->{app()->getLocale()},0,60) !!}@endsection
+@section('description'){{substr($product['title'], 0, 160)}}@endsection
 
 
    <!--Home Start-->
@@ -175,21 +175,23 @@
    @foreach ($product_all as $p_all )
        
             <div class="item">
-                <div class="bg"></div>
-                <img src="{{  (!empty($p_all->thumbnail)? url('upload/product_images/'.$p_all->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
-                <div class="product-text">
-                    <h4 class="product-head">
-                        {{ $p_all->translate('name', app()->getLocale()) }}
-                    </h4>
-                    <p class="product-body">
-                        {{ __('cesid') }}: {{ $p_all->translate('cesid', app()->getLocale()) }}
-                        {{ __('spirt') }}:  {{ $p_all->spirt }}
-                    </p>
-                <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()} ]) }}">    <button class="btn">
-                    {{ __('etrafli') }}
-                    </button>
+                <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()} ]) }}">
+                    <div class="bg"></div>
+                    <img src="{{  (!empty($p_all->thumbnail)? url('upload/product_images/'.$p_all->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}" alt="">
+                    <div class="product-text">
+                        <h4 class="product-head">
+                            {{ $p_all->translate('name', app()->getLocale()) }}
+                        </h4>
+                        <p class="product-body">
+                            {{ __('cesid') }}: {{ $p_all->translate('cesid', app()->getLocale()) }}
+                            {{ __('spirt') }}:  {{ $p_all->spirt }}
+                        </p>
+                    <a href="{{ route('single3',['slug2'=>$page_product->{'slug_'.App::getLocale()},'project_slug1'=>$product->category->{'slug_'.App::getLocale()} ,'project_slug2'=>$product->{'slug_'.App::getLocale()} ]) }}">    <button class="btn">
+                        {{ __('etrafli') }}
+                        </button>
+                    </a>
+                    </div>
                 </a>
-                </div>
             </div>
             @endforeach
        

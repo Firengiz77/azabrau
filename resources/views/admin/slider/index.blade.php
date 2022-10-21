@@ -18,7 +18,6 @@
                   <table class="table">
                     <thead>
                       <tr>
-          
                         <th>Image</th>
                         <th>Title</th>
                         <th>Actions</th>

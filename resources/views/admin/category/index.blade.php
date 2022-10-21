@@ -17,8 +17,8 @@
           
                 <div class="lang">
                   <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                  <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                   <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                  <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
               </div>
 
               
@@ -54,7 +54,7 @@
                                 />
                               </div>
                               
-                              <div class="mb-3 col-md-12 translate">
+                              <div class="mb-3 col-md-12 ">
                                 <label for="slug_az" class="form-label"> Slug (az) </label>
                                 <input type="text" class="form-control"  id="slug_az" name="slug_az"  placeholder="Slug (az)">
 

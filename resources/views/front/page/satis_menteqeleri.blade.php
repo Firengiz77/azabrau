@@ -1,8 +1,8 @@
 @extends('front.layout.master')
 
-@section('title'){{ $page->{'title_'.App::getLocale() } }}@endsection
-@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 155)}}@endsection
-@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 55)}} @endsection
+@section('title'){{ substr($page->{'title_'.App::getLocale() },0,60) }}@endsection
+@section('description'){{substr($page->{'description_'.App::getLocale() }, 0, 160)}}@endsection
+@section('keywords'){{substr($page->{'keywords_'.App::getLocale() }, 0, 60)}} @endsection
 
 
 
@@ -85,8 +85,14 @@
                 </div>
                 <div class="col-8">
                     <div class="maps-iframes">
+                    
                         @foreach ($maps as $map)
-                        <iframe style="display: block;" src="{{ $map->link }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     
+                         <iframe style="display: block;"
+                         src="https://maps.google.com/maps?q={{$map->txtLat}},{{$map->txtLng}}&hl=es&z=17&amp;output=embed"
+                          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                       
+
                         @endforeach
                 </div>
                 </div>

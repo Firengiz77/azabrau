@@ -9,8 +9,8 @@
 
 @section('container')
 
-@section('title'){!! json_decode($product['name'])->{app()->getLocale()} !!}@endsection
-@section('description'){{substr($product['title'], 0, 155)}}@endsection
+@section('title'){!! substr(json_decode($product['name'])->{app()->getLocale()},0,60) !!}@endsection
+@section('description'){{substr($product['title'], 0, 160)}}@endsection
 
 
 

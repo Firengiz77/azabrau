@@ -14,8 +14,8 @@
 
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
             </div>
 
                 </div>
@@ -52,7 +52,7 @@
                               <input
                                 class="form-control"
                                 type="text"
-                                placeholder="{{ $category->translate('name', app()->getLocale()) }}"
+                                value="{{ $category->translate('name', app()->getLocale()) }}"
                               />
                             </div>
 
@@ -70,10 +70,6 @@
                             </div>
 
 
-
-                        
-                            
-                             
                             <button type="submit" class="btn btn-outline-secondary account-image-reset mb-4">
                               <i class="bx bx-reset d-block d-sm-none"></i>
                               <span class="d-none d-sm-block">Edit Category</span>

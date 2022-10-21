@@ -3,6 +3,7 @@
 @section('container')
 
 
+
           <!-- Content wrapper -->
           <div class="content-wrapper">
             <!-- Content -->
@@ -10,12 +11,12 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> News </h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Products </h4>
              
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
             </div>
                 </div>
 
@@ -29,7 +30,6 @@
                   @endif
                     <form enctype="multipart/form-data" id="formAccountSettings" method="POST" action="{{ route('admin.product_update',$product->id) }}">
                         @csrf
-                        
                                 <img
                                 src="{{  (!empty($product->thumbnail)? url('upload/product_images/'.$product->thumbnail):asset('/admin/assets/img/avatars/1.png')  )}}"
                                 alt="user-avatar"
@@ -56,19 +56,22 @@
                                 <div class="col-md-12">
                                   <select id="largeSelect" name="cat_id" class="form-select form-select-lg">
                                     <option value="{{ $product['category']['cat_id'] }}">Select Category :</option>
-                                    @foreach($categories as $category2)
-                                        <option value="{{$category2->id}}" @if($product['category']['id'] == $category2->id) selected @endif > {!! json_decode($category2['name'])->{app()->getLocale()} !!} {{ $product['category']['cat_id'] }}
-                                          {{  $category2->id }}</option>
-                                        @endforeach
+                                   
+
+                                          @foreach($categories as $category)
+                      @if($category->cat_id == 0)  <optgroup   value="{{$category->id}}" style="font-weight:800" label=" {!! json_decode($category['name'])->{app()->getLocale()} !!}" > @endif
+                  @php
+                    $cat = App\Models\Category::where('cat_id',$category->id)->get();
+                    @endphp
+                         @foreach($cat as $cat2)
+                        <option value="{{ $cat2->id }}" @if($product['category']['id'] == $cat2->id) selected @endif  value="{{ $cat2->id }}"  > {!! json_decode($cat2['name'])->{app()->getLocale()} !!} </option>
+                        @endforeach
+                          @endforeach
+
+                      </optgroup >
                                 </select>
                                 </div>
                               </div>
-
-    
-
-
-
-                             
 
                                <div class="mb-3 col-md-12 translate">
                                 <label for="alt" class="form-label">Name</label>
@@ -77,7 +80,7 @@
                                   class="form-control"
                                   type="text"
                                   id="alt"
-                                  placeholder="{!! json_decode($product['name'])->{app()->getLocale()} !!}"
+                                  value="{!! json_decode($product['name'])->{app()->getLocale()} !!}"
                                 />
                               </div>
 
@@ -88,7 +91,7 @@
                                   class="form-control"
                                   type="text"
                                   id="title"
-                                  placeholder="{!! json_decode($product['title'])->{app()->getLocale()} !!}"
+                                  value="{!! json_decode($product['title'])->{app()->getLocale()} !!}"
                                 />
                               </div>
                               <div class="mb-3 col-md-12 translate">
@@ -98,7 +101,7 @@
                                   class="form-control"
                                   type="text"
                                   id="cesid"
-                                  placeholder="{!! json_decode($product['cesid'])->{app()->getLocale()} !!}"
+                                  value="{!! json_decode($product['cesid'])->{app()->getLocale()} !!}"
                                 />
                               </div>
 
@@ -109,7 +112,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('menseyi', app()->getLocale()) }}"
+                                  value="{{ $product->translate('menseyi', app()->getLocale()) }}"
                                 />
                               </div>
                               <div class="mb-3 col-md-6 translate">
@@ -118,7 +121,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('terkibi', app()->getLocale()) }}"
+                                  value="{{ $product->translate('terkibi', app()->getLocale()) }}"
                                 />
                               </div>
                               <div class="mb-3 col-md-6 translate">
@@ -127,7 +130,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('uygunluq', app()->getLocale()) }}"
+                                  value="{{ $product->translate('uygunluq', app()->getLocale()) }}"
                                 />
                               </div>
                               <div class="mb-3 col-md-6 translate">
@@ -136,7 +139,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('saxlama_formasi', app()->getLocale()) }}"
+                                  value="{{ $product->translate('saxlama_formasi', app()->getLocale()) }}"
                                 />
                               </div>
                               <div class="mb-3 col-md-6 translate">
@@ -145,7 +148,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $product->translate('istehsal_il', app()->getLocale()) }}"
+                                  value="{{ $product->translate('istehsal_il', app()->getLocale()) }}"
                                 />
                               </div>
 
@@ -156,7 +159,7 @@
                                   type="text"
                                   name="spirt"
                                   value="{{ $product->spirt }}"
-                                  placeholder="{{ $product->spirt }}"
+                               
                                 />
                               </div>
                               
@@ -167,7 +170,7 @@
                                   type="text"
                                   name="temp"
                                   value="{{ $product->temp }}"
-                                  placeholder="{{ $product->temp }}"
+                                  
                                 />
                               </div>
                               <div class="mb-3 col-md-6">
@@ -177,11 +180,11 @@
                                   type="text"
                                   name="slug_az"
                                   value="{{ $product->slug_az }}"
-                                  placeholder="{{ $product->slug_az }}"
+                                 
                                 />
                               </div>
 
-                              <div class="mb-3 col-md-6">
+                              <!-- <div class="mb-3 col-md-6">
                                 <label for="slug_en" class="form-label">Slug en</label>
                                 <input
                                   class="form-control"
@@ -190,7 +193,7 @@
                                   value="{{ $product->slug_en }}"
                                   placeholder="{{ $product->slug_en }}"
                                 />
-                              </div>
+                              </div> -->
 
                               <div class="mb-3 col-md-6">
                                 <label for="slug_ru" class="form-label">Slug ru</label>
@@ -199,7 +202,7 @@
                                   type="text"
                                   name="slug_ru"
                                   value="{{ $product->slug_ru }}"
-                                  placeholder="{{ $product->slug_ru }}"
+                                
                                 />
                               </div>
 
@@ -210,7 +213,7 @@
                                   type="text"
                                   name="sifaris"
                                   value="{{ $product->sifaris }}"
-                                  placeholder="{{ $product->sifaris }}"
+                               
                                 />
                               </div>
 

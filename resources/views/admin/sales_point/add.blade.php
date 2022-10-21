@@ -11,8 +11,8 @@
        
       <div class="lang">
         <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-        <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
         <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+        <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
     </div>
 
       <!-- Basic Layout & Basic with Icons -->
@@ -109,29 +109,22 @@
                   </div>
                 </div>
 
-            
+               
+               <label for="latitude" >
+        Latitude:
+    </label>
+    <input id="txtLat" type="text" name="txtLat" style="color:red" />
+    <label for="longitude">
+        Longitude:
+    </label>
+    <input id="txtLng" type="text" name="txtLng" style="color:red" /><br />
+    <br />
+    <br />
+    <div id="map_canvas" style="width: auto; height: 500px;">
+    </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label" for="basic-icon-default-company"> Address Link </label>
-                  <div class="col-sm-10">
-                    <div class="input-group input-group-merge">
-                      <span id="basic-icon-default-company2" class="input-group-text"
-                        >
-                        <i class='bx bxl-facebook'></i>
-                      </span>
-                      <input
-                        type="text"
-                        name="link"
-                        id="basic-icon-default-company"
-                        class="form-control"
-                        placeholder="Address Link"
-                        aria-describedby="basic-icon-default-company2"
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-              
+
+
                 <div class="row justify-content-end">
                   <div class="col-sm-10">
                     <button type="submit" class="btn btn-primary">Add</button>

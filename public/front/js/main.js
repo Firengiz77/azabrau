@@ -3,15 +3,17 @@ $('.product-slider').owlCarousel({
     center: true,
     margin:10,
     nav:true,
+    // autoplay: true,
+    // autoplayTimeout: 2000,
     navText: ["<img src='/front/img/left.svg'>","<img src='/front/img/right.svg'>"],
     responsive:{
         0:{
             items:1
         },
-        600:{
+        900:{
             items:3
         },
-        1000:{
+        1200:{
             items:5
         }
     }
@@ -21,6 +23,8 @@ $('.news-slider').owlCarousel({
     center: true,
     margin:50,
     nav:true,
+    // autoplay: true,
+    // autoplayTimeout: 2000,
     navText: ["<img src='/front/img/news-left.svg'> geri","irəli<img src='/front/img/news-right.svg'>"],
     responsive:{
         0:{
@@ -33,6 +37,68 @@ $('.news-slider').owlCarousel({
             items:3
         }
     }
+})
+// $('.awards-slider').owlCarousel({
+//     loop:true,
+//     center: true,
+//     margin:10,
+//     nav:true,
+//     navText: ["<img src='../img/news-left.svg'> geri","irəli<img src='../img/news-right.svg'>"],
+//     responsive:{
+//         0:{
+//             items:2
+//         },
+//         600:{
+//             items:4
+//         },
+//         1000:{
+//             items:5
+//         }
+//     }
+// })
+$('.awards2-slider').owlCarousel({
+    loop:true,
+    center: true,
+    margin:10,
+    nav:true,
+    autoplay: true,
+    autoplayTimeout: 2000,
+    // navText: ["<img src='../img/news-left.svg'> geri","irəli<img src='../img/news-right.svg'>"],
+    responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:4
+        },
+        1000:{
+            items:5
+        }
+    }
+})
+$(".brends .btn-1").click(function(){
+    $(".pop-up.az").addClass("active")
+})
+$(".brends .close-pop").click(function(){
+    $(".pop-up.az").removeClass("active")
+})
+$(".brends .btn-2").click(function(){
+    $(".pop-up.ru").addClass("active")
+})
+$(".brends .close-pop").click(function(){
+    $(".pop-up.ru").removeClass("active")
+})
+$(".brends .btn-1").mouseenter(function(){
+    $(".brends .news-effect-1").css("opacity","0.4")
+})
+$(".brends .btn-1").mouseleave(function(){
+    $(".brends .news-effect-1").css("opacity","0")
+})
+$(".brends .btn-2").mouseenter(function(){
+    $(".brends .news-effect-2").css("opacity","0.4")
+})
+$(".brends .btn-2").mouseleave(function(){
+    $(".brends .news-effect-2").css("opacity","0")
 })
 $(".filter-1-first").click(function(){
     $(this).parent().toggleClass('active')
@@ -51,6 +117,13 @@ $('.loc-btn').click(function(){
     $(".maps-iframes iframe").css("display","none");
     $(`.maps-iframes iframe:nth-child(${child})`).css("display","block")
 });
+
+// $('.loc-btn').click(function(){
+//     let child = 3* + $(this).parent().data('id');
+//     $(".maps-iframes div").css("display","none");
+//     $(`.maps-iframes div:nth-child(${child})`).css("display","block")
+// });
+
 $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
     if (scroll >= 0 && scroll < 1200 ) {
@@ -142,6 +215,7 @@ $(window).scroll(function() {
 });
 $(window).scroll(function() {    
     var scroll = $(window).scrollTop();
+    console.log(scroll)
     if (scroll >= 600) {
         $(".about-page-block:first-child .about-page-text").addClass("active");
     }else{
@@ -156,6 +230,31 @@ $(window).scroll(function() {
         $(".about-page-block:nth-child(3) .about-page-text").addClass("active");
     }else{
         $(".about-page-block:nth-child(3) .about-page-text").removeClass("active");
+    }
+    if (scroll >= 2700) {
+        $("#awards .row .awards2-slider:nth-child(4)").addClass("active");
+    }else{
+        $("#awards .row .awards2-slider:nth-child(4)").removeClass("active");
+    }
+    if (scroll >= 3000) {
+        $("#awards .row .awards2-slider:nth-child(6)").addClass("active");
+    }else{
+        $("#awards .row .awards2-slider:nth-child(6)").removeClass("active");
+    }
+    if (scroll >= 3300) {
+        $("#awards .row .awards2-slider:nth-child(8)").addClass("active");
+    }else{
+        $("#awards .row .awards2-slider:nth-child(8)").removeClass("active");
+    }
+    if (scroll >= 3600) {
+        $("#awards .row .awards2-slider:nth-child(10)").addClass("active");
+    }else{
+        $("#awards .row .awards2-slider:nth-child(10)").removeClass("active");
+    }
+    if (scroll >= 3900) {
+        $("#awards .row .awards2-slider:nth-child(12)").addClass("active");
+    }else{
+        $("#awards .row .awards2-slider:nth-child(12)").removeClass("active");
     }
     if(scroll >= 50){
         $("header").addClass("active")

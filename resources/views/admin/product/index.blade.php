@@ -7,8 +7,8 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
             <div style="display: flex;align-items: baseline;flex-direction: row;justify-content: space-between;">
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Product</h4>
-              <a class="btn btn-success" href="{{ route('admin.products_add') }}"> Add Product </a>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Admin /</span> Products</h4>
+              <a class="btn btn-success" href="{{ route('admin.products_add') }}"> Add Products </a>
 
           </div>
               <!-- Basic Bootstrap Table -->

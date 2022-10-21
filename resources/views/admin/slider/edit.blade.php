@@ -14,8 +14,8 @@
 
               <div class="lang">
                 <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
                 <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+                <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
             </div>
 
                 </div>
@@ -62,7 +62,7 @@
                                 <input
                                   class="form-control"
                                   type="text"
-                                  placeholder="{{ $slider->translate('title', app()->getLocale()) }}"
+                                  value="{{ $slider->translate('title', app()->getLocale()) }}"
                                 />
                               </div>
 

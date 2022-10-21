@@ -11,8 +11,8 @@
        
       <div class="lang">
         <a href="az" class="btn btn-success {{ app()->isLocale('az') ? 'active' : '' }}">Az</a>
-        <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
         <a href="ru" class="btn btn-success {{ app()->isLocale('ru') ? 'active' : '' }}">Ru</a>
+        <a href="en" class="btn btn-success {{ app()->isLocale('en') ? 'active' : '' }}">En</a>
     </div>
 
       <!-- Basic Layout & Basic with Icons -->
@@ -184,7 +184,7 @@
                         class="form-control phone-mask"
                         placeholder="994 070 888 4581"
                         name="phone"
-                         value="{{ $contact->phone }}"
+                        value="{{ $contact->phone }}"
                         aria-describedby="basic-icon-default-phone2"
                       />
                     </div>
@@ -203,7 +203,7 @@
                         class="form-control phone-mask"
                         placeholder="994 070 888 4581"
                         name="phone_2"
-                         value="{{ $contact->phone_2 }}"
+                        value="{{ $contact->phone_2 }}"
                         aria-describedby="basic-icon-default-phone2"
                       />
                     </div>
@@ -222,7 +222,7 @@
                         type="text"
                         id="basic-icon-default-company"
                         class="form-control"
-                        placeholder="{{ $contact->translate('address', app()->getLocale()) }}"
+                        value="{{ $contact->translate('address', app()->getLocale()) }}"
                         aria-describedby="basic-icon-default-company2"
                       />
                     </div>

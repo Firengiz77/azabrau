@@ -90,14 +90,14 @@ class SalesPointController extends Controller
     { 
         $data = Sales_Point::find($id);
 
-       
         $data->address = $request->address;
         $data->name = $request->name;
         $data->phone_1 = $request->phone_1;
         $data->phone_2 = $request->phone_2;
-        $data->link = $request->link;
+        $data->txtLat = $request->txtLat;
+        $data->txtLng = $request->txtLng;
 
-       
+
         $data->save();
          return redirect()->route('admin.sales_point')->with('message','Sales Point has been created successfully.'); 
     }
